@@ -122,19 +122,22 @@ export default function Home() {
       </section>
 
       {/* Philosophy Quote */}
-      <section className="py-24 md:py-32 relative bg-zinc-950">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="py-24 md:py-32 relative bg-zinc-950 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center relative">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
+            className="relative"
           >
-            <span className="font-script text-6xl md:text-8xl text-gold/20 absolute -top-10 left-10">"</span>
-            <p className={`text-2xl md:text-4xl font-serif leading-relaxed text-white/90 ${language === 'th' ? 'font-thai' : ''}`}>
-              {t.philosophy.quote}
-            </p>
-            <span className="font-script text-6xl md:text-8xl text-gold/20 absolute -bottom-16 right-10">"</span>
+            <span className="font-script text-6xl md:text-8xl text-gold/20 absolute -top-12 left-0 md:left-20">"</span>
+            <div className="overflow-hidden py-4">
+              <p className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif leading-relaxed text-white/90 whitespace-normal md:whitespace-nowrap ${language === 'th' ? 'font-thai' : ''}`}>
+                {t.philosophy.quote}
+              </p>
+            </div>
+            <span className="font-script text-6xl md:text-8xl text-gold/20 absolute -bottom-20 right-0 md:right-20">"</span>
           </motion.div>
         </div>
       </section>
