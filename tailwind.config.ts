@@ -83,8 +83,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
+        serif: ["'Playfair Display'", "serif"],
+        sans: ["'Inter'", "sans-serif"],
+        thai: ["'Noto Sans Thai'", "sans-serif"],
+        script: ["'Great Vibes'", "cursive"],
         mono: ["var(--font-mono)"],
       },
       keyframes: {
