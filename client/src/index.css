@@ -44,7 +44,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/vintage-bg.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/sasan-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
