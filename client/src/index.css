@@ -9,7 +9,7 @@
   --background: 0 0% 0%;       /* #000000 Midnight Black */
   --foreground: 60 30% 96%;    /* #F5F5DC Raw Silk Cream */
   
-  --primary: 47 65% 52%;       /* #D4AF37 Champagne Gold */
+  --primary: 46 100% 80%;       /* #FFE697 New Gold */
   --primary-foreground: 0 0% 0%;
   
   --secondary: 155 42% 18%;    /* #1B4332 Deep Forest Green */
@@ -18,15 +18,15 @@
   --muted: 0 0% 10%;           /* Dark gray for subtle backgrounds */
   --muted-foreground: 0 0% 60%;
   
-  --accent: 47 65% 52%;
+  --accent: 46 100% 80%;
   --accent-foreground: 0 0% 0%;
   
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
   
-  --border: 47 65% 52%;        /* Gold borders */
+  --border: 46 100% 80%;        /* New Gold borders */
   --input: 0 0% 20%;
-  --ring: 47 65% 52%;
+  --ring: 46 100% 80%;
   
   --radius: 0.25rem;
   
@@ -61,19 +61,19 @@
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #D4AF37; 
+    background: #FFE697; 
   }
 }
 
 @layer utilities {
   .text-gold {
-    color: hsl(47 65% 52%);
+    color: hsl(46 100% 80%);
   }
   .bg-gold {
-    background-color: hsl(47 65% 52%);
+    background-color: hsl(46 100% 80%);
   }
   .border-gold {
-    border-color: hsl(47 65% 52%);
+    border-color: hsl(46 100% 80%);
   }
   
   .font-thai {
@@ -85,7 +85,7 @@
   
   /* Luxury Gold Gradient Text */
   .text-gradient-gold {
-    background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    background: linear-gradient(to right, #FFE697, #FFFFFF, #FFE697, #FFFFFF, #FFE697);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
