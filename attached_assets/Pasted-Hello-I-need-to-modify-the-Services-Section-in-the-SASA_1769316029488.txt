@@ -1,0 +1,285 @@
+Hello, I need to modify the Services Section in the SASAN website.
+
+📋 TASK:
+Replace the existing Services Section (id="services") in the Home.tsx file with a new design showcasing 4 tiers of funeral service packages.
+
+🎨 DESIGN SPECIFICATIONS:
+
+1. LAYOUT & STRUCTURE:
+   - Use Grid 4 columns on large screens (xl:grid-cols-4)
+   - Use Grid 2 columns on tablets (md:grid-cols-2)
+   - Use Grid 1 column on mobile
+   - Background: bg-black with radial gradient overlay in gold/white with low opacity
+
+2. PACKAGE CARDS (4 packages):
+
+   PACKAGE 1 - ประหยัด (Budget):
+   - Icon: Star from lucide-react
+   - Gradient: from-slate-900 to-slate-800
+   - Accent Color: text-blue-300
+   - Border: border-blue-500/30
+   - Duration: "งาน 3 วัน"
+   - Venue: "วัดขนาดเล็ก"
+   - Guests: "30-80 คน/วัน"
+   - Sub-packages: BASIC (45,000 บาท), STANDARD (55,000 บาท)
+   - Features (10 items): 
+     * ค่าเช่าศาลา 3 คืน
+     * ค่าเมรุและฌาปนกิจ
+     * ดอกไม้ตกแต่งหน้างาน
+     * ธูปเทียน 3 คืน
+     * น้ำดื่ม-ขนม-กาแฟ 3 คืน
+     * โลงศพไม้ธรรมดา
+     * รถรับศพ
+     * ของชำร่วย 100 ชุด
+     * ดอกไม้จันทน์ 100 ดอก
+     * ทีมงานดูแล 8-10 คน
+
+   PACKAGE 2 - กลาง (Middle):
+   - Icon: Sparkles from lucide-react
+   - Gradient: from-amber-900/50 to-yellow-900/50
+   - Accent Color: text-amber-300
+   - Border: border-amber-500/40
+   - Duration: "งาน 5 วัน"
+   - Venue: "วัดขนาดกลาง"
+   - Guests: "80-150 คน/วัน"
+   - Sub-packages: SILVER (120,000 บาท), GOLD (150,000 บาท)
+   - Features (14 items):
+     * ค่าเช่าศาลา 5 คืน
+     * ค่าเมรุและฌาปนกิจ
+     * ดอกไม้ตกแต่งระดับกลาง
+     * พวงหรีดตัวอย่าง 3 พวง
+     * ธูปเทียน 5 คืน
+     * น้ำดื่ม-ขนม-กาแฟ 5 คืน
+     * Snack Box 100 กล่อง
+     * โลงศพไม้สัก/โลหะ
+     * รถรับศพ VIP
+     * พนักงานยกโลง 6 คน
+     * ของชำร่วย 200-300 ชุด
+     * ดอกไม้จันทน์ 150-200 ดอก
+     * ช่างภาพ-วีดีโอ
+     * ทีมงานดูแล 12-15 คน
+
+   PACKAGE 3 - สูง (Premium) - ⭐ RECOMMENDED:
+   - Icon: Crown from lucide-react
+   - Gradient: from-purple-900/50 to-pink-900/50
+   - Accent Color: text-purple-300
+   - Border: border-purple-500/40
+   - Popular Badge: Display "แนะนำ" badge in gold at the top
+   - Duration: "งาน 7 วัน"
+   - Venue: "วัดขนาดใหญ่"
+   - Guests: "150-300 คน/วัน"
+   - Sub-packages: PLATINUM (350,000 บาท), DIAMOND (450,000 บาท)
+   - Features (20 items):
+     * ค่าเช่าศาลาแอร์ VIP 7 คืน
+     * ค่าเมรุและฌาปนกิจพิเศษ
+     * ดอกไม้ตกแต่ง Premium Design
+     * พวงหรีดตัวอย่าง 4 พวง
+     * ดอกไม้ตกแต่งโต๊ะ VIP
+     * ธูปเทียนพิเศษ 7 คืน
+     * น้ำดื่ม-เครื่องดื่มครบ 7 คืน
+     * ขนม Premium 7 คืน
+     * Snack Box พิเศษ 200 กล่อง
+     * Catering บุฟเฟต์วันเผา
+     * โต๊ะจีนแขก VIP 1-2 โต๊ะ
+     * โลงศพไม้สักทอง/สแตนเลส
+     * รถรับศพ VIP
+     * พนักงานยกโลง 8 คน
+     * ของชำร่วย Premium 400-500 ชุด
+     * ดอกไม้จันทน์ 300 ดอก
+     * ช่างภาพ-วีดีโอ Pro (Full HD+Drone)
+     * พิธีเก็บอัฐิและลอยอังคาร
+     * MC/พิธีกรมืออาชีพ
+     * ทีมงานดูแล 15-20 คน
+
+   PACKAGE 4 - VIP (Ultra Premium):
+   - Icon: Gem from lucide-react
+   - Gradient: from-yellow-900/60 to-amber-900/60
+   - Accent Color: text-yellow-200
+   - Border: border-yellow-500/50
+   - Duration: "งาน 7 วัน"
+   - Venue: "วัดดังระดับประเทศ"
+   - Guests: "300-500+ คน/วัน"
+   - Sub-packages: ROYAL (800,000 บาท), EXCLUSIVE (1,000,000 บาท)
+   - Features (25 items):
+     * ค่าเช่าศาลาแอร์ Super VIP 7 คืน (วัดดัง)
+     * ค่าพิธีและฌาปนกิจแบบ Royal
+     * ดอกไม้ตกแต่ง Luxury Design โดยดีไซเนอร์
+     * พวงหรีดตัวอย่างพิเศษ 5 พวง
+     * ดอกไม้ตกแต่งทุกโต๊ะ VIP
+     * ธูปเทียนชั้นดี 7 คืน
+     * ระบบแสงเสียงพิเศษ
+     * เครื่องดื่มครบทุกประเภท 7 คืน
+     * ขนม Luxury 7 คืน
+     * Snack Box Deluxe 300 กล่อง
+     * Catering บุฟเฟต์หรูวันเผา
+     * โต๊ะจีนแขก VIP 2-3 โต๊ะ
+     * บริการน้ำชา-กาแฟบาริสต้า
+     * โลงศพไม้สักทองเต็มตัว/คริสตัล
+     * รถรับศพ Super VIP
+     * พนักงานยกโลง 10-12 คน
+     * ของชำร่วย Luxury 500-700 ชุด
+     * ดอกไม้จันทน์พิเศษ 500+ ดอก
+     * ช่างภาพ-วีดีโอ 4K+Drone ทีมมืออาชีพ
+     * พิธีเก็บอัฐิและลอยอังคาร VIP
+     * Personal Funeral Director เฉพาะงาน
+     * MC/พิธีกรระดับ Pro
+     * ระบบ Live Streaming คุณภาพสูง
+     * ป้าย LED Digital Display
+     * ทีมงานดูแลเต็มระบบ 20-25 คน
+
+3. CARD DESIGN:
+   - Background: gradient according to each package
+   - Border: thin translucent border matching package color
+   - Rounded corners: rounded-2xl
+   - Hover effect: border changes to yellow-500/60, add shine gradient overlay
+   - Icon container: 16x16 circle with bg-black/30 backdrop-blur
+
+4. CARD CONTENT STRUCTURE:
+   - Header section:
+     * Icon in circular background
+     * Tier label (small uppercase text, text-white/50)
+     * Package name in Thai (font-serif, text-2xl, bold)
+     * Subtitle in English (text-sm, italic, text-white/60)
+   
+   - Quick Info section (centered):
+     * 3 lines with bullet points (●) in package accent color
+     * Line 1: Duration
+     * Line 2: Venue
+     * Line 3: Guest count
+   
+   - Price Box:
+     * Background: bg-black/30 backdrop-blur-sm, rounded-xl
+     * Header: "แพ็คเกจแนะนำ" (small text)
+     * 2 sub-packages displayed:
+       - Package name on left (text-sm, font-medium)
+       - Price on right (text-lg, bold, in accent color)
+       - Format: {price} บาท (NOT ฿)
+       - Divider line between packages (border-t border-white/10)
+   
+   - Toggle Button:
+     * Full width button
+     * Background: bg-white/5 hover:bg-white/10
+     * Text: "รายละเอียด"
+     * Icon: ChevronDown/ChevronUp from lucide-react
+   
+   - Expandable Features List:
+     * AnimatePresence from framer-motion
+     * Initial: height 0, opacity 0
+     * Animate: height auto, opacity 1
+     * max-height: 256px (max-h-64)
+     * overflow-y-auto with custom scrollbar
+     * Each feature:
+       - Flex container with gap-2
+       - Check icon (w-4 h-4) in accent color
+       - Text in text-sm, text-white/70
+
+5. INTERACTIVE FEATURES:
+   - Use useState for expandedPackage state (number | null)
+   - onClick handler for toggle button: setExpandedPackage(isExpanded ? null : pkg.id)
+   - Use AnimatePresence from framer-motion for smooth expand/collapse
+   - Transition duration: 0.3s
+
+6. ANIMATIONS:
+   - Section header:
+     * initial: opacity 0, y 20
+     * whileInView: opacity 1, y 0
+     * transition: duration 0.6
+   
+   - Package cards:
+     * initial: opacity 0, y 30
+     * whileInView: opacity 1, y 0
+     * transition: delay index * 0.1, duration 0.5
+     * viewport: once true
+   
+   - Card hover effects:
+     * Border color transition: duration 500ms
+     * Shine overlay: opacity 0 → opacity 100
+     * Icon background: bg-black/30 → bg-black/50
+
+7. PROMOTIONS SECTION (below all cards):
+   - Container:
+     * Background: bg-gradient-to-r from-yellow-900/20 via-amber-900/20 to-yellow-900/20
+     * Border: border-yellow-500/30
+     * Rounded: rounded-2xl
+     * Padding: p-8
+     * Margin top: mt-16
+   
+   - Header:
+     * Title: "🎁 โปรโมชั่นพิเศษ" (font-serif, text-2xl, bold, text-yellow-200)
+     * Subtitle: "Special Promotions" (text-white/60, text-sm)
+   
+   - Grid layout: md:grid-cols-2, gap-6, max-w-3xl mx-auto
+   
+   - Left card - "ส่วนลด Early Bird":
+     * Background: bg-black/30 backdrop-blur-sm
+     * Border: border-yellow-500/20
+     * Rounded: rounded-xl
+     * Padding: p-6
+     * Title: font-bold text-yellow-300 text-lg
+     * Items:
+       - จองล่วงหน้า 30 วัน: ลด 5% (highlighted in text-yellow-300 font-semibold)
+       - จองล่วงหน้า 60 วัน: ลด 10% (highlighted in text-yellow-300 font-semibold)
+     * Each item with Check icon (w-4 h-4 text-yellow-400)
+   
+   - Right card - "ส่วนลดแนะนำเพื่อน":
+     * Same styling as left card
+     * Item: แนะนำเพื่อนใช้บริการ: ลด 3% ทั้ง 2 ฝ่าย
+
+8. CUSTOM SCROLLBAR CSS:
+   Add custom scrollbar styles for the features list:
+```css
+   .custom-scrollbar::-webkit-scrollbar {
+     width: 4px;
+   }
+   .custom-scrollbar::-webkit-scrollbar-track {
+     background: rgba(255, 255, 255, 0.05);
+     border-radius: 2px;
+   }
+   .custom-scrollbar::-webkit-scrollbar-thumb {
+     background: rgba(255, 230, 151, 0.3);
+     border-radius: 2px;
+   }
+   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+     background: rgba(255, 230, 151, 0.5);
+   }
+```
+
+9. SECTION HEADER:
+   - Container: text-center mb-16
+   - Title: "บริการของเรา" (font-serif, text-4xl md:text-5xl, font-bold, text-white)
+   - Decorative line: w-24 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent, mx-auto, mb-6
+   - Subtitle: "Our Offerings" (text-white/60, text-lg, tracking-widest, uppercase)
+
+10. BACKGROUND DECORATIONS:
+    - Absolute positioned radial gradient overlay:
+      * bg-[radial-gradient(circle_at_50%_50%,_rgba(255,230,151,0.03),transparent_50%)]
+      * inset-0, absolute
+
+11. RESPONSIVE BEHAVIOR:
+    - Desktop (xl): 4 columns
+    - Tablet (md): 2 columns
+    - Mobile: 1 column
+    - Font sizes scale down on mobile
+    - Promotion cards stack vertically on mobile
+
+12. POPULAR BADGE (Package 3 only):
+    - Position: absolute -top-4 left-1/2 transform -translate-x-1/2
+    - Z-index: z-20
+    - Background: bg-gradient-to-r from-yellow-500 to-amber-500
+    - Text: "แนะนำ" in text-black
+    - Padding: px-4 py-1
+    - Rounded: rounded-full
+    - Font: text-xs font-bold tracking-wider
+
+⚠️ IMPORTANT REQUIREMENTS:
+- Use framer-motion for all animations
+- Use lucide-react for all icons (Star, Sparkles, Crown, Gem, Check, ChevronDown, ChevronUp)
+- Maintain black and gold theme consistent with existing website
+- Price format MUST be "{number} บาท" NOT "฿{number}"
+- Package 3 MUST have the popular badge
+- All Thai text should use font-thai class if language context exists
+- Keep section id="services" for navigation compatibility
+- Ensure proper TypeScript typing for all components
+- Use Tailwind CSS classes only (no custom CSS except scrollbar)
+
+Please replace the entire existing Services Section with this new design.

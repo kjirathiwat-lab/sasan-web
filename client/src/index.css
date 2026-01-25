@@ -6,30 +6,36 @@
 
 :root {
   /* Dark mode dominant theme */
-  --background: 0 0% 0%;       /* #000000 Midnight Black */
-  --foreground: 60 30% 96%;    /* #F5F5DC Raw Silk Cream */
-  
-  --primary: 46 100% 80%;       /* #FFE697 New Gold */
+  --background: 0 0% 0%;
+  /* #000000 Midnight Black */
+  --foreground: 60 30% 96%;
+  /* #F5F5DC Raw Silk Cream */
+
+  --primary: 46 100% 80%;
+  /* #FFE697 New Gold */
   --primary-foreground: 0 0% 0%;
-  
-  --secondary: 155 42% 18%;    /* #1B4332 Deep Forest Green */
+
+  --secondary: 155 42% 18%;
+  /* #1B4332 Deep Forest Green */
   --secondary-foreground: 60 30% 96%;
-  
-  --muted: 0 0% 10%;           /* Dark gray for subtle backgrounds */
+
+  --muted: 0 0% 10%;
+  /* Dark gray for subtle backgrounds */
   --muted-foreground: 0 0% 60%;
-  
+
   --accent: 46 100% 80%;
   --accent-foreground: 0 0% 0%;
-  
+
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  
-  --border: 46 100% 80%;        /* New Gold borders */
+
+  --border: 46 100% 80%;
+  /* New Gold borders */
   --input: 0 0% 20%;
   --ring: 46 100% 80%;
-  
+
   --radius: 0.25rem;
-  
+
   /* Fonts */
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
@@ -41,32 +47,50 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground antialiased;
+    /*@apply bg-background text-foreground antialiased;*/
     font-family: var(--font-sans);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/sasan-bg.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url('sasan-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  #root,
+  main,
+  .App,
+  .bg-background,
+  #root>div {
+    background-color: transparent !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-serif);
   }
-  
+
   /* Custom scrollbar for webkit */
   ::-webkit-scrollbar {
     width: 8px;
   }
+
   ::-webkit-scrollbar-track {
-    background: #000; 
+    background: #000;
   }
+
   ::-webkit-scrollbar-thumb {
-    background: #333; 
+    background: #333;
     border-radius: 4px;
   }
+
   ::-webkit-scrollbar-thumb:hover {
-    background: #FFE697; 
+    background: #FFE697;
   }
 }
 
@@ -74,20 +98,23 @@
   .text-gold {
     color: hsl(46 100% 80%);
   }
+
   .bg-gold {
     background-color: hsl(46 100% 80%);
   }
+
   .border-gold {
     border-color: hsl(46 100% 80%);
   }
-  
+
   .font-thai {
     font-family: var(--font-thai);
   }
+
   .font-script {
     font-family: var(--font-script);
   }
-  
+
   /* Luxury Gold Gradient Text */
   .text-gradient-gold {
     background: linear-gradient(to right, #FFE697, #FFFFFF, #FFE697, #FFFFFF, #FFE697);
@@ -102,5 +129,20 @@
     to {
       background-position: 200% center;
     }
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 230, 151, 0.3);
+    border-radius: 2px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 230, 151, 0.5);
   }
 }
