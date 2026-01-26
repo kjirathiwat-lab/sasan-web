@@ -6,38 +6,22 @@
 
 
 :root {
-  /* Dark mode dominant theme */
   --background: 0 0% 0%;
-  /* #000000 Midnight Black */
   --foreground: 60 30% 96%;
-  /* #F5F5DC Raw Silk Cream */
-
   --primary: 46 100% 80%;
-  /* #FFE697 New Gold */
   --primary-foreground: 0 0% 0%;
-
   --secondary: 155 42% 18%;
-  /* #1B4332 Deep Forest Green */
   --secondary-foreground: 60 30% 96%;
-
   --muted: 0 0% 10%;
-  /* Dark gray for subtle backgrounds */
   --muted-foreground: 0 0% 60%;
-
   --accent: 46 100% 80%;
   --accent-foreground: 0 0% 0%;
-
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-
   --border: 46 100% 80%;
-  /* New Gold borders */
   --input: 0 0% 20%;
   --ring: 46 100% 80%;
-
   --radius: 0.25rem;
-
-  /* Fonts */
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
   --font-thai: 'Noto Sans Thai', sans-serif;
@@ -45,33 +29,21 @@
 }
 
   @layer base {
-    * {
-      @apply border-border;
-    }
-
+  * {
+    @apply border-border;
+  }
   body {
     font-family: var(--font-sans);
     background-color: #000000;
+    margin: 0;
+    padding: 0;
   }
 
-  #root {
-    min-height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/sasan-bg.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
   }
 
+  /* Custom scrollbar for webkit */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -89,6 +61,17 @@
     background: #FFE697;
   }
 }
+
+    /* ย้าย #root มาไว้ข้างนอก @layer base */
+#root {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/sasan-bg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+}
+
 
 @layer utilities {
   .text-gold {

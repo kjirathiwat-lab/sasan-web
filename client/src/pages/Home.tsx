@@ -6,8 +6,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { insertInquirySchema } from "@shared/schema";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Feather, Heart, FileText, Share2, ArrowDown, Star, Sparkles, Crown, Gem, Check, ChevronDown, ChevronUp } from "lucide-react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import {
+  Feather,
+  Heart,
+  FileText,
+  Share2,
+  ArrowDown,
+  Star,
+  Sparkles,
+  Crown,
+  Gem,
+  Check,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -43,7 +61,7 @@ const servicePackages = [
     guests: "30-80 คน/วัน",
     subPackages: [
       { name: "BASIC", price: "45,000" },
-      { name: "STANDARD", price: "55,000" }
+      { name: "STANDARD", price: "55,000" },
     ],
     features: [
       "ค่าเช่าศาลา 3 คืน",
@@ -55,8 +73,8 @@ const servicePackages = [
       "รถรับศพ",
       "ของชำร่วย 100 ชุด",
       "ดอกไม้จันทน์ 100 ดอก",
-      "ทีมงานดูแล 8-10 คน"
-    ]
+      "ทีมงานดูแล 8-10 คน",
+    ],
   },
   {
     id: 2,
@@ -71,7 +89,7 @@ const servicePackages = [
     guests: "80-150 คน/วัน",
     subPackages: [
       { name: "SILVER", price: "120,000" },
-      { name: "GOLD", price: "150,000" }
+      { name: "GOLD", price: "150,000" },
     ],
     features: [
       "ค่าเช่าศาลา 5 คืน",
@@ -87,8 +105,8 @@ const servicePackages = [
       "ของชำร่วย 200-300 ชุด",
       "ดอกไม้จันทน์ 150-200 ดอก",
       "ช่างภาพ-วีดีโอ",
-      "ทีมงานดูแล 12-15 คน"
-    ]
+      "ทีมงานดูแล 12-15 คน",
+    ],
   },
   {
     id: 3,
@@ -104,7 +122,7 @@ const servicePackages = [
     guests: "150-300 คน/วัน",
     subPackages: [
       { name: "PLATINUM", price: "350,000" },
-      { name: "DIAMOND", price: "450,000" }
+      { name: "DIAMOND", price: "450,000" },
     ],
     features: [
       "ค่าเช่าศาลาแอร์ VIP 7 คืน",
@@ -126,8 +144,8 @@ const servicePackages = [
       "ช่างภาพ-วีดีโอ Pro (Full HD+Drone)",
       "พิธีเก็บอัฐิและลอยอังคาร",
       "MC/พิธีกรมืออาชีพ",
-      "ทีมงานดูแล 15-20 คน"
-    ]
+      "ทีมงานดูแล 15-20 คน",
+    ],
   },
   {
     id: 4,
@@ -142,7 +160,7 @@ const servicePackages = [
     guests: "300-500+ คน/วัน",
     subPackages: [
       { name: "ROYAL", price: "800,000" },
-      { name: "EXCLUSIVE", price: "1,000,000" }
+      { name: "EXCLUSIVE", price: "1,000,000" },
     ],
     features: [
       "ค่าเช่าศาลาแอร์ Super VIP 7 คืน (วัดดัง)",
@@ -169,9 +187,9 @@ const servicePackages = [
       "MC/พิธีกรระดับ Pro",
       "ระบบ Live Streaming คุณภาพสูง",
       "ป้าย LED Digital Display",
-      "ทีมงานดูแลเต็มระบบ 20-25 คน"
-    ]
-  }
+      "ทีมงานดูแลเต็มระบบ 20-25 คน",
+    ],
+  },
 ];
 
 // Form schema with validation messages
@@ -182,7 +200,7 @@ export default function Home() {
   const createInquiry = useCreateInquiry();
   const contactRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  
+
   // Parallax effect for hero
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -207,26 +225,41 @@ export default function Home() {
   }
 
   const dimensions = [
-    { key: "matter", icon: Feather, color: "text-stone-300", bgImage: "สะสาร.png" }, 
+    {
+      key: "matter",
+      icon: Feather,
+      color: "text-stone-300",
+      bgImage: "สะสาร.png",
+    },
     { key: "clear", icon: Heart, color: "text-rose-200", bgImage: "สะสาง.png" },
-    { key: "message", icon: FileText, color: "text-amber-200", bgImage: "สาง.png" },
-    { key: "weave", icon: Share2, color: "text-emerald-200", bgImage: "สาน.png" },
+    {
+      key: "message",
+      icon: FileText,
+      color: "text-amber-200",
+      bgImage: "สาง.png",
+    },
+    {
+      key: "weave",
+      icon: Share2,
+      color: "text-emerald-200",
+      bgImage: "สาน.png",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden selection:bg-gold selection:text-black">
+    <div className="min-h-screen bg-transparent text-white overflow-hidden selection:bg-gold selection:text-black">
       <Navigation />
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background - Dark texture */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900 via-black to-black opacity-80 z-0" />
-        
+
         {/* Abstract shapes/glows */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[100px]" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[100px]" />
 
-        <motion.div 
+        <motion.div
           style={{ y: y1, opacity }}
           className="relative z-10 text-center px-4 max-w-4xl mx-auto"
         >
@@ -239,7 +272,7 @@ export default function Home() {
               SASAN
             </h1>
           </motion.div>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -248,18 +281,18 @@ export default function Home() {
           >
             "{t.hero.tagline}"
           </motion.p>
-          
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className={`text-lg md:text-xl text-gold/80 tracking-widest uppercase ${language === 'th' ? 'font-thai' : 'font-sans'}`}
+            className={`text-lg md:text-xl text-gold/80 tracking-widest uppercase ${language === "th" ? "font-thai" : "font-sans"}`}
           >
             {t.hero.subtitle}
           </motion.p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/30 z-10"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
@@ -278,13 +311,19 @@ export default function Home() {
             transition={{ duration: 1 }}
             className="relative"
           >
-            <span className="font-script text-6xl md:text-8xl text-gold/20 absolute -top-12 left-0 md:left-20">"</span>
+            <span className="font-script text-6xl md:text-8xl text-gold/20 absolute -top-12 left-0 md:left-20">
+              "
+            </span>
             <div className="overflow-hidden py-4">
-              <p className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif leading-relaxed text-white/90 whitespace-normal md:whitespace-nowrap ${language === 'th' ? 'font-thai' : ''}`}>
+              <p
+                className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif leading-relaxed text-white/90 whitespace-normal md:whitespace-nowrap ${language === "th" ? "font-thai" : ""}`}
+              >
                 {t.philosophy.quote}
               </p>
             </div>
-            <span className="font-script text-6xl md:text-8xl text-gold/20 absolute -bottom-20 right-0 md:right-20">"</span>
+            <span className="font-script text-6xl md:text-8xl text-gold/20 absolute -bottom-20 right-0 md:right-20">
+              "
+            </span>
           </motion.div>
         </div>
       </section>
@@ -309,13 +348,13 @@ export default function Home() {
                   className="group relative border border-white/10 hover:border-gold/50 transition-all duration-500 rounded-sm overflow-hidden min-h-[300px] flex flex-col justify-center p-8"
                 >
                   {/* --- Layer 1: พื้นหลังรูปภาพ --- */}
-                  <div 
+                  <div
                     className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110"
                     style={{
                       // ถ้าหา bgImage ไม่เจอ จะใช้รูป default คือ /sasan-bg.png
-                      backgroundImage: `url(${(dim as any).bgImage || '/sasan-bg.png'})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
+                      backgroundImage: `url(${(dim as any).bgImage || "/sasan-bg.png"})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
                     }}
                   />
 
@@ -325,19 +364,24 @@ export default function Home() {
 
                   {/* --- Layer 3: เนื้อหา (ต้องอยู่บนสุด z-10) --- */}
                   <div className="relative z-10 flex flex-col items-center text-center h-full justify-center">
-
                     {/* ไอคอน */}
                     <div className="mb-4 p-3 rounded-full bg-white/5 backdrop-blur-sm group-hover:bg-gold/20 transition-colors duration-500">
-                      <dim.icon className={`w-8 h-8 ${dim.color} group-hover:text-gold transition-colors duration-500`} />
+                      <dim.icon
+                        className={`w-8 h-8 ${dim.color} group-hover:text-gold transition-colors duration-500`}
+                      />
                     </div>
 
                     {/* หัวข้อ */}
-                    <h3 className={`text-xl font-bold mb-3 text-white group-hover:text-gold transition-colors duration-300 ${language === 'th' ? 'font-thai' : 'font-serif'}`}>
+                    <h3
+                      className={`text-xl font-bold mb-3 text-white group-hover:text-gold transition-colors duration-300 ${language === "th" ? "font-thai" : "font-serif"}`}
+                    >
                       {t.dimensions[contentKey].title}
                     </h3>
 
                     {/* คำอธิบาย */}
-                    <p className={`text-sm leading-relaxed text-white/60 group-hover:text-white/90 transition-colors duration-300 ${language === 'th' ? 'font-thai' : 'font-sans'}`}>
+                    <p
+                      className={`text-sm leading-relaxed text-white/60 group-hover:text-white/90 transition-colors duration-300 ${language === "th" ? "font-thai" : "font-sans"}`}
+                    >
                       {t.dimensions[contentKey].description}
                     </p>
                   </div>
@@ -349,10 +393,13 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-black relative overflow-hidden">
+      <section
+        id="services"
+        className="py-24 bg-black relative overflow-hidden"
+      >
         {/* Background Decorations */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,230,151,0.03),transparent_50%)] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -361,7 +408,9 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className={`text-4xl md:text-5xl font-bold text-white mb-2 ${language === 'th' ? 'font-thai' : 'font-serif'}`}>
+            <h2
+              className={`text-4xl md:text-5xl font-bold text-white mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}
+            >
               บริการของเรา
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
@@ -369,12 +418,12 @@ export default function Home() {
               Our Offerings
             </p>
           </motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {servicePackages.map((pkg, index) => {
               const Icon = pkg.icon;
               const isExpanded = expandedPackage === pkg.id;
-              
+
               return (
                 <motion.div
                   key={pkg.id}
@@ -403,7 +452,9 @@ export default function Home() {
                       <span className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
                         Tier {pkg.id}
                       </span>
-                      <h3 className={`text-2xl font-bold text-white mb-1 ${language === 'th' ? 'font-thai' : 'font-serif'}`}>
+                      <h3
+                        className={`text-2xl font-bold text-white mb-1 ${language === "th" ? "font-thai" : "font-serif"}`}
+                      >
                         {pkg.name}
                       </h3>
                       <p className="text-sm italic text-white/60">
@@ -414,13 +465,16 @@ export default function Home() {
                     {/* Quick Info */}
                     <div className="space-y-2 mb-8 text-center">
                       <p className="text-sm text-white/80 flex items-center justify-center gap-2">
-                        <span className={`text-[10px] ${pkg.accent}`}>●</span> {pkg.duration}
+                        <span className={`text-[10px] ${pkg.accent}`}>●</span>{" "}
+                        {pkg.duration}
                       </p>
                       <p className="text-sm text-white/80 flex items-center justify-center gap-2">
-                        <span className={`text-[10px] ${pkg.accent}`}>●</span> {pkg.venue}
+                        <span className={`text-[10px] ${pkg.accent}`}>●</span>{" "}
+                        {pkg.venue}
                       </p>
                       <p className="text-sm text-white/80 flex items-center justify-center gap-2">
-                        <span className={`text-[10px] ${pkg.accent}`}>●</span> {pkg.guests}
+                        <span className={`text-[10px] ${pkg.accent}`}>●</span>{" "}
+                        {pkg.guests}
                       </p>
                     </div>
 
@@ -432,10 +486,18 @@ export default function Home() {
                       <div className="space-y-3">
                         {pkg.subPackages.map((sub, i) => (
                           <div key={sub.name}>
-                            {i > 0 && <div className="border-t border-white/10 my-2" />}
+                            {i > 0 && (
+                              <div className="border-t border-white/10 my-2" />
+                            )}
                             <div className="flex justify-between items-center">
-                              <span className="text-xs font-medium text-white/70">{sub.name}</span>
-                              <span className={`text-lg font-bold ${pkg.accent}`}>{sub.price} บาท</span>
+                              <span className="text-xs font-medium text-white/70">
+                                {sub.name}
+                              </span>
+                              <span
+                                className={`text-lg font-bold ${pkg.accent}`}
+                              >
+                                {sub.price} บาท
+                              </span>
                             </div>
                           </div>
                         ))}
@@ -444,11 +506,17 @@ export default function Home() {
 
                     {/* Toggle Button */}
                     <button
-                      onClick={() => setExpandedPackage(isExpanded ? null : pkg.id)}
+                      onClick={() =>
+                        setExpandedPackage(isExpanded ? null : pkg.id)
+                      }
                       className="w-full flex items-center justify-center gap-2 py-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors text-sm text-white/80 mb-4"
                     >
                       <span>รายละเอียด</span>
-                      {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      {isExpanded ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </button>
 
                     {/* Expandable Features */}
@@ -464,7 +532,9 @@ export default function Home() {
                           <div className="max-h-64 overflow-y-auto custom-scrollbar pr-2 space-y-3">
                             {pkg.features.map((feature, i) => (
                               <div key={i} className="flex gap-3 items-start">
-                                <Check className={`w-4 h-4 mt-0.5 shrink-0 ${pkg.accent}`} />
+                                <Check
+                                  className={`w-4 h-4 mt-0.5 shrink-0 ${pkg.accent}`}
+                                />
                                 <span className="text-sm text-white/70 leading-tight">
                                   {feature}
                                 </span>
@@ -488,7 +558,9 @@ export default function Home() {
             className="mt-16 p-8 bg-gradient-to-r from-yellow-900/20 via-amber-900/20 to-yellow-900/20 border border-gold/30 rounded-2xl"
           >
             <div className="flex flex-col items-center text-center mb-8">
-              <h3 className={`text-2xl font-bold text-yellow-200 flex items-center gap-2 ${language === 'th' ? 'font-thai' : 'font-serif'}`}>
+              <h3
+                className={`text-2xl font-bold text-yellow-200 flex items-center gap-2 ${language === "th" ? "font-thai" : "font-serif"}`}
+              >
                 🎁 โปรโมชั่นพิเศษ
               </h3>
               <p className="text-white/60 text-sm">Special Promotions</p>
@@ -497,25 +569,44 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {/* Early Bird */}
               <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gold/20">
-                <h4 className="font-bold text-yellow-300 text-lg mb-4">ส่วนลด Early Bird</h4>
+                <h4 className="font-bold text-yellow-300 text-lg mb-4">
+                  ส่วนลด Early Bird
+                </h4>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-yellow-400" />
-                    <span className="text-sm text-white/80">จองล่วงหน้า 30 วัน: <span className="text-yellow-300 font-semibold text-base">ลด 5%</span></span>
+                    <span className="text-sm text-white/80">
+                      จองล่วงหน้า 30 วัน:{" "}
+                      <span className="text-yellow-300 font-semibold text-base">
+                        ลด 5%
+                      </span>
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-yellow-400" />
-                    <span className="text-sm text-white/80">จองล่วงหน้า 60 วัน: <span className="text-yellow-300 font-semibold text-base">ลด 10%</span></span>
+                    <span className="text-sm text-white/80">
+                      จองล่วงหน้า 60 วัน:{" "}
+                      <span className="text-yellow-300 font-semibold text-base">
+                        ลด 10%
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>
 
               {/* Referral */}
               <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gold/20">
-                <h4 className="font-bold text-yellow-300 text-lg mb-4">ส่วนลดแนะนำเพื่อน</h4>
+                <h4 className="font-bold text-yellow-300 text-lg mb-4">
+                  ส่วนลดแนะนำเพื่อน
+                </h4>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm text-white/80">แนะนำเพื่อนใช้บริการ: <span className="text-yellow-300 font-semibold text-base">ลด 3% ทั้ง 2 ฝ่าย</span></span>
+                  <span className="text-sm text-white/80">
+                    แนะนำเพื่อนใช้บริการ:{" "}
+                    <span className="text-yellow-300 font-semibold text-base">
+                      ลด 3% ทั้ง 2 ฝ่าย
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -524,10 +615,14 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" ref={contactRef} className="py-24 bg-black relative">
+      <section
+        id="contact"
+        ref={contactRef}
+        className="py-24 bg-black relative"
+      >
         <div className="max-w-3xl mx-auto px-6">
           <SectionHeading title={t.contact.title} align="center" />
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -535,18 +630,23 @@ export default function Home() {
             className="bg-zinc-900/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl shadow-gold/5"
           >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-white/80">{t.contact.name}</FormLabel>
+                        <FormLabel className="text-white/80">
+                          {t.contact.name}
+                        </FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="" 
-                            {...field} 
+                          <Input
+                            placeholder=""
+                            {...field}
                             className="bg-black/50 border-white/10 focus:border-gold h-12 rounded-lg transition-colors"
                           />
                         </FormControl>
@@ -559,11 +659,13 @@ export default function Home() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-white/80">{t.contact.email}</FormLabel>
+                        <FormLabel className="text-white/80">
+                          {t.contact.email}
+                        </FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="" 
-                            {...field} 
+                          <Input
+                            placeholder=""
+                            {...field}
                             className="bg-black/50 border-white/10 focus:border-gold h-12 rounded-lg transition-colors"
                           />
                         </FormControl>
@@ -572,18 +674,20 @@ export default function Home() {
                     )}
                   />
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-white/80">{t.contact.phone}</FormLabel>
+                        <FormLabel className="text-white/80">
+                          {t.contact.phone}
+                        </FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="" 
-                            {...field} 
+                          <Input
+                            placeholder=""
+                            {...field}
                             value={field.value || ""}
                             className="bg-black/50 border-white/10 focus:border-gold h-12 rounded-lg transition-colors"
                           />
@@ -597,12 +701,14 @@ export default function Home() {
                     name="serviceType"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-white/80">{t.contact.serviceType}</FormLabel>
+                        <FormLabel className="text-white/80">
+                          {t.contact.serviceType}
+                        </FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="" 
+                          <Input
+                            placeholder=""
                             {...field}
-                            value={field.value || ""} 
+                            value={field.value || ""}
                             className="bg-black/50 border-white/10 focus:border-gold h-12 rounded-lg transition-colors"
                           />
                         </FormControl>
@@ -617,11 +723,13 @@ export default function Home() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-white/80">{t.contact.message}</FormLabel>
+                      <FormLabel className="text-white/80">
+                        {t.contact.message}
+                      </FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="" 
-                          {...field} 
+                        <Textarea
+                          placeholder=""
+                          {...field}
                           className="bg-black/50 border-white/10 focus:border-gold min-h-[150px] rounded-lg transition-colors resize-none"
                         />
                       </FormControl>
@@ -631,8 +739,8 @@ export default function Home() {
                 />
 
                 <div className="flex justify-center pt-4">
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     disabled={createInquiry.isPending}
                     className="bg-gold text-black hover:bg-white hover:text-black px-12 py-6 rounded-full text-lg font-bold tracking-widest uppercase transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-white/10"
                   >
@@ -648,7 +756,9 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 bg-black border-t border-white/10 text-center">
         <div className="flex flex-col items-center justify-center space-y-4">
-          <span className="text-2xl font-serif font-bold text-white/90">SASAN</span>
+          <span className="text-2xl font-serif font-bold text-white/90">
+            SASAN
+          </span>
           <p className="text-white/40 text-sm tracking-widest uppercase">
             © {new Date().getFullYear()} Sasan. All rights reserved.
           </p>
