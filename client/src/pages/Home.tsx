@@ -25,6 +25,7 @@ import {
   Check,
   ChevronDown,
   ChevronUp,
+  Wand2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,6 +39,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useRef, useState } from "react";
+import ServiceWizard from "@/components/ServiceWizard";
 
 // Icons map for the dimensions section
 const icons = {
@@ -217,6 +219,9 @@ export default function Home() {
   });
 
   const [expandedPackage, setExpandedPackage] = useState<number | null>(null);
+  
+  // State สำหรับ Service Wizard
+  const [showWizard, setShowWizard] = useState(false);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     createInquiry.mutate(values, {
@@ -625,12 +630,47 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-6">
           <SectionHeading title={t.contact.title} align="center" />
 
+          {/* ปุ่มเปิด Service Wizard */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <div className="bg-gradient-to-r from-gold/20 via-amber-900/20 to-gold/20 border border-gold/30 rounded-2xl p-6 text-center">
+              <h3 className={`text-xl font-bold text-gold mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}>
+                ✨ ออกแบบแพ็คเกจด้วยตัวเอง
+              </h3>
+              <p className="text-white/60 text-sm mb-4">
+                เลือกบริการตามความต้องการ พร้อมคำนวณราคาอัตโนมัติ
+              </p>
+              <Button
+                onClick={() => setShowWizard(true)}
+                className="bg-gold text-black hover:bg-yellow-400 px-8 py-6 rounded-full text-lg font-bold tracking-wide transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
+              >
+                <Wand2 className="w-5 h-5 mr-2" />
+                เริ่มออกแบบแพ็คเกจ
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-white/40 text-sm">หรือ</span>
+            <div className="flex-1 h-px bg-white/10" />
+          </div>
+
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="bg-zinc-900/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl shadow-gold/5"
           >
+            <h3 className={`text-lg font-bold text-white/80 mb-6 text-center ${language === "th" ? "font-thai" : "font-serif"}`}>
+              💬 ติดต่อทีมงานโดยตรง
+            </h3>
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
@@ -766,6 +806,11 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* Service Wizard Modal */}
+      <AnimatePresence>
+        {showWizard && <ServiceWizard onClose={() => setShowWizard(false)} />}
+      </AnimatePresence>
     </div>
   );
 }
