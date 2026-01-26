@@ -268,9 +268,11 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient-gold tracking-tight">
-              SASAN
-            </h1>
+            <img 
+              src="/logo-sasan.png" 
+              alt="SASAN" 
+              className="h-32 md:h-40 lg:h-48 w-auto mx-auto mb-6"
+            />
           </motion.div>
 
           <motion.p

@@ -47,9 +47,11 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="group cursor-pointer">
             <div className="flex flex-col">
-              <span className="text-2xl font-serif tracking-widest text-gold font-bold group-hover:text-white transition-colors duration-300">
-                SASAN
-              </span>
+              <img 
+                src="/logo-sasan.png" 
+                alt="SASAN" 
+                className="h-10 w-auto group-hover:opacity-80 transition-opacity duration-300"
+              />
               <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase group-hover:text-gold transition-colors duration-300">
                 The Last Chapter
               </span>
