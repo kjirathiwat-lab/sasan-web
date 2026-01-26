@@ -228,20 +228,20 @@ export default function Home() {
     {
       key: "matter",
       icon: Feather,
-      color: "text-stone-300",
+      color: "text-gold",
       bgImage: "สะสาร.png",
     },
-    { key: "clear", icon: Heart, color: "text-rose-200", bgImage: "สะสาง.png" },
+    { key: "clear", icon: Heart, color: "text-gold", bgImage: "สะสาง.png" },
     {
       key: "message",
       icon: FileText,
-      color: "text-amber-200",
+      color: "text-gold",
       bgImage: "สาง.png",
     },
     {
       key: "weave",
       icon: Share2,
-      color: "text-emerald-200",
+      color: "text-gold",
       bgImage: "สาน.png",
     },
   ];
