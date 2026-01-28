@@ -18,8 +18,8 @@ import {
   FileText,
   Share2,
   ArrowDown,
-  Star,
-  Sparkles,
+  BookOpen,
+  BookText,
   Crown,
   Gem,
   Check,
@@ -52,9 +52,11 @@ const icons = {
 const servicePackages = [
   {
     id: 1,
-    name: "ประหยัด",
-    subtitle: "Budget",
-    icon: Star,
+    name: "The Memoir",
+    nameTh: "เดอะ เมมัวร์",
+    tagline: "Intimate & Personal",
+    taglineTh: "ความทรงจำอันอบอุ่น",
+    icon: BookOpen,
     gradient: "from-slate-900 to-slate-800",
     accent: "text-blue-300",
     border: "border-blue-500/30",
@@ -80,9 +82,11 @@ const servicePackages = [
   },
   {
     id: 2,
-    name: "กลาง",
-    subtitle: "Middle",
-    icon: Sparkles,
+    name: "The Narrative",
+    nameTh: "เดอะ แนร์ราทีฟ",
+    tagline: "Story & Journey",
+    taglineTh: "บอกเล่าเรื่องราว",
+    icon: BookText,
     gradient: "from-amber-900/50 to-yellow-900/50",
     accent: "text-amber-300",
     border: "border-amber-500/40",
@@ -112,8 +116,10 @@ const servicePackages = [
   },
   {
     id: 3,
-    name: "สูง",
-    subtitle: "Premium",
+    name: "The Legacy",
+    nameTh: "เดอะ เลกาซี่",
+    tagline: "Honor & Heritage",
+    taglineTh: "เกียรติยศสืบสาน",
     icon: Crown,
     gradient: "from-purple-900/50 to-pink-900/50",
     accent: "text-purple-300",
@@ -151,8 +157,10 @@ const servicePackages = [
   },
   {
     id: 4,
-    name: "VIP",
-    subtitle: "Ultra Premium",
+    name: "The Masterpiece",
+    nameTh: "เดอะ มาสเตอร์พีซ",
+    tagline: "Art & Perfection",
+    taglineTh: "ผลงานชิ้นเอก",
     icon: Gem,
     gradient: "from-yellow-900/60 to-amber-900/60",
     accent: "text-yellow-200",
@@ -335,14 +343,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4 Dimensions Section (About) - โค้ดชุดใหม่ */}
+      {/* 4 Dimensions Section (About) */}
       <section id="about" className="py-24 bg-[#26211C] relative">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title={t.nav.about} align="center" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {dimensions.map((dim, index) => {
-              // ดึง key สำหรับแปลภาษา
               const contentKey = dim.key as keyof typeof t.dimensions;
 
               return (
@@ -354,38 +361,26 @@ export default function Home() {
                   transition={{ delay: index * 0.2, duration: 0.6 }}
                   className="group relative border border-white/10 hover:border-gold/50 transition-all duration-500 rounded-sm overflow-hidden min-h-[300px] flex flex-col justify-center p-8"
                 >
-                  {/* --- Layer 1: พื้นหลังรูปภาพ --- */}
                   <div
                     className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110"
                     style={{
-                      // ถ้าหา bgImage ไม่เจอ จะใช้รูป default คือ /sasan-bg.png
                       backgroundImage: `url(${(dim as any).bgImage || "/sasan-bg.png"})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   />
-
-                  {/* --- Layer 2: ฟิลเตอร์สีดำ (Overlay) --- */}
-                  {/* ปกติทึบ 60% (bg-black/60) -> พอเมาส์ชี้ทึบ 80% (group-hover:bg-black/80) */}
                   <div className="absolute inset-0 z-0 bg-black/60 transition-colors duration-500 group-hover:bg-black/80" />
-
-                  {/* --- Layer 3: เนื้อหา (ต้องอยู่บนสุด z-10) --- */}
                   <div className="relative z-10 flex flex-col items-center text-center h-full justify-center">
-                    {/* ไอคอน */}
                     <div className="mb-4 p-3 rounded-full bg-white/5 backdrop-blur-sm group-hover:bg-gold/20 transition-colors duration-500">
                       <dim.icon
                         className={`w-8 h-8 ${dim.color} group-hover:text-gold transition-colors duration-500`}
                       />
                     </div>
-
-                    {/* หัวข้อ */}
                     <h3
                       className={`text-xl font-bold mb-3 text-white group-hover:text-gold transition-colors duration-300 ${language === "th" ? "font-thai" : "font-serif"}`}
                     >
                       {t.dimensions[contentKey].title}
                     </h3>
-
-                    {/* คำอธิบาย */}
                     <p
                       className={`text-sm leading-relaxed text-white/60 group-hover:text-white/90 transition-colors duration-300 ${language === "th" ? "font-thai" : "font-sans"}`}
                     >
@@ -404,7 +399,6 @@ export default function Home() {
         id="services"
         className="py-24 bg-black relative overflow-hidden"
       >
-        {/* Background Decorations */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,230,151,0.03),transparent_50%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -422,7 +416,7 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
             <p className="text-white/60 text-lg tracking-widest uppercase">
-              Our Offerings
+              The Storytelling Collection
             </p>
           </motion.div>
 
@@ -440,14 +434,12 @@ export default function Home() {
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   className={`group relative overflow-hidden rounded-2xl border ${pkg.border} bg-gradient-to-b ${pkg.gradient} flex flex-col transition-all duration-500 hover:border-gold/60`}
                 >
-                  {/* Popular Badge */}
                   {pkg.recommended && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20 bg-gradient-to-r from-gold to-amber-500 text-black px-4 py-1 rounded-full text-xs font-bold tracking-wider">
                       แนะนำ
                     </div>
                   )}
 
-                  {/* Shine Effect */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                   <div className="p-8 flex flex-col h-full">
@@ -456,16 +448,14 @@ export default function Home() {
                       <div className="w-16 h-16 rounded-full bg-black/30 backdrop-blur flex items-center justify-center mb-4 transition-colors duration-500 group-hover:bg-black/50">
                         <Icon className={`w-8 h-8 ${pkg.accent}`} />
                       </div>
-                      <span className="text-[10px] uppercase tracking-widest text-white/50 mb-1">
-                        Tier {pkg.id}
-                      </span>
-                      <h3
-                        className={`text-2xl font-bold text-white mb-1 ${language === "th" ? "font-thai" : "font-serif"}`}
-                      >
+                      <h3 className="text-2xl font-bold text-white mb-1 font-serif">
                         {pkg.name}
                       </h3>
-                      <p className="text-sm italic text-white/60">
-                        {pkg.subtitle}
+                      <p className={`text-base text-white/80 mb-2 ${language === "th" ? "font-thai" : ""}`}>
+                        {pkg.nameTh}
+                      </p>
+                      <p className={`text-xs italic ${pkg.accent}`}>
+                        {language === "th" ? pkg.taglineTh : pkg.tagline}
                       </p>
                     </div>
 
@@ -574,7 +564,6 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              {/* Early Bird */}
               <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gold/20">
                 <h4 className="font-bold text-yellow-300 text-lg mb-4">
                   ส่วนลด Early Bird
@@ -601,7 +590,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Referral */}
               <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gold/20">
                 <h4 className="font-bold text-yellow-300 text-lg mb-4">
                   ส่วนลดแนะนำเพื่อน

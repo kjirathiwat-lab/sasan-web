@@ -4,10 +4,10 @@ import {
   ChevronRight, 
   ChevronLeft, 
   Check, 
-  Sparkles, 
+  BookOpen,
+  BookText,
   Crown, 
-  Gem, 
-  Star,
+  Gem,
   Flower2,
   UtensilsCrossed,
   Monitor,
@@ -19,10 +19,12 @@ import {
 
 const packages = [
   {
-    id: "budget",
-    name: "ประหยัด",
-    nameEn: "Budget",
-    icon: Star,
+    id: "memoir",
+    name: "The Memoir",
+    nameTh: "เดอะ เมมัวร์",
+    tagline: "Intimate & Personal",
+    taglineTh: "ความทรงจำอันอบอุ่น",
+    icon: BookOpen,
     duration: "งาน 3 วัน",
     venue: "วัดขนาดเล็ก",
     guests: "30-80 คน/วัน",
@@ -47,10 +49,12 @@ const packages = [
     ]
   },
   {
-    id: "middle",
-    name: "กลาง",
-    nameEn: "Middle",
-    icon: Sparkles,
+    id: "narrative",
+    name: "The Narrative",
+    nameTh: "เดอะ แนร์ราทีฟ",
+    tagline: "Story & Journey",
+    taglineTh: "บอกเล่าเรื่องราว",
+    icon: BookText,
     duration: "งาน 5 วัน",
     venue: "วัดขนาดกลาง",
     guests: "80-150 คน/วัน",
@@ -79,9 +83,11 @@ const packages = [
     ]
   },
   {
-    id: "premium",
-    name: "สูง",
-    nameEn: "Premium",
+    id: "legacy",
+    name: "The Legacy",
+    nameTh: "เดอะ เลกาซี่",
+    tagline: "Honor & Heritage",
+    taglineTh: "เกียรติยศสืบสาน",
     icon: Crown,
     duration: "งาน 7 วัน",
     venue: "วัดขนาดใหญ่",
@@ -118,9 +124,11 @@ const packages = [
     ]
   },
   {
-    id: "vip",
-    name: "VIP",
-    nameEn: "Ultra Premium",
+    id: "masterpiece",
+    name: "The Masterpiece",
+    nameTh: "เดอะ มาสเตอร์พีซ",
+    tagline: "Art & Perfection",
+    taglineTh: "ผลงานชิ้นเอก",
     icon: Gem,
     duration: "งาน 7 วัน",
     venue: "วัดดังระดับประเทศ",
@@ -387,7 +395,7 @@ export default function ServiceWizard({ onClose }: { onClose?: () => void }) {
     <div className="space-y-6">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-gold mb-2">เลือกแพ็คเกจของคุณ</h2>
-        <p className="text-white/60">Select Your Collection</p>
+        <p className="text-white/60">The Storytelling Collection</p>
       </div>
 
       <div className="space-y-4">
@@ -423,11 +431,9 @@ export default function ServiceWizard({ onClose }: { onClose?: () => void }) {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="font-bold text-white">{pkg.name}</h3>
-                  <p className="text-sm text-white/60">{pkg.nameEn}</p>
-                  <p className="text-xs text-white/40 mt-1">
-                    {pkg.duration} • {pkg.venue} • {pkg.guests}
-                  </p>
+                  <h3 className="font-bold text-white font-serif">{pkg.name}</h3>
+                  <p className="text-sm text-white/80">{pkg.nameTh}</p>
+                  <p className={`text-xs italic ${pkg.accent}`}>{pkg.taglineTh}</p>
                 </div>
 
                 <div className="text-right">
@@ -447,27 +453,32 @@ export default function ServiceWizard({ onClose }: { onClose?: () => void }) {
                     exit={{ height: 0, opacity: 0 }}
                     className="overflow-hidden"
                   >
-                    <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-2 gap-3">
-                      {pkg.subPackages.map((sub) => (
-                        <button
-                          key={sub.name}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setState(prev => ({ ...prev, selectedSubPackage: sub.name }));
-                          }}
-                          className={`p-3 rounded-lg border text-center transition-all ${
-                            state.selectedSubPackage === sub.name
-                              ? 'border-gold bg-gold/20'
-                              : 'border-white/10 hover:border-white/30'
-                          }`}
-                        >
-                          <p className="font-bold text-white">{sub.name}</p>
-                          <p className={`text-lg font-bold ${pkg.accent}`}>
-                            {formatPrice(sub.price)}
-                          </p>
-                          <p className="text-xs text-white/40">บาท</p>
-                        </button>
-                      ))}
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <p className="text-xs text-white/40 mb-3">
+                        {pkg.duration} • {pkg.venue} • {pkg.guests}
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        {pkg.subPackages.map((sub) => (
+                          <button
+                            key={sub.name}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setState(prev => ({ ...prev, selectedSubPackage: sub.name }));
+                            }}
+                            className={`p-3 rounded-lg border text-center transition-all ${
+                              state.selectedSubPackage === sub.name
+                                ? 'border-gold bg-gold/20'
+                                : 'border-white/10 hover:border-white/30'
+                            }`}
+                          >
+                            <p className="font-bold text-white">{sub.name}</p>
+                            <p className={`text-lg font-bold ${pkg.accent}`}>
+                              {formatPrice(sub.price)}
+                            </p>
+                            <p className="text-xs text-white/40">บาท</p>
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -684,7 +695,8 @@ export default function ServiceWizard({ onClose }: { onClose?: () => void }) {
           <div className="flex justify-between items-center pb-4 border-b border-white/10">
             <div>
               <p className="text-white/60 text-sm">แพ็คเกจ</p>
-              <p className="font-bold text-white">{pkg?.name} - {state.selectedSubPackage}</p>
+              <p className="font-bold text-white">{pkg?.name} ({pkg?.nameTh})</p>
+              <p className="text-xs text-white/60">{state.selectedSubPackage}</p>
             </div>
             <p className="text-gold font-bold">{formatPrice(subPkg?.price || 0)}</p>
           </div>
@@ -828,8 +840,8 @@ export default function ServiceWizard({ onClose }: { onClose?: () => void }) {
         {/* Header */}
         <div className="p-4 border-b border-white/10 flex items-center justify-between">
           <div>
-            <h1 className="text-gold font-bold">SASAN</h1>
-            <p className="text-xs text-white/40">Service Configuration</p>
+            <h1 className="text-gold font-bold font-serif">SASAN</h1>
+            <p className="text-xs text-white/40">The Storytelling Collection</p>
           </div>
           
           {/* Progress */}
