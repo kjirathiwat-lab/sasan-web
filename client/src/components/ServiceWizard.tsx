@@ -513,9 +513,21 @@ export default function ServiceWizard({ onClose }: { onClose?: () => void }) {
                   : 'border-white/10 hover:border-white/30'
               }`}
             >
-              {/* Placeholder image area */}
-              <div className="h-32 bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
-                <Flower2 className="w-12 h-12 text-white/20" />
+              {/* Floral image */}
+              <div className="h-32 bg-gradient-to-br from-white/10 to-white/5 overflow-hidden">
+                <img 
+                  src={option.image} 
+                  alt={option.nameTh}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to icon if image fails to load
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                <div className="hidden w-full h-full flex items-center justify-center">
+                  <Flower2 className="w-12 h-12 text-white/20" />
+                </div>
               </div>
 
               <div className="p-4">
