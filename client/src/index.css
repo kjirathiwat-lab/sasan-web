@@ -63,14 +63,16 @@
 }
 
     /* ย้าย #root มาไว้ข้างนอก @layer base */
-#root {
-  min-height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/sasan-bg.png') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-attachment: fixed !important;
-  background-repeat: no-repeat !important;
-}
+  #root {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/sasan-bg.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+  }
 
 
 @layer utilities {
