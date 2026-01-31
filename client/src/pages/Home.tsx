@@ -274,7 +274,7 @@ export default function Home() {
 
         <motion.div
           style={{ y: y1, opacity }}
-          className="relative z-10 text-center px-4 max-w-[1400px] mx-auto"
+          className="relative z-10 text-center px-4 w-full mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -318,7 +318,7 @@ export default function Home() {
 
       {/* Philosophy Quote */}
       <section className="py-24 md:py-32 relative bg-zinc-950 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 text-center relative">
+        <div className="w-full mx-auto px-6 text-center relative">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -345,7 +345,7 @@ export default function Home() {
 
       {/* 4 Dimensions Section (About) */}
       <section id="about" className="py-24 bg-[#26211C] relative">
-        <div className="max-w-[1400px] mx-auto px-6">
+        <div className="w-full mx-auto px-6">
           <SectionHeading title={t.nav.about} align="center" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -401,7 +401,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,230,151,0.03),transparent_50%)] pointer-events-none" />
 
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="w-full mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -547,12 +547,12 @@ export default function Home() {
             })}
           </div>
 
-          {/* Promotions Section */}
+          {/* Promotion Banner inside Services */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="mt-16 p-8 bg-gradient-to-r from-yellow-900/20 via-amber-900/20 to-yellow-900/20 border border-gold/30 rounded-2xl"
+            className="mt-16 p-8 bg-gradient-to-r from-yellow-900/20 via-amber-900/20 to-yellow-900/20 border border-gold/30 rounded-2xl w-full"
           >
             <div className="flex flex-col items-center text-center mb-8">
               <h3
@@ -615,7 +615,7 @@ export default function Home() {
         ref={contactRef}
         className="py-24 bg-black relative"
       >
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="w-full mx-auto px-6">
           <SectionHeading title={t.contact.title} align="center" />
 
           {/* ปุ่มเปิด Service Wizard */}
@@ -654,7 +654,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-zinc-900/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl shadow-gold/5"
+            className="bg-zinc-900/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl shadow-gold/5 w-full"
           >
             <h3 className={`text-lg font-bold text-white/80 mb-6 text-center ${language === "th" ? "font-thai" : "font-serif"}`}>
               💬 ติดต่อทีมงานโดยตรง
