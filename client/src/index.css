@@ -66,15 +66,13 @@
   #root {
     min-height: 100vh;
     width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/sasan-bg.png') !important;
     background-size: cover !important;
     background-position: center !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important;
-    border-left: 1px solid rgba(255, 230, 151, 0.1);
-    border-right: 1px solid rgba(255, 230, 151, 0.1);
   }
 
 
