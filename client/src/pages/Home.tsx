@@ -227,7 +227,7 @@ export default function Home() {
   });
 
   const [expandedPackage, setExpandedPackage] = useState<number | null>(null);
-  
+
   // State สำหรับ Service Wizard
   const [showWizard, setShowWizard] = useState(false);
 
@@ -274,16 +274,16 @@ export default function Home() {
 
         <motion.div
           style={{ y: y1, opacity }}
-          className="relative z-10 text-center px-4 w-full mx-auto"
+          className="relative z-10 text-center px-4 max-w-4xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <img 
-              src="/logo-sasan.png" 
-              alt="SASAN" 
+            <img
+              src="/logo-sasan.png"
+              alt="SASAN"
               className="h-32 md:h-40 lg:h-48 w-auto mx-auto mb-6"
             />
           </motion.div>
@@ -318,7 +318,7 @@ export default function Home() {
 
       {/* Philosophy Quote */}
       <section className="py-24 md:py-32 relative bg-zinc-950 overflow-hidden">
-        <div className="w-full mx-auto px-6 text-center relative">
+        <div className="max-w-7xl mx-auto px-6 text-center relative">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -345,7 +345,7 @@ export default function Home() {
 
       {/* 4 Dimensions Section (About) */}
       <section id="about" className="py-24 bg-[#26211C] relative">
-        <div className="w-full mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title={t.nav.about} align="center" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -401,7 +401,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,230,151,0.03),transparent_50%)] pointer-events-none" />
 
-        <div className="w-full mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -451,7 +451,9 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-1 font-serif">
                         {pkg.name}
                       </h3>
-                      <p className={`text-base text-white/80 mb-2 ${language === "th" ? "font-thai" : ""}`}>
+                      <p
+                        className={`text-base text-white/80 mb-2 ${language === "th" ? "font-thai" : ""}`}
+                      >
                         {pkg.nameTh}
                       </p>
                       <p className={`text-xs italic ${pkg.accent}`}>
@@ -547,20 +549,20 @@ export default function Home() {
             })}
           </div>
 
-          {/* Promotion Banner inside Services */}
+          {/* Promotions Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="mt-16 p-8 bg-gradient-to-r from-yellow-900/20 via-amber-900/20 to-yellow-900/20 border border-gold/30 rounded-2xl w-full"
+            className="mt-16 p-8 bg-gradient-to-r from-yellow-900/20 via-amber-900/20 to-yellow-900/20 border border-gold/30 rounded-2xl"
           >
             <div className="flex flex-col items-center text-center mb-8">
               <h3
                 className={`text-2xl font-bold text-yellow-200 flex items-center gap-2 ${language === "th" ? "font-thai" : "font-serif"}`}
               >
-                🎁 โปรโมชั่นพิเศษ
+                Signature Services
               </h3>
-              <p className="text-white/60 text-sm">Special Promotions</p>
+              <p className="text-white/60 text-sm">Special Services</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
@@ -615,7 +617,7 @@ export default function Home() {
         ref={contactRef}
         className="py-24 bg-black relative"
       >
-        <div className="w-full mx-auto px-6">
+        <div className="max-w-3xl mx-auto px-6">
           <SectionHeading title={t.contact.title} align="center" />
 
           {/* ปุ่มเปิด Service Wizard */}
@@ -626,7 +628,9 @@ export default function Home() {
             className="mb-8"
           >
             <div className="bg-gradient-to-r from-gold/20 via-amber-900/20 to-gold/20 border border-gold/30 rounded-2xl p-6 text-center">
-              <h3 className={`text-xl font-bold text-gold mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}>
+              <h3
+                className={`text-xl font-bold text-gold mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}
+              >
                 ✨ ออกแบบแพ็คเกจด้วยตัวเอง
               </h3>
               <p className="text-white/60 text-sm mb-4">
@@ -654,9 +658,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-zinc-900/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl shadow-gold/5 w-full"
+            className="bg-zinc-900/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl shadow-gold/5"
           >
-            <h3 className={`text-lg font-bold text-white/80 mb-6 text-center ${language === "th" ? "font-thai" : "font-serif"}`}>
+            <h3
+              className={`text-lg font-bold text-white/80 mb-6 text-center ${language === "th" ? "font-thai" : "font-serif"}`}
+            >
               💬 ติดต่อทีมงานโดยตรง
             </h3>
             <Form {...form}>

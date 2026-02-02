@@ -1,0 +1,45 @@
+Please update the SASAN website with the following changes:
+
+## 1. REVERT LAYOUT TO MOBILE-FIRST (Remove previous desktop scaling fix)
+
+If you previously added responsive desktop scaling, please remove it and return to the original mobile-first layout (max-width around 480px centered). The website will now be embedded in WordPress as a theme, not iframe, so we need the original compact mobile design.
+
+## 2. REPLACE ServiceWizard with NEW ServiceSelector Component
+
+Replace the current ServiceWizard.tsx with a new "One Stop Service" design that has 2 modes:
+
+### Mode 1: Package Mode (Simple - Recommended)
+- User selects 1 of 4 packages (Memoir, Narrative, Legacy, Masterpiece)
+- Package includes everything - no complex choices needed
+- User can only customize: Casket style + Floral color (optional small adjustments)
+- Shows package details and total price
+- Click "Contact Us" to finish
+
+### Mode 2: Custom Mode (Flexible)
+- 6-step wizard for full customization:
+  - Step 1: Select Temple (วัดธาตุทอง, วัดมกุฏฯ, วัดเทพศิรินทร์, etc.)
+  - Step 2: Select Days (3, 5, 7, 9 days)
+  - Step 3: Select Casket (including 🌿 Eco-Friendly options: โลงไม้ไผ่สาน, โลงผักตบชวา)
+  - Step 4: Select Cremation level (เมรุธรรมดา to เมรุ Royal)
+  - Step 5: Catering + Floral (multiple select for catering)
+  - Step 6: Extra services (Photo/Video, Live Streaming, Memorial Video, etc.)
+- Real-time price calculation at each step
+- Summary page with all selections and total
+
+### UI Requirements:
+- Start with Mode Selection screen (2 big buttons: Package vs Custom)
+- Package cards should show: icon, name (EN+TH), tagline, duration/venue/guests, price range
+- The Legacy package should have "⭐ แนะนำ" (Recommended) badge
+- Eco-friendly caskets should have green "🌿 เป็นมิตรกับสิ่งแวดล้อม" badge
+- Progress bar for Custom mode (Step X of 6)
+- Keep dark theme with gold accents (#D4AF37)
+- "Back to mode selection" button
+
+### Package Data:
+- The Memoir: 45,000-55,000 บาท, 3 days, small temple, 30-80 guests
+- The Narrative: 120,000-150,000 บาท, 5 days, medium temple, 80-150 guests  
+- The Legacy: 350,000-450,000 บาท, 7 days, large temple, 150-300 guests (RECOMMENDED)
+- The Masterpiece: 800,000-1,000,000 บาท, 7+ days, premium temple, 300-500 guests
+
+### Goal:
+This new design separates "Package" (one-click complete solution) from "Custom" (full flexibility), making it clearer for customers and preventing price shock from too many add-ons.
