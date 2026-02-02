@@ -274,7 +274,7 @@ export default function Home() {
 
         <motion.div
           style={{ y: y1, opacity }}
-          className="relative z-10 text-center px-4 w-full max-w-[1400px] mx-auto"
+          className="relative z-10 text-center px-4 max-w-4xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -318,7 +318,7 @@ export default function Home() {
 
       {/* Philosophy Quote */}
       <section className="py-24 md:py-32 relative bg-zinc-950 overflow-hidden">
-        <div className="w-full max-w-[1400px] mx-auto px-6 text-center relative">
+        <div className="max-w-7xl mx-auto px-6 text-center relative">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -345,7 +345,7 @@ export default function Home() {
 
       {/* 4 Dimensions Section (About) */}
       <section id="about" className="py-24 bg-[#26211C] relative">
-        <div className="w-full max-w-[1400px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title={t.nav.about} align="center" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -401,7 +401,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,230,151,0.03),transparent_50%)] pointer-events-none" />
 
-        <div className="w-full max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -617,7 +617,7 @@ export default function Home() {
         ref={contactRef}
         className="py-24 bg-black relative"
       >
-        <div className="w-full max-w-[1400px] mx-auto px-6">
+        <div className="max-w-3xl mx-auto px-6">
           <SectionHeading title={t.contact.title} align="center" />
 
           {/* ปุ่มเปิด Service Wizard */}
