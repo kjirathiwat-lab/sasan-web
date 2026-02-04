@@ -33,15 +33,23 @@ const packages = [
     maxGuests: 80,
     price: { min: 45000, max: 55000 },
     keywords: ['minimalist', 'warm', 'peaceful', 'self'],
+    refImage: '/package-gallery/memoir-1.jpg',
+    gallery: [
+      '/package-gallery/memoir-1.jpg',
+      '/package-gallery/memoir-2.jpg',
+      '/package-gallery/memoir-3.jpg',
+    ],
+    defaultCoffin: 'standard',
+    defaultFlower: 'minimal',
     includes: [
       'ศาลาวัดขนาดเล็ก 3 คืน',
       'เมรุและฌาปนกิจ',
-      'ดอกไม้ตกแต่ง',
+      'ดอกไม้ตกแต่งพื้นฐาน',
       'น้ำดื่ม-ขนม-กาแฟ',
-      'โลงศพ',
+      'โลงศพไม้ธรรมดา',
       'รถรับศพ',
-      'ของชำร่วย',
-      'ดอกไม้จันทน์',
+      'ของชำร่วย 100 ชุด',
+      'ดอกไม้จันทน์ 100 ดอก',
       'ทีมงาน 8-10 คน',
     ],
   },
@@ -58,16 +66,24 @@ const packages = [
     maxGuests: 150,
     price: { min: 120000, max: 150000 },
     keywords: ['botanical', 'warm', 'celebration', 'family', 'personalized'],
+    refImage: '/package-gallery/narrative-1.jpg',
+    gallery: [
+      '/package-gallery/narrative-1.jpg',
+      '/package-gallery/narrative-2.jpg',
+      '/package-gallery/narrative-3.jpg',
+    ],
+    defaultCoffin: 'teak',
+    defaultFlower: 'classic',
     includes: [
       'ศาลาวัดขนาดกลาง 5 คืน',
       'เมรุและฌาปนกิจ',
       'ดอกไม้ตกแต่งระดับกลาง',
       'พวงหรีด 3 พวง',
-      'น้ำดื่ม-ขนม-กาแฟ + Snack Box',
+      'น้ำดื่ม-ขนม-กาแฟ + Snack Box 100 กล่อง',
       'โลงไม้สัก',
       'รถรับศพ VIP',
-      'ของชำร่วย',
-      'ดอกไม้จันทน์',
+      'ของชำร่วย 200 ชุด',
+      'ดอกไม้จันทน์ 150 ดอก',
       'ช่างภาพ-วีดีโอ',
       'ทีมงาน 12-15 คน',
     ],
@@ -86,6 +102,14 @@ const packages = [
     price: { min: 350000, max: 450000 },
     recommended: true,
     keywords: ['elegant', 'grand', 'passed', 'family'],
+    refImage: '/package-gallery/legacy-1.jpg',
+    gallery: [
+      '/package-gallery/legacy-1.jpg',
+      '/package-gallery/legacy-2.jpg',
+      '/package-gallery/legacy-3.jpg',
+    ],
+    defaultCoffin: 'teakGold',
+    defaultFlower: 'premium',
     includes: [
       'ศาลาแอร์ VIP 7 คืน',
       'เมรุ VIP พิเศษ',
@@ -94,10 +118,11 @@ const packages = [
       'เครื่องดื่ม + ขนม Premium + บุฟเฟต์',
       'โลงไม้สักทอง',
       'รถรับศพ VIP',
-      'ของชำร่วย Premium',
-      'ดอกไม้จันทน์',
-      'ช่างภาพ-วีดีโอ Full Day',
-      'โต๊ะจีน VIP',
+      'ของชำร่วย Premium 400 ชุด',
+      'ดอกไม้จันทน์ 300 ดอก',
+      'ช่างภาพ-วีดีโอ Full HD + Drone',
+      'โต๊ะจีน VIP 2 โต๊ะ',
+      'MC พิธีกร',
       'ทีมงาน 15-20 คน',
     ],
   },
@@ -115,21 +140,185 @@ const packages = [
     price: { min: 800000, max: 1000000 },
     allInclusive: true,
     keywords: ['elegant', 'grand', 'personalized', 'celebration'],
+    refImage: '/package-gallery/masterpiece-1.jpg',
+    gallery: [
+      '/package-gallery/masterpiece-1.jpg',
+      '/package-gallery/masterpiece-2.jpg',
+      '/package-gallery/masterpiece-3.jpg',
+    ],
+    defaultCoffin: 'crystal',
+    defaultFlower: 'luxury',
     includes: [
-      'ศาลาแอร์ Royal Suite 7+ คืน',
+      'ศาลาแอร์ Royal Suite 7+ คืน (วัดดัง)',
       'เมรุ Royal Design',
-      'ดอกไม้ Signature Design',
-      'พวงหรีด 5 พวง',
-      'Premium Bar + Fine Dining + บุฟเฟต์',
-      'โลง Custom Design',
+      'ดอกไม้ Luxury Signature Design',
+      'พวงหรีด 5+ พวง',
+      'Premium Bar + Fine Dining + บุฟเฟต์หรู',
+      'โลง Crystal / Custom Design',
       'รถรับศพ Luxury',
-      'ของชำร่วย Luxury',
-      'ดอกไม้จันทน์ Signature',
-      'ช่างภาพ-วีดีโอ + Memorial Video',
+      'ของชำร่วย Luxury 500+ ชุด',
+      'ดอกไม้จันทน์ Signature 500+ ดอก',
+      'ช่างภาพ-วีดีโอ 4K + Drone + Memorial Video',
+      'โต๊ะจีน VIP 3 โต๊ะ',
       'Live Streaming',
       'หน้าอนุสรณ์ออนไลน์',
+      'Personal Funeral Director',
       'ทีมงาน 20-25 คน',
+      '** รวมทุก Add-ons แล้ว **',
     ],
+  },
+];
+
+// ==================== ADD-ONS DATA ====================
+const coffinOptions = [
+  {
+    id: 'standard',
+    name: 'โลงไม้ธรรมดา',
+    description: 'โลงไม้มาตรฐาน เรียบง่าย สวยงาม',
+    price: 0, // รวมในแพ็คเกจ
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop',
+    includedIn: ['memoir'],
+  },
+  {
+    id: 'teak',
+    name: 'โลงไม้สัก',
+    description: 'โลงไม้สักแท้ คุณภาพดี ทนทาน',
+    price: 15000,
+    image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=300&h=200&fit=crop',
+    includedIn: ['narrative'],
+  },
+  {
+    id: 'teakGold',
+    name: 'โลงไม้สักทอง',
+    description: 'โลงไม้สักทองแท้ ลวดลายสวยงาม หรูหรา',
+    price: 35000,
+    image: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=300&h=200&fit=crop',
+    includedIn: ['legacy'],
+  },
+  {
+    id: 'stainless',
+    name: 'โลงสแตนเลส',
+    description: 'โลงสแตนเลสพรีเมียม ทันสมัย',
+    price: 45000,
+    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=300&h=200&fit=crop',
+    includedIn: [],
+  },
+  {
+    id: 'crystal',
+    name: 'โลง Crystal / Custom',
+    description: 'โลงคริสตัลหรือออกแบบพิเศษตามต้องการ',
+    price: 80000,
+    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&h=200&fit=crop',
+    includedIn: ['masterpiece'],
+  },
+];
+
+const flowerThemes = [
+  {
+    id: 'minimal',
+    name: 'Minimal White',
+    description: 'โทนขาว เรียบง่าย สงบ',
+    price: 0,
+    image: 'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=300&h=200&fit=crop',
+    includedIn: ['memoir'],
+  },
+  {
+    id: 'classic',
+    name: 'Classic Elegance',
+    description: 'โทนขาว-เหลือง คลาสสิก',
+    price: 8000,
+    image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=300&h=200&fit=crop',
+    includedIn: ['narrative'],
+  },
+  {
+    id: 'premium',
+    name: 'Premium Gold',
+    description: 'โทนทอง-ขาว หรูหรา สง่างาม',
+    price: 20000,
+    image: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=300&h=200&fit=crop',
+    includedIn: ['legacy'],
+  },
+  {
+    id: 'botanical',
+    name: 'Botanical Garden',
+    description: 'สวนดอกไม้ ธรรมชาติ สดใส',
+    price: 25000,
+    image: 'https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=300&h=200&fit=crop',
+    includedIn: [],
+  },
+  {
+    id: 'luxury',
+    name: 'Luxury Signature',
+    description: 'ออกแบบพิเศษโดยดีไซเนอร์',
+    price: 50000,
+    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&h=200&fit=crop',
+    includedIn: ['masterpiece'],
+  },
+];
+
+const extraServices = [
+  {
+    id: 'mc',
+    name: 'MC / พิธีกร',
+    description: 'พิธีกรมืออาชีพดำเนินพิธี',
+    price: 15000,
+    includedIn: ['legacy', 'masterpiece'],
+  },
+  {
+    id: 'liveStream',
+    name: 'Live Streaming',
+    description: 'ถ่ายทอดสดพิธีผ่าน Facebook/YouTube',
+    price: 12000,
+    includedIn: ['masterpiece'],
+  },
+  {
+    id: 'memorial',
+    name: 'Memorial Video',
+    description: 'วิดีโอรวมภาพความทรงจำ 3-5 นาที',
+    price: 8000,
+    includedIn: ['masterpiece'],
+  },
+  {
+    id: 'drone',
+    name: 'ถ่ายภาพ Drone',
+    description: 'ถ่ายภาพมุมสูงด้วย Drone',
+    price: 5000,
+    includedIn: ['legacy', 'masterpiece'],
+  },
+  {
+    id: 'catering',
+    name: 'Catering บุฟเฟต์',
+    description: 'บุฟเฟต์อาหารวันเผา 50 ท่าน',
+    price: 25000,
+    includedIn: ['legacy', 'masterpiece'],
+  },
+  {
+    id: 'chineseTable',
+    name: 'โต๊ะจีน VIP',
+    description: 'โต๊ะจีน 10 ท่าน/โต๊ะ',
+    price: 8000,
+    includedIn: [],
+  },
+  {
+    id: 'onlineMemorial',
+    name: 'หน้าอนุสรณ์ออนไลน์',
+    description: 'เว็บไซต์อนุสรณ์ถาวร พร้อม QR Code',
+    price: 5000,
+    includedIn: ['masterpiece'],
+  },
+  {
+    id: 'extraFlower',
+    name: 'ดอกไม้จันทน์เพิ่ม 100 ดอก',
+    description: 'ดอกไม้จันทน์เพิ่มเติม',
+    price: 3000,
+    includedIn: [],
+  },
+  {
+    id: 'extraSouvenir',
+    name: 'ของชำร่วยเพิ่ม 100 ชุด',
+    description: 'ของชำร่วยพรีเมียมเพิ่มเติม',
+    price: 5000,
+    includedIn: [],
   },
 ];
 
@@ -145,7 +334,7 @@ const briefQuestions = [
         sublabel: 'Design My Own Legacy',
         description: 'สำหรับผู้ที่ต้องการทำ Pre-planning',
         icon: User,
-        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q1A.png',
       },
       {
         id: 'family',
@@ -153,7 +342,7 @@ const briefQuestions = [
         sublabel: 'ที่ยังอยู่',
         description: 'สำหรับลูกหลานที่ต้องการเตรียมความพร้อม',
         icon: Heart,
-        image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q1B.png',
       },
       {
         id: 'passed',
@@ -161,7 +350,7 @@ const briefQuestions = [
         sublabel: 'ต้องการความช่วยเหลือทันที',
         description: 'ทีมงานพร้อมดูแลคุณอย่างเร่งด่วน',
         icon: Clock,
-        image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q1C.png',
         urgent: true,
       },
     ],
@@ -176,7 +365,7 @@ const briefQuestions = [
         sublabel: 'เรียบง่าย สงบ นิรันดร์',
         description: 'โทนสีขาว/ครีม/ไม้ ความรู้สึกเบาสบาย',
         icon: Home,
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q2A.png',
       },
       {
         id: 'elegant',
@@ -184,7 +373,7 @@ const briefQuestions = [
         sublabel: 'หรูหรา สง่างาม สมเกียรติ',
         description: 'โทนสีดำ/ทอง ทรงพลังและน่าเคารพ',
         icon: Crown,
-        image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q2B.png',
       },
       {
         id: 'botanical',
@@ -192,7 +381,7 @@ const briefQuestions = [
         sublabel: 'ธรรมชาติ สวนดอกไม้',
         description: 'ดอกไม้สด ใบไม้เขียว คืนสู่ธรรมชาติ',
         icon: Leaf,
-        image: 'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q2C.png',
       },
       {
         id: 'personalized',
@@ -200,7 +389,7 @@ const briefQuestions = [
         sublabel: 'เรื่องราวชีวิตและตัวตน',
         description: 'นำของรัก งานอดิเรก มาเป็นธีม',
         icon: Palette,
-        image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q2D.png',
       },
     ],
   },
@@ -214,7 +403,7 @@ const briefQuestions = [
         sublabel: 'Warm & Intimate',
         description: 'รวมญาติ พูดคุยรำลึกความหลัง',
         icon: Heart,
-        image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q3A.png',
       },
       {
         id: 'peaceful',
@@ -222,7 +411,7 @@ const briefQuestions = [
         sublabel: 'Peaceful & Zen',
         description: 'เงียบสงบ ใคร่ครวญไว้อาลัย',
         icon: Sun,
-        image: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q3B.png',
       },
       {
         id: 'grand',
@@ -230,7 +419,7 @@ const briefQuestions = [
         sublabel: 'Grand & Formal',
         description: 'พิธีการเป๊ะ สง่างาม เชิดชูเกียรติ',
         icon: Award,
-        image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q3C.png',
       },
       {
         id: 'celebration',
@@ -238,7 +427,7 @@ const briefQuestions = [
         sublabel: 'Celebration of Life',
         description: 'ขอบคุณช่วงเวลาดีๆ รอยยิ้มแห่งความทรงจำ',
         icon: Star,
-        image: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&h=300&fit=crop&q=80',
+        image: '/quiz-images/Q3D.png',
       },
     ],
   },
@@ -307,12 +496,21 @@ const LuxuryBackground = () => (
 export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
   const [mode, setMode] = useState<'select' | 'package' | 'quiz' | 'recommendation' | 'contact'>('select');
   const [selectedPackageId, setSelectedPackageId] = useState<string | null>(null);
-  const [packageStep, setPackageStep] = useState<'list' | 'detail'>('list');
+  const [packageStep, setPackageStep] = useState<'list' | 'detail' | 'customize'>('list');
   const [quizStep, setQuizStep] = useState(0);
   const [showIncludes, setShowIncludes] = useState(false);
   const [recommendedPkg, setRecommendedPkg] = useState<typeof packages[0] | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Gallery state for recommendation
+  const [recGalleryIndex, setRecGalleryIndex] = useState(0);
+
+  // Add-ons state
+  const [selectedCoffin, setSelectedCoffin] = useState<string>('');
+  const [selectedFlower, setSelectedFlower] = useState<string>('');
+  const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
 
   const [briefAnswers, setBriefAnswers] = useState<BriefAnswer>({
     who: '',
@@ -329,6 +527,56 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
 
   const selectedPkg = packages.find(p => p.id === selectedPackageId);
   const currentQuestion = briefQuestions[quizStep];
+
+  // Calculate add-on prices
+  const calculateAddOnPrice = () => {
+    if (!selectedPkg || selectedPkg.allInclusive) return 0;
+    
+    let addOnTotal = 0;
+    
+    // Coffin upgrade
+    const coffin = coffinOptions.find(c => c.id === selectedCoffin);
+    if (coffin && !coffin.includedIn.includes(selectedPkg.id)) {
+      addOnTotal += coffin.price;
+    }
+    
+    // Flower upgrade
+    const flower = flowerThemes.find(f => f.id === selectedFlower);
+    if (flower && !flower.includedIn.includes(selectedPkg.id)) {
+      addOnTotal += flower.price;
+    }
+    
+    // Extra services
+    selectedExtras.forEach(extraId => {
+      const extra = extraServices.find(e => e.id === extraId);
+      if (extra && !extra.includedIn.includes(selectedPkg.id)) {
+        addOnTotal += extra.price;
+      }
+    });
+    
+    return addOnTotal;
+  };
+
+  const totalPrice = selectedPkg ? selectedPkg.price.min + calculateAddOnPrice() : 0;
+
+  // Loading effect when modal opens
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Set default add-ons when package is selected
+  useEffect(() => {
+    if (selectedPkg) {
+      setSelectedCoffin(selectedPkg.defaultCoffin);
+      setSelectedFlower(selectedPkg.defaultFlower);
+      // Pre-select included extras
+      const includedExtras = extraServices
+        .filter(e => e.includedIn.includes(selectedPkg.id))
+        .map(e => e.id);
+      setSelectedExtras(includedExtras);
+    }
+  }, [selectedPkg]);
 
   useEffect(() => {
     if (briefAnswers.who && briefAnswers.style && briefAnswers.mood && mode === 'quiz' && quizStep === 3) {
@@ -349,6 +597,17 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
     setQuizStep(0);
     setBriefAnswers({ who: '', style: '', mood: '' });
     setRecommendedPkg(null);
+    setSelectedCoffin('');
+    setSelectedFlower('');
+    setSelectedExtras([]);
+  };
+
+  const toggleExtra = (extraId: string) => {
+    if (selectedExtras.includes(extraId)) {
+      setSelectedExtras(selectedExtras.filter(e => e !== extraId));
+    } else {
+      setSelectedExtras([...selectedExtras, extraId]);
+    }
   };
 
   const handleQuizAnswer = (questionId: string, answerId: string) => {
@@ -392,8 +651,26 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
         </button>
       )}
 
+      {/* Loading State */}
+      {isLoading && (
+        <div className="fixed inset-0 flex items-center justify-center z-40">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center"
+          >
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+              className="w-12 h-12 rounded-full border-2 border-amber-500/20 border-t-amber-500 mx-auto mb-4"
+            />
+            <p className="text-white/40 text-sm">กำลังโหลด...</p>
+          </motion.div>
+        </div>
+      )}
+
       {/* Content */}
-      <div className="relative min-h-screen text-white">
+      <div className={`relative min-h-screen text-white transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <div className="max-w-xl mx-auto px-6 py-16">
           
           {/* ==================== MODE SELECTION ==================== */}
@@ -436,6 +713,10 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                       <p className="text-white/40 text-sm font-light">
                         เลือกจากคอลเลคชันที่ออกแบบไว้ ครบจบในที่เดียว
                       </p>
+                      <div className="flex gap-2 mt-3">
+                        <span className="text-[10px] bg-white/10 text-white/50 px-2 py-1 rounded">4 แพ็คเกจ</span>
+                        <span className="text-[10px] bg-white/10 text-white/50 px-2 py-1 rounded">฿45K - ฿1M</span>
+                      </div>
                     </div>
                     <ChevronRight className="w-5 h-5 text-white/20 group-hover:text-amber-600 group-hover:translate-x-1 transition-all" />
                   </div>
@@ -448,8 +729,14 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   transition={{ delay: 0.4 }}
                   whileHover={{ scale: 1.01 }} 
                   onClick={() => setMode('quiz')} 
-                  className="w-full group p-6 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-purple-800/30 transition-all text-left"
+                  className="w-full group p-6 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-purple-800/30 transition-all text-left relative overflow-hidden"
                 >
+                  {/* Teaser badge */}
+                  <div className="absolute top-3 right-3 flex items-center gap-1 bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full text-[10px]">
+                    <Clock className="w-3 h-3" />
+                    <span>30 วินาที</span>
+                  </div>
+                  
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-800/30 to-purple-900/30 flex items-center justify-center">
                       <Sparkles className="w-5 h-5 text-purple-400" />
@@ -460,8 +747,17 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                       <p className="text-white/40 text-sm font-light">
                         ตอบ 3 คำถาม ระบบจะแนะนำแพ็คเกจที่เหมาะกับคุณ
                       </p>
+                      {/* Teaser preview */}
+                      <div className="mt-3 p-3 bg-purple-900/20 rounded-lg border border-purple-500/20">
+                        <p className="text-purple-300/80 text-xs">✨ ค้นพบแพ็คเกจที่ใช่ในเวลาไม่ถึงนาที</p>
+                        <div className="flex gap-1 mt-2">
+                          {['🎯 ตรงใจ', '💰 ตรงงบ', '🎨 ตรงสไตล์'].map((item, i) => (
+                            <span key={i} className="text-[10px] text-white/40">{item}</span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                    <ChevronRight className="w-5 h-5 text-white/20 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
+                    <ChevronRight className="w-5 h-5 text-white/20 group-hover:text-purple-400 group-hover:translate-x-1 transition-all mt-4" />
                   </div>
                 </motion.button>
               </div>
@@ -547,6 +843,25 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                 </div>
               </div>
 
+              {/* Reference Image */}
+              <div className="relative rounded-xl overflow-hidden aspect-video">
+                <img 
+                  src={selectedPkg.refImage} 
+                  alt={selectedPkg.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-sm" style={{ color: selectedPkg.accent }}>{selectedPkg.tagline}</p>
+                  <p className="text-white/60 text-xs mt-1">{selectedPkg.description}</p>
+                </div>
+                {selectedPkg.allInclusive && (
+                  <div className="absolute top-3 right-3 bg-gradient-to-r from-yellow-500 to-amber-500 text-black text-xs font-bold px-3 py-1 rounded-full">
+                    All Inclusive
+                  </div>
+                )}
+              </div>
+
               {/* Package Stats */}
               <div className={`p-5 rounded-xl bg-gradient-to-br ${selectedPkg.gradient} border border-white/10`}>
                 <div className="grid grid-cols-3 gap-4 text-center">
@@ -559,8 +874,10 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                     <p className="text-xs text-white/50">คน</p>
                   </div>
                   <div>
-                    <p className="text-lg font-light" style={{ color: selectedPkg.accent }}>฿{formatPrice(selectedPkg.price.min)}</p>
-                    <p className="text-xs text-white/50">เริ่มต้น</p>
+                    <p className="text-lg font-light" style={{ color: selectedPkg.accent }}>฿{formatPrice(totalPrice)}</p>
+                    <p className="text-xs text-white/50">
+                      {calculateAddOnPrice() > 0 ? 'รวม Add-ons' : 'เริ่มต้น'}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -569,7 +886,7 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
               <div className="rounded-xl border border-white/10 overflow-hidden">
                 <button onClick={() => setShowIncludes(!showIncludes)} className="w-full p-4 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
                   <span className="text-sm flex items-center gap-2 text-white/70">
-                    <Check className="w-4 h-4 text-green-500/70" />รายการที่รวมในแพ็คเกจ
+                    <Check className="w-4 h-4 text-green-500/70" />รายการที่รวมในแพ็คเกจ ({selectedPkg.includes.length} รายการ)
                   </span>
                   {showIncludes ? <ChevronUp className="w-4 h-4 text-white/30" /> : <ChevronDown className="w-4 h-4 text-white/30" />}
                 </button>
@@ -588,6 +905,33 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                 </AnimatePresence>
               </div>
 
+              {/* Customize Add-ons Button */}
+              {!selectedPkg.allInclusive && (
+                <button
+                  onClick={() => setPackageStep('customize')}
+                  className="w-full p-4 rounded-xl border border-dashed border-purple-500/30 bg-purple-900/10 hover:bg-purple-900/20 transition-colors text-left"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                        <Sparkles className="w-5 h-5 text-purple-400" />
+                      </div>
+                      <div>
+                        <p className="text-purple-300 font-medium">ปรับแต่ง Add-ons</p>
+                        <p className="text-white/40 text-xs">เลือกโลงศพ, ธีมดอกไม้, บริการเสริม</p>
+                      </div>
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-purple-400/50" />
+                  </div>
+                  {calculateAddOnPrice() > 0 && (
+                    <div className="mt-3 pt-3 border-t border-purple-500/20 flex items-center justify-between text-sm">
+                      <span className="text-white/50">Add-ons ที่เลือก</span>
+                      <span className="text-purple-300">+฿{formatPrice(calculateAddOnPrice())}</span>
+                    </div>
+                  )}
+                </button>
+              )}
+
               {/* Contact Form */}
               <div className="space-y-4 pt-2">
                 <p className="text-sm text-white/40">ข้อมูลติดต่อกลับ</p>
@@ -605,20 +949,31 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-amber-700/50 focus:outline-none text-white placeholder-white/25 transition-colors"
                   placeholder="เบอร์โทรศัพท์ *"
                 />
-                <input
-                  type="text"
-                  value={contactForm.line}
-                  onChange={(e) => setContactForm({ ...contactForm, line: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-amber-700/50 focus:outline-none text-white placeholder-white/25 transition-colors"
-                  placeholder="LINE ID (ถ้ามี)"
-                />
                 <textarea
                   value={contactForm.note}
                   onChange={(e) => setContactForm({ ...contactForm, note: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-amber-700/50 focus:outline-none text-white placeholder-white/25 resize-none transition-colors"
-                  rows={3}
+                  rows={2}
                   placeholder="หมายเหตุเพิ่มเติม"
                 />
+              </div>
+
+              {/* Summary & Submit */}
+              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-white/60">แพ็คเกจ {selectedPkg.name}</span>
+                  <span className="text-white">฿{formatPrice(selectedPkg.price.min)}</span>
+                </div>
+                {calculateAddOnPrice() > 0 && (
+                  <div className="flex items-center justify-between mb-3 text-sm">
+                    <span className="text-white/60">Add-ons</span>
+                    <span className="text-purple-300">+฿{formatPrice(calculateAddOnPrice())}</span>
+                  </div>
+                )}
+                <div className="border-t border-white/10 pt-3 flex items-center justify-between">
+                  <span className="text-white font-medium">รวมประมาณ</span>
+                  <span className="text-xl font-bold" style={{ color: selectedPkg.accent }}>฿{formatPrice(totalPrice)}</span>
+                </div>
               </div>
 
               <button
@@ -626,14 +981,190 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                 disabled={!contactForm.name || !contactForm.phone}
                 className="w-full py-4 rounded-xl bg-gradient-to-r from-amber-700 to-amber-800 text-white font-medium hover:from-amber-600 hover:to-amber-700 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               >
-                ส่งข้อมูล
+                ส่งข้อมูล • ฿{formatPrice(totalPrice)}
+              </button>
+            </motion.div>
+          )}
+
+          {/* ==================== CUSTOMIZE ADD-ONS ==================== */}
+          {mode === 'package' && packageStep === 'customize' && selectedPkg && (
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
+              <div className="flex items-center gap-4">
+                <button onClick={() => setPackageStep('detail')} className="p-2 -ml-2 rounded-lg hover:bg-white/5">
+                  <ChevronLeft className="w-5 h-5 text-white/40" />
+                </button>
+                <div>
+                  <h2 className="text-xl font-medium">ปรับแต่ง Add-ons</h2>
+                  <p className="text-white/40 text-sm">{selectedPkg.name}</p>
+                </div>
+              </div>
+
+              {/* Coffin Selection */}
+              <div className="space-y-3">
+                <h3 className="text-sm font-medium text-white/80 flex items-center gap-2">
+                  <span>🪦</span> เลือกโลงศพ
+                </h3>
+                <div className="grid grid-cols-1 gap-2">
+                  {coffinOptions.map(coffin => {
+                    const isIncluded = coffin.includedIn.includes(selectedPkg.id);
+                    const isSelected = selectedCoffin === coffin.id;
+                    const priceDisplay = isIncluded ? 'รวมในแพ็คเกจ' : coffin.price === 0 ? 'ฟรี' : `+฿${formatPrice(coffin.price)}`;
+                    
+                    return (
+                      <button
+                        key={coffin.id}
+                        onClick={() => setSelectedCoffin(coffin.id)}
+                        className={`p-3 rounded-xl text-left transition-all border ${
+                          isSelected 
+                            ? 'border-amber-500/50 bg-amber-900/20' 
+                            : 'border-white/10 bg-white/[0.02] hover:border-white/20'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src={coffin.image} alt={coffin.name} className="w-full h-full object-cover" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className={`font-medium text-sm ${isSelected ? 'text-amber-300' : 'text-white'}`}>{coffin.name}</p>
+                            <p className="text-white/40 text-xs">{coffin.description}</p>
+                          </div>
+                          <div className="text-right flex-shrink-0">
+                            <p className={`text-sm ${isIncluded ? 'text-green-400' : isSelected ? 'text-amber-300' : 'text-white/60'}`}>
+                              {priceDisplay}
+                            </p>
+                          </div>
+                          {isSelected && (
+                            <Check className="w-5 h-5 text-amber-400 flex-shrink-0" />
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Flower Theme Selection */}
+              <div className="space-y-3">
+                <h3 className="text-sm font-medium text-white/80 flex items-center gap-2">
+                  <span>💐</span> ธีมดอกไม้
+                </h3>
+                <div className="grid grid-cols-1 gap-2">
+                  {flowerThemes.map(flower => {
+                    const isIncluded = flower.includedIn.includes(selectedPkg.id);
+                    const isSelected = selectedFlower === flower.id;
+                    const priceDisplay = isIncluded ? 'รวมในแพ็คเกจ' : flower.price === 0 ? 'ฟรี' : `+฿${formatPrice(flower.price)}`;
+                    
+                    return (
+                      <button
+                        key={flower.id}
+                        onClick={() => setSelectedFlower(flower.id)}
+                        className={`p-3 rounded-xl text-left transition-all border ${
+                          isSelected 
+                            ? 'border-pink-500/50 bg-pink-900/20' 
+                            : 'border-white/10 bg-white/[0.02] hover:border-white/20'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src={flower.image} alt={flower.name} className="w-full h-full object-cover" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className={`font-medium text-sm ${isSelected ? 'text-pink-300' : 'text-white'}`}>{flower.name}</p>
+                            <p className="text-white/40 text-xs">{flower.description}</p>
+                          </div>
+                          <div className="text-right flex-shrink-0">
+                            <p className={`text-sm ${isIncluded ? 'text-green-400' : isSelected ? 'text-pink-300' : 'text-white/60'}`}>
+                              {priceDisplay}
+                            </p>
+                          </div>
+                          {isSelected && (
+                            <Check className="w-5 h-5 text-pink-400 flex-shrink-0" />
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Extra Services */}
+              <div className="space-y-3">
+                <h3 className="text-sm font-medium text-white/80 flex items-center gap-2">
+                  <span>✨</span> บริการเสริม
+                </h3>
+                <div className="grid grid-cols-1 gap-2">
+                  {extraServices.map(service => {
+                    const isIncluded = service.includedIn.includes(selectedPkg.id);
+                    const isSelected = selectedExtras.includes(service.id);
+                    const priceDisplay = isIncluded ? 'รวมในแพ็คเกจ' : `+฿${formatPrice(service.price)}`;
+                    
+                    return (
+                      <button
+                        key={service.id}
+                        onClick={() => !isIncluded && toggleExtra(service.id)}
+                        disabled={isIncluded}
+                        className={`p-3 rounded-xl text-left transition-all border ${
+                          isIncluded
+                            ? 'border-green-500/30 bg-green-900/10 cursor-default'
+                            : isSelected 
+                              ? 'border-purple-500/50 bg-purple-900/20' 
+                              : 'border-white/10 bg-white/[0.02] hover:border-white/20'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                            isIncluded ? 'bg-green-500/20' : isSelected ? 'bg-purple-500/20' : 'bg-white/5'
+                          }`}>
+                            {isIncluded ? (
+                              <Check className="w-4 h-4 text-green-400" />
+                            ) : isSelected ? (
+                              <Check className="w-4 h-4 text-purple-400" />
+                            ) : (
+                              <span className="w-4 h-4 rounded border border-white/20" />
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className={`font-medium text-sm ${isIncluded ? 'text-green-300' : isSelected ? 'text-purple-300' : 'text-white'}`}>
+                              {service.name}
+                            </p>
+                            <p className="text-white/40 text-xs">{service.description}</p>
+                          </div>
+                          <div className="text-right flex-shrink-0">
+                            <p className={`text-sm ${isIncluded ? 'text-green-400' : isSelected ? 'text-purple-300' : 'text-white/60'}`}>
+                              {priceDisplay}
+                            </p>
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Summary */}
+              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 sticky bottom-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-white/60 text-sm">Add-ons เพิ่มเติม</span>
+                  <span className="text-purple-300">+฿{formatPrice(calculateAddOnPrice())}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-white font-medium">รวมทั้งหมด</span>
+                  <span className="text-xl font-bold" style={{ color: selectedPkg.accent }}>฿{formatPrice(totalPrice)}</span>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setPackageStep('detail')}
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-purple-700 text-white font-medium hover:from-purple-500 hover:to-purple-600 transition-all"
+              >
+                บันทึกและกลับ
               </button>
             </motion.div>
           )}
 
           {/* ==================== QUIZ MODE ==================== */}
           {mode === 'quiz' && quizStep < 3 && currentQuestion && (
-            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-5">
               <div className="flex items-center justify-between">
                 <button onClick={() => { if (quizStep > 0) setQuizStep(quizStep - 1); else handleReset(); }} className="p-2 -ml-2 rounded-lg hover:bg-white/5">
                   <ChevronLeft className="w-5 h-5 text-white/40" />
@@ -647,16 +1178,16 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
               {/* Progress */}
               <div className="flex gap-2">
                 {[0, 1, 2].map(i => (
-                  <div key={i} className={`h-0.5 flex-1 rounded-full transition-all duration-500 ${i <= quizStep ? 'bg-purple-500' : 'bg-white/10'}`} />
+                  <div key={i} className={`h-1.5 flex-1 rounded-full transition-all duration-500 ${i <= quizStep ? 'bg-purple-500' : 'bg-white/10'}`} />
                 ))}
               </div>
 
               {/* Question */}
-              <div>
-                <h2 className="text-xl font-medium leading-relaxed">{currentQuestion.question}</h2>
+              <div className="text-center py-1">
+                <h2 className="text-lg md:text-xl font-medium leading-relaxed">{currentQuestion.question}</h2>
               </div>
 
-              {/* Options */}
+              {/* Options - Much Larger Cards */}
               <div className="space-y-3">
                 {currentQuestion.options.map((option, index) => {
                   const isSelected = briefAnswers[currentQuestion.id as keyof BriefAnswer] === option.id;
@@ -664,57 +1195,85 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   return (
                     <motion.button
                       key={option.id}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: index * 0.08 }}
                       whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
                       onClick={() => handleQuizAnswer(currentQuestion.id, option.id)}
-                      className={`w-full relative overflow-hidden rounded-xl text-left transition-all border ${
+                      className={`w-full relative overflow-hidden rounded-2xl text-left transition-all border-2 ${
                         isSelected 
-                          ? 'border-purple-500/50 ring-1 ring-purple-500/30' 
-                          : 'border-white/10 hover:border-white/20'
+                          ? 'border-purple-500 ring-2 ring-purple-500/30 shadow-lg shadow-purple-500/20' 
+                          : 'border-white/10 hover:border-white/30'
                       }`}
                     >
-                      {/* Background Image */}
-                      <div className="absolute inset-0">
-                        <img 
-                          src={option.image} 
-                          alt="" 
-                          className="w-full h-full object-cover"
-                        />
-                        {/* Gradient Overlay */}
-                        <div className={`absolute inset-0 transition-all ${
-                          isSelected 
-                            ? 'bg-gradient-to-r from-purple-900/90 via-purple-900/80 to-purple-900/60' 
-                            : 'bg-gradient-to-r from-black/90 via-black/80 to-black/60'
-                        }`} />
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="relative p-4">
-                        <div className="flex items-start gap-4">
-                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors backdrop-blur-sm ${
-                            isSelected ? 'bg-purple-500/30' : 'bg-white/10'
-                          }`}>
-                            <Icon className={`w-5 h-5 transition-colors ${isSelected ? 'text-purple-300' : 'text-white/70'}`} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className={`font-medium text-sm ${isSelected ? 'text-white' : 'text-white/90'}`}>{option.label}</p>
-                            <p className={`text-xs mt-0.5 ${isSelected ? 'text-purple-300' : 'text-purple-400/80'}`}>{option.sublabel}</p>
-                            <p className="text-xs text-white/50 mt-1">{option.description}</p>
-                            {option.urgent && (
-                              <p className="text-xs text-amber-400 mt-2 flex items-center gap-1">
-                                <Clock className="w-3 h-3" /> ติดต่อกลับภายใน 1 ชั่วโมง
+                      {/* Two-Column Layout: Image Left, Content Right */}
+                      <div className="flex">
+                        {/* Image Section - Fixed Width */}
+                        <div className="relative w-32 md:w-40 flex-shrink-0 overflow-hidden">
+                          <img 
+                            src={option.image} 
+                            alt="" 
+                            className={`w-full h-full object-cover transition-transform duration-500 ${isSelected ? 'scale-110' : ''}`}
+                            style={{ minHeight: '120px' }}
+                          />
+                          {/* Gradient Overlay */}
+                          <div className={`absolute inset-0 transition-all ${
+                            isSelected 
+                              ? 'bg-gradient-to-r from-transparent via-purple-900/30 to-purple-900/80' 
+                              : 'bg-gradient-to-r from-transparent via-black/20 to-black/70'
+                          }`} />
+                        </div>
+                        
+                        {/* Content Section */}
+                        <div className={`flex-1 p-4 flex flex-col justify-center transition-colors ${isSelected ? 'bg-purple-900/20' : 'bg-black/30'}`}>
+                          <div className="flex items-start gap-3">
+                            {/* Icon */}
+                            <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
+                              isSelected ? 'bg-purple-500/30' : 'bg-white/10'
+                            }`}>
+                              <Icon className={`w-4 h-4 ${isSelected ? 'text-purple-300' : 'text-white/70'}`} />
+                            </div>
+                            
+                            {/* Text */}
+                            <div className="flex-1 min-w-0">
+                              <p className={`font-semibold text-sm leading-tight ${isSelected ? 'text-white' : 'text-white/90'}`}>
+                                {option.label}
                               </p>
+                              <p className={`text-xs mt-0.5 ${isSelected ? 'text-purple-300' : 'text-purple-400/70'}`}>
+                                {option.sublabel}
+                              </p>
+                              <p className="text-[11px] text-white/40 mt-1.5 leading-relaxed line-clamp-2">
+                                {option.description}
+                              </p>
+                              {option.urgent && (
+                                <p className="text-[11px] text-amber-400 mt-1.5 flex items-center gap-1 font-medium">
+                                  <Clock className="w-3 h-3" /> ติดต่อกลับภายใน 1 ชม.
+                                </p>
+                              )}
+                            </div>
+
+                            {/* Check mark */}
+                            {isSelected && (
+                              <motion.div 
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center flex-shrink-0"
+                              >
+                                <Check className="w-3.5 h-3.5 text-white" />
+                              </motion.div>
                             )}
                           </div>
-                          {isSelected && (
-                            <div className="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center flex-shrink-0">
-                              <Check className="w-3 h-3 text-white" />
-                            </div>
-                          )}
                         </div>
                       </div>
+
+                      {/* Urgent Badge - Floating */}
+                      {option.urgent && !isSelected && (
+                        <div className="absolute top-2 left-2 flex items-center gap-1 bg-amber-500 text-black px-2 py-0.5 rounded-full text-[10px] font-bold">
+                          <Clock className="w-2.5 h-2.5" />
+                          <span>เร่งด่วน</span>
+                        </div>
+                      )}
                     </motion.button>
                   );
                 })}
@@ -736,7 +1295,7 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
 
           {/* ==================== RECOMMENDATION ==================== */}
           {mode === 'recommendation' && recommendedPkg && (
-            <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="space-y-8">
+            <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="space-y-6">
               <div className="text-center">
                 <motion.div
                   initial={{ scale: 0 }}
@@ -750,32 +1309,220 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                 <p className="text-white/40 text-sm">จากคำตอบของคุณ เราแนะนำ</p>
               </div>
 
-              {/* Recommended Package Card */}
+              {/* Gallery Slider */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.25 }}
+                className="space-y-3"
+              >
+                {/* Main Image with Navigation */}
+                <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-black/50">
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={recGalleryIndex}
+                      src={recommendedPkg.gallery[recGalleryIndex]} 
+                      alt={`${recommendedPkg.name} - ${recGalleryIndex + 1}`}
+                      className="w-full h-full object-cover"
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </AnimatePresence>
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                  
+                  {/* Navigation Arrows */}
+                  <button 
+                    onClick={() => setRecGalleryIndex(prev => prev === 0 ? recommendedPkg.gallery.length - 1 : prev - 1)}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/70 hover:text-white hover:bg-black/70 transition-all"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button 
+                    onClick={() => setRecGalleryIndex(prev => prev === recommendedPkg.gallery.length - 1 ? 0 : prev + 1)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/70 hover:text-white hover:bg-black/70 transition-all"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+
+                  {/* Package Info Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center">
+                        <recommendedPkg.icon className="w-6 h-6" style={{ color: recommendedPkg.accent }} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold">{recommendedPkg.name}</h3>
+                        <p className="text-white/60 text-sm">{recommendedPkg.nameTh}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Recommended Badge */}
+                  {recommendedPkg.recommended && (
+                    <div className="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-lg">
+                      <Sparkles className="w-3.5 h-3.5" /> แนะนำ
+                    </div>
+                  )}
+
+                  {/* Image Counter */}
+                  <div className="absolute top-3 left-3 bg-black/50 backdrop-blur-sm text-white/80 text-xs px-3 py-1.5 rounded-full">
+                    {recGalleryIndex + 1} / {recommendedPkg.gallery.length}
+                  </div>
+                </div>
+
+                {/* Thumbnails */}
+                <div className="flex gap-2 justify-center">
+                  {recommendedPkg.gallery.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setRecGalleryIndex(idx)}
+                      className={`relative w-16 h-12 rounded-lg overflow-hidden transition-all ${
+                        idx === recGalleryIndex 
+                          ? 'ring-2 ring-purple-500 ring-offset-2 ring-offset-black scale-105' 
+                          : 'opacity-50 hover:opacity-80'
+                      }`}
+                    >
+                      <img src={img} alt="" className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+
+                {/* Caption */}
+                <p className="text-center text-white/40 text-xs">
+                  * รูปตัวอย่างเพื่อประกอบการตัดสินใจ ผลงานจริงอาจแตกต่างตามความต้องการ
+                </p>
+              </motion.div>
+
+              {/* Package Stats */}
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className={`p-6 rounded-xl bg-gradient-to-br ${recommendedPkg.gradient} border border-white/10`}
+                className={`p-5 rounded-xl bg-gradient-to-br ${recommendedPkg.gradient} border border-white/10`}
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
-                    <recommendedPkg.icon className="w-6 h-6" style={{ color: recommendedPkg.accent }} />
+                <p className="text-sm mb-4" style={{ color: recommendedPkg.accent }}>{recommendedPkg.tagline}</p>
+                <p className="text-white/60 text-sm mb-4">{recommendedPkg.description}</p>
+                
+                <div className="grid grid-cols-3 gap-4 text-center py-4 border-y border-white/10">
+                  <div>
+                    <p className="text-2xl font-light" style={{ color: recommendedPkg.accent }}>{recommendedPkg.days}</p>
+                    <p className="text-xs text-white/50">วัน</p>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-medium">{recommendedPkg.name}</h3>
-                    <p className="text-white/50 text-sm">{recommendedPkg.nameTh}</p>
-                    <p className="text-sm mt-1" style={{ color: recommendedPkg.accent }}>{recommendedPkg.tagline}</p>
+                  <div>
+                    <p className="text-2xl font-light" style={{ color: recommendedPkg.accent }}>{recommendedPkg.maxGuests}</p>
+                    <p className="text-xs text-white/50">คน</p>
+                  </div>
+                  <div>
+                    <p className="text-xl font-medium" style={{ color: recommendedPkg.accent }}>฿{formatPrice(recommendedPkg.price.min)}</p>
+                    <p className="text-xs text-white/50">เริ่มต้น</p>
                   </div>
                 </div>
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-3 text-sm text-white/50">
-                    <span>{recommendedPkg.days} วัน</span>
-                    <span className="w-1 h-1 rounded-full bg-white/30" />
-                    <span>รองรับ {recommendedPkg.maxGuests} คน</span>
+
+                {/* Price Range Note */}
+                <div className="mt-4 p-3 rounded-lg bg-black/20 text-center">
+                  <p className="text-white/50 text-xs">ราคาประมาณการ</p>
+                  <p className="text-lg font-medium mt-1" style={{ color: recommendedPkg.accent }}>
+                    ฿{formatPrice(recommendedPkg.price.min)} - ฿{formatPrice(recommendedPkg.price.max)}
+                  </p>
+                  <p className="text-white/40 text-xs mt-1">ขึ้นอยู่กับ Add-ons ที่เลือก</p>
+                </div>
+              </motion.div>
+
+              {/* What's Included */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.35 }}
+                className="rounded-xl border border-white/10 overflow-hidden"
+              >
+                <div className="p-4 bg-white/[0.02] border-b border-white/10">
+                  <p className="text-sm font-medium flex items-center gap-2">
+                    <Check className="w-4 h-4 text-green-500" />
+                    บริการที่รวมในแพ็คเกจ ({recommendedPkg.includes.length} รายการ)
+                  </p>
+                </div>
+                <div className="p-4 grid grid-cols-1 gap-2 max-h-48 overflow-y-auto">
+                  {recommendedPkg.includes.map((item, i) => (
+                    <div key={i} className="flex items-start gap-2 text-sm">
+                      <span className="text-green-500/70 mt-0.5">✓</span>
+                      <span className="text-white/60">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Upgrade Options Preview */}
+              {!recommendedPkg.allInclusive && (
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="p-4 rounded-xl border border-dashed border-purple-500/30 bg-purple-900/10"
+                >
+                  <p className="text-sm text-purple-300 font-medium mb-3">💡 สามารถอัพเกรดเพิ่มเติมได้</p>
+                  <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                    <div className="p-2 rounded-lg bg-black/20">
+                      <span className="text-lg">🪦</span>
+                      <p className="text-white/50 mt-1">โลงศพ</p>
+                    </div>
+                    <div className="p-2 rounded-lg bg-black/20">
+                      <span className="text-lg">💐</span>
+                      <p className="text-white/50 mt-1">ธีมดอกไม้</p>
+                    </div>
+                    <div className="p-2 rounded-lg bg-black/20">
+                      <span className="text-lg">✨</span>
+                      <p className="text-white/50 mt-1">บริการเสริม</p>
+                    </div>
                   </div>
-                  <div className="text-lg font-medium" style={{ color: recommendedPkg.accent }}>
-                    ฿{formatPrice(recommendedPkg.price.min)}+
-                  </div>
+                  <p className="text-white/40 text-xs text-center mt-3">ปรับแต่งได้หลังจากติดต่อทีมงาน</p>
+                </motion.div>
+              )}
+
+              {/* Why This Package */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.45 }}
+                className="p-4 rounded-xl bg-white/[0.02] border border-white/10"
+              >
+                <p className="text-sm text-white/50 mb-3">ทำไมเราแนะนำแพ็คเกจนี้?</p>
+                <div className="space-y-2 text-sm">
+                  {briefAnswers.who && (
+                    <div className="flex items-start gap-2">
+                      <span className="text-purple-400">•</span>
+                      <span className="text-white/70">
+                        {briefAnswers.who === 'self' && 'เหมาะสำหรับการวางแผนล่วงหน้าด้วยตัวเอง'}
+                        {briefAnswers.who === 'family' && 'ออกแบบมาสำหรับครอบครัวที่ต้องการความใส่ใจ'}
+                        {briefAnswers.who === 'passed' && 'พร้อมให้บริการอย่างเร่งด่วนและครบวงจร'}
+                      </span>
+                    </div>
+                  )}
+                  {briefAnswers.style && (
+                    <div className="flex items-start gap-2">
+                      <span className="text-purple-400">•</span>
+                      <span className="text-white/70">
+                        {briefAnswers.style === 'minimalist' && 'สไตล์เรียบง่าย สงบ ไม่หรูหราเกินไป'}
+                        {briefAnswers.style === 'elegant' && 'ความหรูหราสง่างาม สมเกียรติ'}
+                        {briefAnswers.style === 'botanical' && 'ธรรมชาติ ดอกไม้ สดใส'}
+                        {briefAnswers.style === 'personalized' && 'ปรับแต่งได้ตามความต้องการเฉพาะ'}
+                      </span>
+                    </div>
+                  )}
+                  {briefAnswers.mood && (
+                    <div className="flex items-start gap-2">
+                      <span className="text-purple-400">•</span>
+                      <span className="text-white/70">
+                        {briefAnswers.mood === 'warm' && 'บรรยากาศอบอุ่น ใกล้ชิด ครอบครัว'}
+                        {briefAnswers.mood === 'peaceful' && 'สงบ สันติ เรียบง่าย'}
+                        {briefAnswers.mood === 'grand' && 'สมเกียรติ ยิ่งใหญ่ เป็นทางการ'}
+                        {briefAnswers.mood === 'celebration' && 'รำลึกถึงความทรงจำที่ดี เฉลิมฉลองชีวิต'}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
 
@@ -800,7 +1547,7 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   value={contactForm.note}
                   onChange={(e) => setContactForm({ ...contactForm, note: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-purple-500/50 focus:outline-none text-white placeholder-white/25 resize-none"
-                  rows={3}
+                  rows={2}
                   placeholder="งบประมาณ, จำนวนแขก, หมายเหตุ"
                 />
               </div>
@@ -811,13 +1558,23 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   disabled={!contactForm.name || !contactForm.phone}
                   className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-purple-700 text-white font-medium hover:from-purple-500 hover:to-purple-600 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                 >
-                  รับข้อเสนอพิเศษ
+                  รับข้อเสนอพิเศษ • {recommendedPkg.name}
                 </button>
                 <button
-                  onClick={handleSkipToContact}
+                  onClick={() => {
+                    setSelectedPackageId(recommendedPkg.id);
+                    setMode('package');
+                    setPackageStep('detail');
+                  }}
+                  className="w-full py-3 border border-white/10 rounded-xl text-white/60 hover:text-white hover:border-white/30 text-sm transition-all"
+                >
+                  ดูรายละเอียดเพิ่มเติม / ปรับแต่ง Add-ons
+                </button>
+                <button
+                  onClick={handleReset}
                   className="w-full py-3 text-white/30 hover:text-white/50 text-sm transition-colors"
                 >
-                  ต้องการให้พนักงานติดต่อกลับแทน
+                  เริ่มใหม่
                 </button>
               </div>
             </motion.div>
