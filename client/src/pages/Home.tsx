@@ -31,6 +31,8 @@ import {
   Clock,
   Image,
   X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,7 +45,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import ServiceSelector from "@/components/ServiceSelector";
 
 // Icons map for the dimensions section
@@ -271,6 +273,25 @@ export default function Home() {
 
   // State สำหรับ Floating Buttons (expand/collapse)
   const [showFloatingMenu, setShowFloatingMenu] = useState(false);
+
+  // State สำหรับ About Section Slider
+  const [aboutSlideIndex, setAboutSlideIndex] = useState(0);
+
+  // รูปภาพสำหรับ About Section Slider
+  const aboutImages = [
+    { src: "/About_Sasan_1.png", label: "ทีมงานมืออาชีพ" },
+    { src: "/About_Sasan_2.png", label: "ออกแบบงานอย่างพิถีพิถัน" },
+    { src: "/About_Sasan_3.png", label: "สำนักงานใหญ่ SASAN" },
+    { src: "/About_Sasan_4.png", label: "อาคารสำนักงาน" },
+  ];
+
+  // Auto-slide effect สำหรับ About Section
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAboutSlideIndex((prev) => (prev + 1) % aboutImages.length);
+    }, 5000); // เปลี่ยนรูปทุก 5 วินาที
+    return () => clearInterval(interval);
+  }, []);
 
   // Mock contact info - เปลี่ยนเป็นของจริงได้
   const contactInfo = {
@@ -891,14 +912,14 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { src: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&h=400&fit=crop", label: "พิธีไว้อาลัย" },
-              { src: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&h=400&fit=crop", label: "ดอกไม้ตกแต่ง" },
-              { src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&h=400&fit=crop", label: "จัดสถานที่" },
-              { src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop", label: "งานพิธี" },
-              { src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&h=400&fit=crop", label: "ดอกไม้จันทน์" },
-              { src: "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=600&h=400&fit=crop", label: "โต๊ะหมู่บูชา" },
-              { src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&h=400&fit=crop", label: "งานระดับ VIP" },
-              { src: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&h=400&fit=crop", label: "บรรยากาศงาน" },
+              { src: "/OurWork1.jpg", label: "ทีมวางแผนงาน" },
+              { src: "/OurWork2.png", label: "พิธีไว้อาลัย" },
+              { src: "/OurWork3.jpg", label: "บริการครบวงจร" },
+              { src: "/OurWork4.png", label: "ดูแลด้วยใจ" },
+              { src: "/OurWork5.png", label: "วางแผนพิธี" },
+              { src: "/OurWork6.png", label: "ขบวนพิธี" },
+              { src: "/OurWork7.png", label: "พิธีกรรมไทย" },
+              { src: "/OurWork8.png", label: "จัดดอกไม้" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -940,7 +961,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Us Section */}
+      {/* About Us Section - with Image Slider */}
       <section className="py-24 bg-black relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -986,23 +1007,72 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Image / Visual */}
+            {/* Image Slider */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-square rounded-2xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
-                  alt="SASAN Team"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+              <div className="aspect-square rounded-2xl overflow-hidden relative group">
+                {/* Main Image with Animation */}
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={aboutSlideIndex}
+                    src={aboutImages[aboutSlideIndex].src}
+                    alt={aboutImages[aboutSlideIndex].label}
+                    className="w-full h-full object-cover absolute inset-0"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.7, ease: "easeInOut" }}
+                  />
+                </AnimatePresence>
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                
+                {/* Navigation Arrows */}
+                <button
+                  onClick={() => setAboutSlideIndex((prev) => (prev - 1 + aboutImages.length) % aboutImages.length)}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+                >
+                  <ChevronLeft className="w-6 h-6 text-white" />
+                </button>
+                <button
+                  onClick={() => setAboutSlideIndex((prev) => (prev + 1) % aboutImages.length)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+                >
+                  <ChevronRight className="w-6 h-6 text-white" />
+                </button>
+                
+                {/* Slide Indicators (Dots) */}
+                <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                  {aboutImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setAboutSlideIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === aboutSlideIndex 
+                          ? "bg-gold w-6" 
+                          : "bg-white/40 hover:bg-white/60"
+                      }`}
+                    />
+                  ))}
+                </div>
+                
+                {/* Image Label */}
+                <motion.div 
+                  key={`label-${aboutSlideIndex}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="absolute bottom-24 left-6 text-white text-sm font-medium z-10"
+                >
+                  {aboutImages[aboutSlideIndex].label}
+                </motion.div>
               </div>
+              
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-gold/30 rounded-2xl" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gold/10 rounded-2xl -z-10" />
               
               {/* Stats overlay */}
