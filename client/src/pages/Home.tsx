@@ -87,9 +87,9 @@ const servicePackages = [
       "ทีมงานดูแล 8-10 คน",
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&h=400&fit=crop",
+      "/package-gallery/TheL01.png",
+      "/package-gallery/TheL02.png",
+      "/package-gallery/TheL03.png",
     ],
   },
   {
@@ -126,9 +126,9 @@ const servicePackages = [
       "ทีมงานดูแล 12-15 คน",
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&h=400&fit=crop",
+      "/package-gallery/TheN01.png",
+      "/package-gallery/TheN02.png",
+      "/package-gallery/TheN03.png",
     ],
   },
   {
@@ -172,9 +172,9 @@ const servicePackages = [
       "ทีมงานดูแล 15-20 คน",
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&h=400&fit=crop",
+      "/package-gallery/TheL01.png",
+      "/package-gallery/TheL02.png",
+      "/package-gallery/TheL03.png",
     ],
   },
   {
@@ -222,9 +222,9 @@ const servicePackages = [
       "ทีมงานดูแลเต็มระบบ 20-25 คน",
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&h=400&fit=crop",
+      "/package-gallery/TheMP01.png",
+      "/package-gallery/TheMP02.png",
+      "/package-gallery/TheMP03.png",
     ],
   },
 ];
