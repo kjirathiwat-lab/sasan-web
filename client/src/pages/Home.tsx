@@ -293,6 +293,127 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // ============================================================
+  // Hero Video Slideshow
+  // ============================================================
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // ============================================================
+  // Package View Toggle (Cards / Table)
+  // ============================================================
+  const [packageView, setPackageView] = useState<"cards" | "table">("cards");
+
+  // ============================================================
+  // Testimonials Slider
+  // ============================================================
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+  
+  const testimonials = [
+    {
+      quote: "ทีมงาน SASAN ดูแลทุกอย่างอย่างดีมาก ในช่วงเวลาที่ยากลำบากที่สุด พวกเขาทำให้ทุกอย่างผ่านไปอย่างราบรื่นและสมเกียรติ",
+      name: "คุณสมชาย ว.",
+      role: "ครอบครัวผู้ใช้บริการ",
+      package: "The Legacy",
+      rating: 5,
+    },
+    {
+      quote: "ประทับใจมากค่ะ ตั้งแต่การให้คำปรึกษาจนถึงวันสุดท้าย ทีมงานใส่ใจทุกรายละเอียด งานออกมาสวยงามเกินคาด",
+      name: "คุณวิภา ส.",
+      role: "ครอบครัวผู้ใช้บริการ",
+      package: "The Narrative",
+      rating: 5,
+    },
+    {
+      quote: "บริการระดับพรีเมียมจริงๆ ครับ ราคาสมเหตุสมผล ไม่มีค่าใช้จ่ายแอบแฝง แนะนำเลยครับ",
+      name: "คุณธนา พ.",
+      role: "ครอบครัวผู้ใช้บริการ",
+      package: "The Masterpiece",
+      rating: 5,
+    },
+    {
+      quote: "ขอบคุณทีมงาน SASAN ที่ช่วยจัดงานให้คุณพ่อได้อย่างสมเกียรติ ทุกอย่างเป็นไปตามที่ตกลงกันไว้ ไม่มีค่าใช้จ่ายเพิ่มเติม",
+      name: "คุณนภา ก.",
+      role: "ครอบครัวผู้ใช้บริการ",
+      package: "The Memoir",
+      rating: 5,
+    },
+    {
+      quote: "ทีมงานมืออาชีพมาก ดูแลทุกขั้นตอนอย่างใส่ใจ งานออกมาสวยงาม ญาติๆ ทุกคนประทับใจ",
+      name: "คุณประยุทธ์ จ.",
+      role: "ครอบครัวผู้ใช้บริการ",
+      package: "The Narrative",
+      rating: 5,
+    },
+  ];
+
+  // Auto-slide สำหรับ Testimonials
+  useEffect(() => {
+    const testimonialInterval = setInterval(() => {
+      setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(testimonialInterval);
+  }, []);
+
+  const heroSlides = [
+    {
+      video: "/01.mp4",
+    },
+    {
+      video: "/02.mp4",
+    },
+    {
+      video: "/03.mp4",
+    },
+  ];
+
+  useEffect(() => {
+    const heroInterval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 8000); // เปลี่ยนทุก 8 วินาที (วิดีโอใช้เวลานานกว่ารูป)
+    return () => clearInterval(heroInterval);
+  }, []);
+
+  // ============================================================
+  // Process Steps Data
+  // ============================================================
+  const processSteps = [
+    {
+      icon: Phone,
+      title: "ติดต่อปรึกษา",
+      description: "โทรหาเรา 24 ชม. ทีมงานพร้อมรับฟังและให้คำปรึกษาฟรี",
+      time: "ทันที",
+      timeBg: "bg-green-500/20 text-green-400",
+    },
+    {
+      icon: FileText,
+      title: "วางแผนร่วมกัน",
+      description: "นัดพบเพื่อพูดคุยรายละเอียด เลือกแพ็คเกจและบริการ",
+      time: "1-2 ชม.",
+      timeBg: "bg-blue-500/20 text-blue-400",
+    },
+    {
+      icon: Feather,
+      title: "เตรียมงาน",
+      description: "ทีมงานจัดเตรียมทุกอย่าง ดอกไม้ สถานที่ อุปกรณ์",
+      time: "1-3 วัน",
+      timeBg: "bg-purple-500/20 text-purple-400",
+    },
+    {
+      icon: Heart,
+      title: "ดำเนินพิธี",
+      description: "ดูแลทุกรายละเอียดตลอดงาน ให้ทุกอย่างราบรื่น",
+      time: "3-7 วัน",
+      timeBg: "bg-amber-500/20 text-amber-400",
+    },
+    {
+      icon: Check,
+      title: "ดูแลหลังงาน",
+      description: "บริการเก็บอัฐิ ลอยอังคาร และติดตามผล",
+      time: "ตามต้องการ",
+      timeBg: "bg-pink-500/20 text-pink-400",
+    },
+  ];
+
   // Mock contact info - เปลี่ยนเป็นของจริงได้
   const contactInfo = {
     phone: "081-234-5678",
@@ -332,24 +453,45 @@ export default function Home() {
     <div className="min-h-screen bg-transparent text-white overflow-hidden selection:bg-gold selection:text-black">
       <Navigation />
 
-      {/* Hero Section */}
+      {/* Hero Section with Video Slideshow */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background - Dark texture with subtle pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900 via-black to-black opacity-80 z-0" />
-        
-        {/* Animated background particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1500 ${
+                currentSlide === index ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <video
+                src={slide.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          ))}
+          {/* Dark Overlay - เข้มขึ้นเพื่อให้เห็น Content ชัด */}
+          <div className="absolute inset-0 bg-black/60 z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 z-[2]" />
+        </div>
+
+        {/* Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-gold/20 rounded-full"
+              className="absolute w-2 h-2 bg-gold/30 rounded-full"
               style={{
                 left: `${15 + i * 15}%`,
                 top: `${20 + (i % 3) * 25}%`,
               }}
               animate={{
                 y: [0, -30, 0],
-                opacity: [0.2, 0.5, 0.2],
+                opacity: [0.3, 0.6, 0.3],
               }}
               transition={{
                 duration: 3 + i * 0.5,
@@ -360,21 +502,10 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Abstract shapes/glows - enhanced */}
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[100px]"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.08, 0.05] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[100px]"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-        />
-
+        {/* Content */}
         <motion.div
           style={{ y: y1, opacity }}
-          className="relative z-10 text-center px-4 max-w-4xl mx-auto"
+          className="relative z-20 text-center px-4 max-w-4xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -384,7 +515,7 @@ export default function Home() {
             <img
               src="/logo-sasan.png"
               alt="SASAN"
-              className="h-32 md:h-40 lg:h-48 w-auto mx-auto mb-6"
+              className="h-32 md:h-40 lg:h-48 w-auto mx-auto mb-6 drop-shadow-2xl"
             />
           </motion.div>
 
@@ -392,7 +523,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-xl md:text-3xl font-serif italic text-white/90 mb-4"
+            className="text-xl md:text-3xl font-serif italic text-white/90 mb-4 drop-shadow-lg"
           >
             "{t.hero.tagline}"
           </motion.p>
@@ -401,12 +532,12 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className={`text-lg md:text-xl text-gold/80 tracking-widest uppercase mb-8 ${language === "th" ? "font-thai" : "font-sans"}`}
+            className={`text-lg md:text-xl text-gold/90 tracking-widest uppercase mb-8 ${language === "th" ? "font-thai" : "font-sans"}`}
           >
             {t.hero.subtitle}
           </motion.p>
 
-          {/* Hero CTA Buttons */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -422,42 +553,146 @@ export default function Home() {
             </Button>
             <a
               href={`tel:${contactInfo.phone.replace(/-/g, "")}`}
-              className="flex items-center gap-2 px-6 py-3 border border-white/30 rounded-full text-white/80 hover:text-white hover:border-white/50 transition-all"
+              className="flex items-center gap-2 px-6 py-3 border border-white/30 rounded-full text-white/80 hover:text-white hover:border-white/50 transition-all backdrop-blur-sm"
             >
               <Phone className="w-4 h-4" />
               <span>โทรปรึกษาฟรี</span>
             </a>
           </motion.div>
 
-          {/* Trust badge */}
+          {/* Trust badges */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.8, duration: 0.8 }}
-            className="mt-8 flex items-center justify-center gap-6 text-white/40 text-sm"
+            className="mt-8 flex items-center justify-center gap-6 text-white/50 text-sm"
           >
             <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-500" />
+              <Check className="w-4 h-4 text-green-400" />
               <span>บริการ 24 ชม.</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-500" />
+              <Check className="w-4 h-4 text-green-400" />
               <span>ประสบการณ์ 15+ ปี</span>
             </div>
             <div className="flex items-center gap-2 hidden sm:flex">
-              <Check className="w-4 h-4 text-green-500" />
+              <Check className="w-4 h-4 text-green-400" />
               <span>ดูแลแล้ว 1,000+ งาน</span>
             </div>
           </motion.div>
         </motion.div>
 
+        {/* Slide Indicators */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                currentSlide === index 
+                  ? "w-8 bg-gold" 
+                  : "w-2 bg-white/30 hover:bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/30 z-10"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/30 z-20"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
           <ArrowDown size={32} />
         </motion.div>
+      </section>
+
+      {/* Process Steps Section */}
+      <section className="py-20 bg-gradient-to-b from-black via-zinc-950 to-black relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-gold/5 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-gold/5 rounded-full blur-[100px]" />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              ขั้นตอนการทำงานของเรา
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-4" />
+            <p className="text-white/50 text-lg">
+              เราดูแลทุกขั้นตอนอย่างใส่ใจ ตั้งแต่ต้นจนจบ
+            </p>
+          </motion.div>
+
+          <div className="relative">
+            <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-gold/0 via-gold/30 to-gold/0 hidden md:block" />
+
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative"
+                >
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold text-black text-sm font-bold flex items-center justify-center z-10 shadow-lg shadow-gold/30">
+                    {index + 1}
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5 pt-8 text-center hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 group">
+                    <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
+                      <step.icon className="w-7 h-7 text-gold" />
+                    </div>
+
+                    <h3 className="font-bold text-white mb-2 text-sm">
+                      {step.title}
+                    </h3>
+
+                    <p className="text-white/40 text-xs leading-relaxed mb-3">
+                      {step.description}
+                    </p>
+
+                    <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs ${step.timeBg}`}>
+                      <Clock className="w-3 h-3" />
+                      {step.time}
+                    </span>
+                  </div>
+
+                  {index < processSteps.length - 1 && (
+                    <div className="flex justify-center my-2 md:hidden">
+                      <ArrowDown className="w-5 h-5 text-gold/30" />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <p className="text-white/40 text-sm mb-4">พร้อมเริ่มต้นแล้วหรือยัง?</p>
+            <Button
+              onClick={() => setShowWizard(true)}
+              variant="outline"
+              className="border-gold/50 text-gold hover:bg-gold hover:text-black transition-all"
+            >
+              <Phone className="w-4 h-4 mr-2" />
+              ติดต่อปรึกษาฟรี
+            </Button>
+          </motion.div>
+        </div>
       </section>
 
       {/* Social Proof / Stats Section */}
@@ -492,6 +727,7 @@ export default function Home() {
           </motion.div>
 
           {/* Testimonials */}
+          {/* Testimonials Slider */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -501,50 +737,82 @@ export default function Home() {
             <h3 className={`text-center text-xl text-white/80 mb-8 ${language === "th" ? "font-thai" : "font-serif"}`}>
               เสียงจากครอบครัวที่ไว้วางใจ
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  quote: "ทีมงาน SASAN ดูแลทุกอย่างอย่างดีมาก ในช่วงเวลาที่ยากลำบากที่สุด พวกเขาทำให้ทุกอย่างผ่านไปอย่างราบรื่นและสมเกียรติ",
-                  name: "คุณสมชาย ว.",
-                  role: "ครอบครัวผู้ใช้บริการ",
-                  package: "The Legacy",
-                },
-                {
-                  quote: "ประทับใจมากค่ะ ตั้งแต่การให้คำปรึกษาจนถึงวันสุดท้าย ทีมงานใส่ใจทุกรายละเอียด งานออกมาสวยงามเกินคาด",
-                  name: "คุณวิภา ส.",
-                  role: "ครอบครัวผู้ใช้บริการ",
-                  package: "The Narrative",
-                },
-                {
-                  quote: "บริการระดับพรีเมียมจริงๆ ครับ ราคาสมเหตุสมผล ไม่มีค่าใช้จ่ายแอบแฝง แนะนำเลยครับ",
-                  name: "คุณธนา พ.",
-                  role: "ครอบครัวผู้ใช้บริการ",
-                  package: "The Masterpiece",
-                },
-              ].map((testimonial, index) => (
+            
+            {/* Slider Container */}
+            <div className="relative max-w-4xl mx-auto">
+              {/* Navigation Arrows */}
+              <button
+                onClick={() => setTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-10 h-10 bg-white/10 hover:bg-gold/20 border border-white/20 rounded-full flex items-center justify-center transition-all"
+              >
+                <ChevronLeft className="w-5 h-5 text-white" />
+              </button>
+              <button
+                onClick={() => setTestimonialIndex((prev) => (prev + 1) % testimonials.length)}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-10 h-10 bg-white/10 hover:bg-gold/20 border border-white/20 rounded-full flex items-center justify-center transition-all"
+              >
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+
+              {/* Testimonial Card */}
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                  className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:border-gold/30 transition-colors"
+                  key={testimonialIndex}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-12"
                 >
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-gold">★</span>
+                  {/* Quote Icon */}
+                  <div className="text-6xl text-gold/20 font-serif leading-none mb-4">"</div>
+                  
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(testimonials[testimonialIndex].rating)].map((_, i) => (
+                      <span key={i} className="text-gold text-xl">★</span>
                     ))}
                   </div>
-                  <p className="text-white/70 text-sm leading-relaxed mb-4">"{testimonial.quote}"</p>
+                  
+                  {/* Quote Text */}
+                  <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8">
+                    {testimonials[testimonialIndex].quote}
+                  </p>
+                  
+                  {/* Author */}
                   <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-white font-medium text-sm">{testimonial.name}</p>
-                      <p className="text-white/40 text-xs">{testimonial.role}</p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold/30 to-amber-500/30 flex items-center justify-center">
+                        <span className="text-gold font-bold text-lg">
+                          {testimonials[testimonialIndex].name.charAt(0)}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">{testimonials[testimonialIndex].name}</p>
+                        <p className="text-white/40 text-sm">{testimonials[testimonialIndex].role}</p>
+                      </div>
                     </div>
-                    <span className="text-xs text-gold/60 bg-gold/10 px-2 py-1 rounded">{testimonial.package}</span>
+                    <span className="text-sm text-gold/80 bg-gold/10 px-4 py-2 rounded-full border border-gold/20">
+                      {testimonials[testimonialIndex].package}
+                    </span>
                   </div>
                 </motion.div>
-              ))}
+              </AnimatePresence>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center gap-2 mt-6">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setTestimonialIndex(index)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      testimonialIndex === index 
+                        ? "w-8 bg-gold" 
+                        : "w-2 bg-white/30 hover:bg-white/50"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -658,7 +926,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2
               className={`text-4xl md:text-5xl font-bold text-white mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}
@@ -666,12 +934,132 @@ export default function Home() {
               บริการของเรา
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
-            <p className="text-white/60 text-lg tracking-widest uppercase">
+            <p className="text-white/60 text-lg tracking-widest uppercase mb-8">
               The Storytelling Collection
             </p>
+
+            {/* View Toggle */}
+            <div className="flex items-center justify-center gap-2 bg-white/5 rounded-full p-1 w-fit mx-auto">
+              <button
+                onClick={() => setPackageView("cards")}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  packageView === "cards"
+                    ? "bg-gold text-black"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                แบบการ์ด
+              </button>
+              <button
+                onClick={() => setPackageView("table")}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  packageView === "table"
+                    ? "bg-gold text-black"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                เปรียบเทียบ
+              </button>
+            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {/* Comparison Table View */}
+          {packageView === "table" && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="overflow-x-auto mb-8"
+            >
+              <table className="w-full min-w-[800px] border-collapse">
+                <thead>
+                  <tr className="border-b border-white/10">
+                    <th className="text-left p-4 text-white/50 font-normal">รายการ</th>
+                    {servicePackages.map((pkg) => (
+                      <th key={pkg.id} className="p-4 text-center">
+                        <div className={`font-bold text-lg ${pkg.accent}`}>{pkg.name}</div>
+                        <div className="text-white/50 text-sm">{pkg.nameTh}</div>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* ราคา */}
+                  <tr className="border-b border-white/5 bg-white/[0.02]">
+                    <td className="p-4 text-white/70">ราคาเริ่มต้น</td>
+                    {servicePackages.map((pkg) => (
+                      <td key={pkg.id} className="p-4 text-center">
+                        <span className={`font-bold text-xl ${pkg.accent}`}>
+                          ฿{pkg.subPackages[0].price}
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+                  {/* ระยะเวลา */}
+                  <tr className="border-b border-white/5">
+                    <td className="p-4 text-white/70">ระยะเวลางาน</td>
+                    {servicePackages.map((pkg) => (
+                      <td key={pkg.id} className="p-4 text-center text-white/80">
+                        {pkg.duration}
+                      </td>
+                    ))}
+                  </tr>
+                  {/* สถานที่ */}
+                  <tr className="border-b border-white/5 bg-white/[0.02]">
+                    <td className="p-4 text-white/70">ขนาดสถานที่</td>
+                    {servicePackages.map((pkg) => (
+                      <td key={pkg.id} className="p-4 text-center text-white/80">
+                        {pkg.venue}
+                      </td>
+                    ))}
+                  </tr>
+                  {/* จำนวนแขก */}
+                  <tr className="border-b border-white/5">
+                    <td className="p-4 text-white/70">รองรับแขก</td>
+                    {servicePackages.map((pkg) => (
+                      <td key={pkg.id} className="p-4 text-center text-white/80">
+                        {pkg.guests}
+                      </td>
+                    ))}
+                  </tr>
+                  {/* Features */}
+                  {[
+                    "ค่าเช่าศาลา",
+                    "ค่าเมรุและฌาปนกิจ",
+                    "ดอกไม้ตกแต่งหน้างาน",
+                    "ธูปเทียน",
+                    "น้ำดื่ม-ขนม-กาแฟ",
+                    "โลงศพ",
+                    "รถรับศพ",
+                    "ของชำร่วย",
+                    "ดอกไม้จันทน์",
+                    "ทีมงานดูแล",
+                  ].map((feature, idx) => (
+                    <tr key={feature} className={`border-b border-white/5 ${idx % 2 === 0 ? 'bg-white/[0.02]' : ''}`}>
+                      <td className="p-4 text-white/70">{feature}</td>
+                      {servicePackages.map((pkg) => {
+                        const hasFeature = pkg.features.some(f => 
+                          f.toLowerCase().includes(feature.toLowerCase().split(' ')[0])
+                        );
+                        return (
+                          <td key={pkg.id} className="p-4 text-center">
+                            {hasFeature ? (
+                              <Check className={`w-5 h-5 mx-auto ${pkg.accent}`} />
+                            ) : (
+                              <span className="text-white/20">—</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+          )}
+
+          {/* Cards View */}
+          {packageView === "cards" && (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {servicePackages.map((pkg, index) => {
               const Icon = pkg.icon;
               const isExpanded = expandedPackage === pkg.id;
@@ -831,6 +1219,7 @@ export default function Home() {
               );
             })}
           </div>
+          )}
 
           {/* Promotions Section */}
           <motion.div
@@ -1527,38 +1916,86 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Floating Action Buttons */}
+      {/* Live Chat Widget */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
         <AnimatePresence>
+          {/* Chat Box */}
           {showFloatingMenu && (
-            <>
-              {/* LINE Button */}
-              <motion.a
-                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.8 }}
-                transition={{ delay: 0.1 }}
-                href={`https://line.me/ti/p/${contactInfo.line}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-green-600 hover:bg-green-500 text-white pl-4 pr-5 py-3 rounded-full shadow-lg shadow-green-600/30 transition-all"
-              >
-                <MessageCircle className="w-5 h-5" />
-                <span className="text-sm font-medium">LINE {contactInfo.line}</span>
-              </motion.a>
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.9 }}
+              className="bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden w-80 mb-2"
+            >
+              {/* Chat Header */}
+              <div className="bg-gradient-to-r from-gold to-amber-500 p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <MessageCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-black font-bold">SASAN Support</h4>
+                    <p className="text-black/70 text-xs flex items-center gap-1">
+                      <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                      ออนไลน์ พร้อมให้บริการ 24 ชม.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-              {/* Phone Button */}
-              <motion.a
-                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.8 }}
-                href={`tel:${contactInfo.phone.replace(/-/g, "")}`}
-                className="flex items-center gap-3 bg-amber-600 hover:bg-amber-500 text-white pl-4 pr-5 py-3 rounded-full shadow-lg shadow-amber-600/30 transition-all"
-              >
-                <Phone className="w-5 h-5" />
-                <span className="text-sm font-medium">{contactInfo.phone}</span>
-              </motion.a>
-            </>
+              {/* Chat Body */}
+              <div className="p-4 space-y-3 max-h-64 overflow-y-auto">
+                {/* Welcome Message */}
+                <div className="flex gap-2">
+                  <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                    <span className="text-gold text-xs font-bold">S</span>
+                  </div>
+                  <div className="bg-white/5 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
+                    <p className="text-white/80 text-sm">
+                      สวัสดีค่ะ ยินดีต้อนรับสู่ SASAN 🙏
+                    </p>
+                    <p className="text-white/80 text-sm mt-1">
+                      เราพร้อมดูแลและให้คำปรึกษาเรื่องจัดงานศพอย่างครบวงจร ติดต่อเราได้เลยค่ะ
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="p-4 border-t border-white/10 space-y-2">
+                <p className="text-white/40 text-xs mb-2">เลือกช่องทางติดต่อ:</p>
+                
+                {/* LINE */}
+                <a
+                  href={`https://line.me/ti/p/${contactInfo.line}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 w-full bg-green-600 hover:bg-green-500 text-white p-3 rounded-xl transition-all"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+                  </svg>
+                  <div className="flex-1">
+                    <span className="font-medium">แชทผ่าน LINE</span>
+                    <span className="text-white/70 text-xs block">{contactInfo.line}</span>
+                  </div>
+                  <ChevronRight className="w-4 h-4" />
+                </a>
+
+                {/* Phone */}
+                <a
+                  href={`tel:${contactInfo.phone.replace(/-/g, "")}`}
+                  className="flex items-center gap-3 w-full bg-amber-600 hover:bg-amber-500 text-white p-3 rounded-xl transition-all"
+                >
+                  <Phone className="w-5 h-5" />
+                  <div className="flex-1">
+                    <span className="font-medium">โทรหาเรา</span>
+                    <span className="text-white/70 text-xs block">{contactInfo.phone}</span>
+                  </div>
+                  <ChevronRight className="w-4 h-4" />
+                </a>
+              </div>
+            </motion.div>
           )}
         </AnimatePresence>
 
@@ -1576,7 +2013,7 @@ export default function Home() {
           {showFloatingMenu ? (
             <X className="w-6 h-6" />
           ) : (
-            <Phone className="w-6 h-6" />
+            <MessageCircle className="w-6 h-6" />
           )}
         </motion.button>
         
