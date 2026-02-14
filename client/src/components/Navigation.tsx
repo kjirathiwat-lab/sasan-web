@@ -23,6 +23,7 @@ export function Navigation() {
     { name: t.nav.about, href: "#about" },
     { name: t.nav.services, href: "#services" },
     { name: t.nav.contact, href: "#contact" },
+    { name: "สั่งซื้อ", href: "/shop" },
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
