@@ -12,7 +12,6 @@ import {
   Twitter,
   Link2,
   BookOpen,
-  Heart,
   MessageCircle,
   ChevronRight,
   Quote,
@@ -201,62 +200,6 @@ const blogArticles = [
     author: "SASAN Premium",
     icon: Star,
     color: "from-amber-500 to-amber-600",
-  },
-  {
-    id: 4,
-    number: "04",
-    slug: "celebration-of-life",
-    category: "ฉลองชีวิต",
-    categoryEn: "CELEBRATION",
-    title: 'เปลี่ยน "น้ำตา" ให้เป็น "รอยยิ้ม"',
-    subtitle: "งานศพไม่จำเป็นต้องหดหู่เสมอไป",
-    excerpt: "งานศพไม่จำเป็นต้องหดหู่เสมอไป Sasan เนรมิตงานแบบ Celebration of Life ให้คนที่รักมารวมตัวกันเพื่อ \"ขอบคุณ\" ช่วงเวลาดีๆ ที่มีร่วมกับคุณ",
-    content: [
-      {
-        type: "paragraph",
-        text: "Celebration of Life - งานที่อบอุ่น ไม่ใช่หดหู่ แทนที่จะนั่งร้องไห้... ให้คนที่รักมารวมตัวกันเพื่อ \"ขอบคุณ\" ช่วงเวลาดีๆ ที่มีร่วมกับคุณ"
-      },
-      {
-        type: "heading",
-        text: "Celebration of Life คืออะไร?"
-      },
-      {
-        type: "paragraph",
-        text: "เป็นรูปแบบงานศพที่เน้นการเฉลิมฉลองชีวิตของผู้จากไป แทนที่จะเศร้าโศก เราจะมาร่วมกันรำลึกถึงช่วงเวลาดีๆ ความทรงจำที่มีร่วมกัน และขอบคุณที่ได้รู้จักกัน"
-      },
-      {
-        type: "list",
-        items: [
-          "มีเพลงโปรดของผู้จากไปเปิดตลอดงาน",
-          "มีอาหารที่ผู้จากไปชอบให้แขกได้ลิ้มลอง",
-          "มีรูปภาพและวิดีโอความทรงจำฉายตลอดงาน",
-          "มีมุมให้แขกเขียนข้อความถึงผู้จากไป",
-          "มีเสียงหัวเราะ และมีรอยยิ้ม"
-        ]
-      },
-      {
-        type: "quote",
-        text: "นี่คืองานศพที่คุณอยากให้เป็น - งานที่คนมาร่วมจะจดจำด้วยความอบอุ่น ไม่ใช่ความหดหู่"
-      },
-      {
-        type: "heading",
-        text: "เหมาะกับใคร?"
-      },
-      {
-        type: "paragraph",
-        text: "Celebration of Life เหมาะกับทุกคนที่ต้องการให้งานศพเป็นช่วงเวลาแห่งการขอบคุณและรำลึก ไม่ใช่ช่วงเวลาแห่งความเศร้า โดยเฉพาะคนที่ใช้ชีวิตอย่างมีความสุขและต้องการให้คนที่รักจดจำความสุขนั้น"
-      },
-      {
-        type: "cta",
-        text: "ออกแบบ Celebration of Life ของคุณวันนี้"
-      }
-    ],
-    image: "/Blog pic/Article4.2.jpg",
-    readTime: "4 นาที",
-    publishDate: "8 ก.พ. 2024",
-    author: "SASAN Creative",
-    icon: Heart,
-    color: "from-pink-500 to-pink-600",
   },
   {
     id: 5,
