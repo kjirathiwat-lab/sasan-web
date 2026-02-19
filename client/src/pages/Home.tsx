@@ -1919,15 +1919,15 @@ export default function Home() {
       {/* Live Chat Widget */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
         <AnimatePresence>
-          {/* Chat Box */}
+          {/* Contact Options */}
           {showFloatingMenu && (
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.9 }}
-              className="bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden w-80 mb-2"
+              className="bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden w-72 mb-2"
             >
-              {/* Chat Header */}
+              {/* Header */}
               <div className="bg-gradient-to-r from-gold to-amber-500 p-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -1943,28 +1943,25 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Chat Body */}
-              <div className="p-4 space-y-3 max-h-64 overflow-y-auto">
-                {/* Welcome Message */}
-                <div className="flex gap-2">
+              {/* Welcome Message */}
+              <div className="p-4">
+                <div className="flex gap-2 mb-4">
                   <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
                     <span className="text-gold text-xs font-bold">S</span>
                   </div>
-                  <div className="bg-white/5 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
+                  <div className="bg-white/5 rounded-2xl rounded-tl-none p-3">
                     <p className="text-white/80 text-sm">
-                      สวัสดีค่ะ ยินดีต้อนรับสู่ SASAN 🙏
+                      สวัสดีค่ะ 🙏 ยินดีต้อนรับสู่ SASAN
                     </p>
-                    <p className="text-white/80 text-sm mt-1">
-                      เราพร้อมดูแลและให้คำปรึกษาเรื่องจัดงานศพอย่างครบวงจร ติดต่อเราได้เลยค่ะ
+                    <p className="text-white/60 text-sm mt-1">
+                      ทีมงานพร้อมให้คำปรึกษาค่ะ เลือกช่องทางติดต่อได้เลย
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Quick Actions */}
-              <div className="p-4 border-t border-white/10 space-y-2">
-                <p className="text-white/40 text-xs mb-2">เลือกช่องทางติดต่อ:</p>
-                
+              {/* Contact Buttons */}
+              <div className="p-4 pt-0 space-y-2">
                 {/* LINE */}
                 <a
                   href={`https://line.me/ti/p/${contactInfo.line}`}
@@ -2013,7 +2010,7 @@ export default function Home() {
           {showFloatingMenu ? (
             <X className="w-6 h-6" />
           ) : (
-            <MessageCircle className="w-6 h-6" />
+            <Phone className="w-6 h-6" />
           )}
         </motion.button>
         
