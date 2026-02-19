@@ -537,6 +537,17 @@ export default function Home() {
             {t.hero.subtitle}
           </motion.p>
 
+          {/* Clear value prop for first-time visitors */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 0.8 }}
+            className="max-w-2xl mx-auto text-sm md:text-base text-white/80 mb-8 leading-relaxed"
+          >
+            วางแผนและจัดงานศพแบบครบวงจรสำหรับครอบครัวที่ต้องการความสงบ&nbsp;
+            โปร่งใสทุกขั้นตอน พร้อมทีมมืออาชีพดูแลตั้งแต่การวางแผนจนพิธีสุดท้าย
+          </motion.p>
+
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1232,23 +1243,31 @@ export default function Home() {
               <h3
                 className={`text-2xl font-bold text-yellow-200 flex items-center gap-2 ${language === "th" ? "font-thai" : "font-serif"}`}
               >
-                Signature Services
+                Signature Care
               </h3>
-              <p className="text-white/60 text-sm">Special Services</p>
+              <p className="text-white/60 text-sm">
+                สิทธิพิเศษเพื่อช่วยแบ่งเบาภาระของครอบครัวในวันที่เปราะบาง
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gold/20">
                 <h4 className="font-bold text-yellow-300 text-lg mb-4">
-                  ส่วนลด Early Bird
+                  การวางแผนล่วงหน้า (Pre-planning)
                 </h4>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-yellow-400" />
                     <span className="text-sm text-white/80">
+                      วางแผนล่วงหน้าก่อนความจำเป็นมาถึง&nbsp;ช่วยให้ครอบครัวมีเวลาเตรียมใจ
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-yellow-400" />
+                    <span className="text-sm text-white/80">
                       จองล่วงหน้า 30 วัน:{" "}
                       <span className="text-yellow-300 font-semibold text-base">
-                        ลด 5%
+                        รับเงื่อนไขพิเศษเพื่อช่วยจัดการงบประมาณ
                       </span>
                     </span>
                   </div>
@@ -1257,7 +1276,7 @@ export default function Home() {
                     <span className="text-sm text-white/80">
                       จองล่วงหน้า 60 วัน:{" "}
                       <span className="text-yellow-300 font-semibold text-base">
-                        ลด 10%
+                        ได้รับการออกแบบแพ็กเกจอย่างละเอียดตามความต้องการของครอบครัว
                       </span>
                     </span>
                   </div>
@@ -1266,14 +1285,14 @@ export default function Home() {
 
               <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-gold/20">
                 <h4 className="font-bold text-yellow-300 text-lg mb-4">
-                  ส่วนลดแนะนำเพื่อน
+                  โปรแกรมดูแลครอบครัวที่แนะนำกันต่อ
                 </h4>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-yellow-400" />
                   <span className="text-sm text-white/80">
-                    แนะนำเพื่อนใช้บริการ:{" "}
+                    เมื่อครอบครัวที่เคยใช้บริการแนะนำคนใกล้ชิดให้เราได้ดูแล&nbsp;
                     <span className="text-yellow-300 font-semibold text-base">
-                      ลด 3% ทั้ง 2 ฝ่าย
+                      เรามีสิทธิพิเศษตอบแทนทั้งสองครอบครัว
                     </span>
                   </span>
                 </div>
