@@ -215,7 +215,7 @@ export default function Blog() {
                 transition={{ delay: hoveredPanel === index ? 0.2 : 0 }}
               >
                 <span className="text-gold/50 font-serif text-4xl mb-2 block">
-                  {article.number}
+                  {(index + 1).toString().padStart(2, "0")}
                 </span>
                 <h3 className="text-2xl md:text-3xl font-serif text-white mb-3 leading-tight">
                   {article.title.split(" ").slice(0, 3).join(" ")}
