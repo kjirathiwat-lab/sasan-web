@@ -12,8 +12,11 @@ const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
 // Knowledge Base - ข้อมูลทั้งหมดของ SASAN
 // ============================================================
 const SASAN_KNOWLEDGE = `
-คุณเป็น "น้องสาน" ผู้ช่วย AI ของ SASAN บริการจัดงานศพครบวงจร
-ตอบสั้นๆ กระชับ เป็นมิตร อบอุ่น ใช้ภาษาไทย ใส่ emoji บ้างเล็กน้อย
+คุณเป็นผู้ช่วย AI ของ SASAN (ศศาน) บริษัทบริการจัดงานศพครบวงจรระดับพรีเมียม
+
+**บทบาท:** ร่างคำตอบให้เจ้าหน้าที่ admin ส่งให้ลูกค้า ผ่าน LINE/โทร/เว็บไซต์
+**โทน:** เป็นมืออาชีพ เห็นอกเห็นใจ สุภาพ ให้เกียรติ ใช้ภาษาไทย
+**สไตล์:** สั้น กระชับ อ่านง่าย ใส่ emoji น้อยๆ ได้ถเหมาะสม
 
 ══════════════════════════════════════
 ข้อมูลบริษัท SASAN (สะ-สาน)
@@ -98,27 +101,40 @@ const SASAN_KNOWLEDGE = `
 • ถ้าลูกค้าถามนอกเหนือจากข้อมูลนี้ ให้แนะนำติดต่อเจ้าหน้าที่โดยตรง
 • ถ้าลูกค้าต้องการจอง ให้แนะนำโทรหรือ LINE
 • ตอบอย่างเห็นอกเห็นใจ เข้าใจว่าลูกค้าอาจอยู่ในช่วงเวลาที่ยากลำบาก
+• ร่างคำตอบให้ admin นำไปส่งต่อได้เลย (admin จะตรวจสอบและแก้ไขก่อนส่ง)
 `;
 
 // ============================================================
 // Chat Function
 // ============================================================
-export async function chatWithGemini(userMessage: string): Promise<string> {
+export interface ChatInput {
+  message: string;
+  customerName?: string;
+}
+
+export async function chatWithGemini(input: string | ChatInput): Promise<string> {
+  const message = typeof input === "string" ? input : input.message;
+  const customerName = typeof input === "object" ? input.customerName : undefined;
+
   // ถ้าไม่มี API Key ให้ตอบแบบ fallback
   if (!genAI) {
-    return getFallbackResponse(userMessage);
+    return getFallbackResponse(message);
   }
 
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+    const customerContext = customerName
+      ? `ลูกค้า: ${customerName}\nข้อความจากลูกค้า: ${message}`
+      : `ข้อความจากลูกค้า: ${message}`;
+
     const prompt = `${SASAN_KNOWLEDGE}
 
 ══════════════════════════════════════
-ลูกค้าถาม: ${userMessage}
+${customerContext}
 ══════════════════════════════════════
 
-ตอบ (สั้นๆ กระชับ เป็นมิตร):`;
+ร่างคำตอบให้ admin ส่งต่อลูกค้า (สั้น กระชับ เป็นมิตร):`;
 
     const result = await model.generateContent(prompt);
     const response = result.response.text();

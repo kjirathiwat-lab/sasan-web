@@ -113,6 +113,25 @@
     }
   }
 
+  /* Skeleton shimmer - dark theme with subtle gold/white */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgb(39 39 42) 0%,
+      rgb(63 63 70) 20%,
+      rgb(82 82 91) 50%,
+      rgb(63 63 70) 80%,
+      rgb(39 39 42) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 2s ease-in-out infinite;
+  }
+
+  @keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
   .custom-scrollbar::-webkit-scrollbar {
     width: 4px;
   }

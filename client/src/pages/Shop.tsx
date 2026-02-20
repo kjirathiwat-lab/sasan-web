@@ -32,6 +32,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Skeleton } from "@/components/ui/skeleton";
 
 // ============================================================
 // TYPES
@@ -267,9 +268,31 @@ const categories = [
 ];
 
 // ============================================================
+// SKELETON COMPONENTS
+// ============================================================
+function ProductCardSkeleton() {
+  return (
+    <div className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+      <Skeleton variant="shimmer" className="aspect-square w-full rounded-none" />
+      <div className="p-4 space-y-3">
+        <Skeleton variant="shimmer" className="h-3 w-1/4 rounded" />
+        <Skeleton variant="shimmer" className="h-5 w-full rounded" />
+        <Skeleton variant="shimmer" className="h-4 w-full rounded" />
+        <Skeleton variant="shimmer" className="h-4 w-2/3 rounded" />
+        <div className="flex justify-between pt-2">
+          <Skeleton variant="shimmer" className="h-6 w-20 rounded" />
+          <Skeleton variant="shimmer" className="h-4 w-24 rounded" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
 // MAIN COMPONENT
 // ============================================================
 export default function Shop() {
+  const [isProductsLoading, setIsProductsLoading] = useState(true);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -344,6 +367,12 @@ export default function Shop() {
 
   const cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  // Simulate initial product load
+  useEffect(() => {
+    const timer = setTimeout(() => setIsProductsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("th-TH").format(price);
@@ -468,7 +497,14 @@ export default function Shop() {
 
               {/* Products */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProducts.map((product, index) => (
+                {isProductsLoading ? (
+                  <>
+                    {[...Array(6)].map((_, i) => (
+                      <ProductCardSkeleton key={i} />
+                    ))}
+                  </>
+                ) : (
+                filteredProducts.map((product, index) => (
                   <motion.div
                     key={product.id}
                     initial={{ opacity: 0, y: 20 }}
@@ -557,7 +593,8 @@ export default function Shop() {
                       </div>
                     </div>
                   </motion.div>
-                ))}
+                ))
+                )}
               </div>
             </main>
           </div>
