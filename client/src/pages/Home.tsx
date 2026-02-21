@@ -307,6 +307,11 @@ export default function Home() {
   // Testimonials Slider
   // ============================================================
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  // ============================================================
+  // Team Section - The Chapter
+  // ============================================================
+  const [hoveredMember, setHoveredMember] = useState<number | null>(null);
   
   const testimonials = [
     {
@@ -343,6 +348,67 @@ export default function Home() {
       role: "ครอบครัวผู้ใช้บริการ",
       package: "The Narrative",
       rating: 5,
+    },
+  ];
+
+  // ============================================================
+  // Team Members Data - The Chapter
+  // ============================================================
+  const teamMembers = [
+    {
+      id: 1,
+      number: "01",
+      name: "มิ้น",
+      nameEn: "Mint",
+      role: "Project Manager",
+      roleSecondary: "& Graphic Design",
+      quote: "ทุกรายละเอียด คือความใส่ใจ",
+      color: "from-purple-500/20 to-pink-500/20",
+      accent: "text-purple-400",
+    },
+    {
+      id: 2,
+      number: "02",
+      name: "พี่บอย",
+      nameEn: "Boy",
+      role: "Assistant",
+      roleSecondary: "Coordinator",
+      quote: "พร้อมดูแลทุกขั้นตอน",
+      color: "from-blue-500/20 to-cyan-500/20",
+      accent: "text-blue-400",
+    },
+    {
+      id: 3,
+      number: "03",
+      name: "น้อง Folk",
+      nameEn: "Folk",
+      role: "Content Creator",
+      roleSecondary: "Storyteller",
+      quote: "เล่าเรื่องราวที่จับใจ",
+      color: "from-amber-500/20 to-orange-500/20",
+      accent: "text-amber-400",
+    },
+    {
+      id: 4,
+      number: "04",
+      name: "พี่อาร์ม",
+      nameEn: "Arm",
+      role: "Content Creator",
+      roleSecondary: "& Graphic Design",
+      quote: "สร้างสรรค์งานให้โดดเด่น",
+      color: "from-green-500/20 to-emerald-500/20",
+      accent: "text-green-400",
+    },
+    {
+      id: 5,
+      number: "05",
+      name: "Dev",
+      nameEn: "Developer",
+      role: "Full-Stack Developer",
+      roleSecondary: "Frontend & Backend",
+      quote: "เปลี่ยนไอเดียให้เป็นจริง",
+      color: "from-gold/20 to-yellow-500/20",
+      accent: "text-gold",
     },
   ];
 
@@ -1816,6 +1882,176 @@ export default function Home() {
               </form>
             </Form>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* Team Section - "THE CHAPTER" */}
+      {/* ============================================================ */}
+      <section className="py-24 bg-black relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(
+              90deg,
+              transparent,
+              transparent 100px,
+              rgba(212, 175, 55, 0.1) 100px,
+              rgba(212, 175, 55, 0.1) 101px
+            )`
+          }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <p className="text-gold/60 text-sm tracking-[4px] uppercase mb-4">
+              Behind The Scenes
+            </p>
+            <h2 className="text-4xl md:text-5xl font-serif text-white mb-4">
+              Our <span className="text-gold italic">Chapter</span>
+            </h2>
+            <p className="text-white/50 max-w-xl mx-auto">
+              ทีมงานผู้อยู่เบื้องหลังทุกความสำเร็จ พร้อมดูแลคุณด้วยใจ
+            </p>
+          </motion.div>
+
+          {/* Team Accordion */}
+          <div className="flex flex-col md:flex-row h-auto md:h-[500px] gap-2 md:gap-0">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={member.id}
+                className={`relative cursor-pointer overflow-hidden rounded-xl md:rounded-none md:first:rounded-l-2xl md:last:rounded-r-2xl border border-white/10 ${
+                  hoveredMember === index ? "md:border-gold/50" : ""
+                }`}
+                initial={{ flex: 1 }}
+                animate={{
+                  flex: hoveredMember === index ? 4 : 1,
+                }}
+                transition={{ duration: 0.5, ease: [0.25, 0.4, 0.45, 1] }}
+                onMouseEnter={() => setHoveredMember(index)}
+                onMouseLeave={() => setHoveredMember(null)}
+              >
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${member.color} transition-opacity duration-500 ${
+                  hoveredMember === index ? "opacity-100" : "opacity-30"
+                }`} />
+                
+                {/* Dark Overlay */}
+                <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${
+                  hoveredMember === index ? "opacity-40" : "opacity-70"
+                }`} />
+
+                {/* Content Container */}
+                <div className="relative h-full p-6 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-0">
+                  
+                  {/* Number Badge */}
+                  <div className="flex items-start justify-between">
+                    <span className={`font-serif text-4xl md:text-5xl transition-all duration-500 ${
+                      hoveredMember === index ? "text-gold" : "text-white/20"
+                    }`}>
+                      {member.number}
+                    </span>
+                    
+                    {/* Role Icon */}
+                    <motion.div
+                      animate={{
+                        scale: hoveredMember === index ? 1 : 0.8,
+                        opacity: hoveredMember === index ? 1 : 0.5,
+                      }}
+                      className={`w-10 h-10 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center border border-white/20`}
+                    >
+                      <span className="text-white text-lg">
+                        {member.name.charAt(0)}
+                      </span>
+                    </motion.div>
+                  </div>
+
+                  {/* Vertical Role Text (shown when collapsed) */}
+                  <motion.div
+                    className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                    animate={{
+                      opacity: hoveredMember === index ? 0 : 1,
+                      rotate: -90,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <span className="whitespace-nowrap text-white/40 text-sm tracking-[3px] uppercase font-medium">
+                      {member.role}
+                    </span>
+                  </motion.div>
+
+                  {/* Expanded Content (shown on hover) */}
+                  <motion.div
+                    className="md:absolute md:bottom-8 md:left-8 md:right-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{
+                      opacity: hoveredMember === index ? 1 : 0,
+                      y: hoveredMember === index ? 0 : 20,
+                    }}
+                    transition={{ delay: hoveredMember === index ? 0.1 : 0, duration: 0.3 }}
+                  >
+                    {/* Name */}
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">
+                      {member.name}
+                    </h3>
+                    
+                    {/* Role */}
+                    <p className={`${member.accent} font-medium mb-1`}>
+                      {member.role}
+                    </p>
+                    <p className="text-white/50 text-sm mb-4">
+                      {member.roleSecondary}
+                    </p>
+
+                    {/* Quote */}
+                    <div className="flex items-start gap-2">
+                      <span className="text-gold/50 text-2xl font-serif">"</span>
+                      <p className="text-white/70 italic text-sm leading-relaxed">
+                        {member.quote}
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Mobile: Always show content */}
+                  <div className="md:hidden mt-auto">
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      {member.name}
+                    </h3>
+                    <p className={`${member.accent} font-medium text-sm`}>
+                      {member.role}
+                    </p>
+                    <p className="text-white/50 text-xs">
+                      {member.roleSecondary}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Hover Border Effect */}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-gold via-amber-400 to-gold"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: hoveredMember === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom Text */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center text-white/30 text-sm mt-12"
+          >
+            เราพร้อมดูแลทุกรายละเอียด เพื่อให้ "บทสุดท้าย" ของคุณสมบูรณ์แบบ
+          </motion.p>
         </div>
       </section>
 
