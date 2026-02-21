@@ -1386,14 +1386,14 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { src: "/OurWork1.jpg", label: "ทีมวางแผนงาน" },
+              { src: "/OurWork6.png", label: "ทีมวางแผนงาน" },
               { src: "/OurWork2.png", label: "พิธีไว้อาลัย" },
               { src: "/OurWork3.jpg", label: "บริการครบวงจร" },
               { src: "/OurWork4.png", label: "ดูแลด้วยใจ" },
               { src: "/OurWork5.png", label: "วางแผนพิธี" },
-              { src: "/OurWork6.png", label: "ขบวนพิธี" },
+              { src: "/OurWork1.jpg", label: "ขบวนพิธี" },
               { src: "/OurWork7.png", label: "พิธีกรรมไทย" },
-              { src: "/OurWork8.png", label: "จัดดอกไม้" },
+              { src: "/Flower R.png", label: "จัดดอกไม้" },
             ].map((item, index) => (
               <motion.div
                 key={index}
