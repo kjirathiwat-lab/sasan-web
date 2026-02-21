@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
@@ -18,7 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 // ============================================================
-// BLOG DATA - 5 บทความหลัก
+// BLOG DATA - 4 บทความหลัก + Video
 // ============================================================
 const blogArticles = [
   {
@@ -36,6 +36,7 @@ const blogArticles = [
 
 นี่คือของขวัญชิ้นสุดท้าย... ที่คุณมอบให้คนที่รักได้`,
     image: "/blog-images/article-01.jpg",
+    video: "/blog-videos/SASAN1_Video.mp4",
     readTime: "5 นาที",
     icon: BookOpen,
     color: "from-blue-500 to-blue-600",
@@ -57,6 +58,7 @@ const blogArticles = [
 
 Sasan เปลี่ยนศาลาวัด ให้เป็น "แกลเลอรีชีวิต" ที่บอกเล่าตัวตนของคุณ 100%`,
     image: "/blog-images/article-02.jpg",
+    video: "/blog-videos/SASAN2_Video.mp4",
     readTime: "4 นาที",
     icon: Sparkles,
     color: "from-purple-500 to-purple-600",
@@ -76,6 +78,7 @@ Sasan เปลี่ยนศาลาวัด ให้เป็น "แก�
 
 เพราะคุณสมควรได้รับสิ่งที่ดีที่สุด... จนวินาทีสุดท้าย`,
     image: "/blog-images/article-03.jpg",
+    video: "/blog-videos/SASAN3_Video.mp4",
     readTime: "3 นาที",
     icon: Star,
     color: "from-amber-500 to-amber-600",
@@ -97,6 +100,7 @@ Sasan เปลี่ยนศาลาวัด ให้เป็น "แก�
 
 Sasan รับจบทุกอย่าง ให้ครอบครัวคุณมีเวลาดูแลจิตใจของพวกเขาเอง`,
     image: "/blog-images/article-05.jpg",
+    video: "/blog-videos/SASAN4_Video.mp4",
     readTime: "5 นาที",
     icon: Shield,
     color: "from-green-500 to-green-600",
@@ -122,6 +126,118 @@ const comparisonData = {
 };
 
 // ============================================================
+// VIDEO PANEL COMPONENT
+// ============================================================
+interface VideoPanelProps {
+  article: typeof blogArticles[0];
+  index: number;
+  isHovered: boolean;
+  onHover: () => void;
+  onLeave: () => void;
+  onClick: () => void;
+}
+
+function VideoPanel({ article, index, isHovered, onHover, onLeave, onClick }: VideoPanelProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    onHover();
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Autoplay might be blocked, ignore error
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    onLeave();
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
+  return (
+    <motion.div
+      className="relative cursor-pointer border-r border-white/10 overflow-hidden"
+      initial={{ flex: 1 }}
+      animate={{
+        flex: isHovered ? 5 : 1,
+      }}
+      transition={{ duration: 0.7, ease: [0.25, 0.4, 0.45, 1.4] }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Video Background */}
+      <video
+        ref={videoRef}
+        className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+          isHovered ? "grayscale-0" : "grayscale"
+        }`}
+        src={article.video}
+        poster={article.image}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+      />
+
+      {/* Overlay */}
+      <div
+        className={`absolute inset-0 transition-all duration-500 ${
+          isHovered
+            ? "bg-gradient-to-t from-black/90 via-black/30 to-transparent"
+            : "bg-black/50"
+        }`}
+      />
+
+      {/* Vertical Label (shown when not hovered) */}
+      <motion.div
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap font-serif text-lg text-white/60 tracking-[3px]"
+        animate={{
+          opacity: isHovered ? 0 : 1,
+          rotate: -90,
+        }}
+        style={{ transformOrigin: "center" }}
+      >
+        {article.categoryEn}
+      </motion.div>
+
+      {/* Content (shown on hover) */}
+      <motion.div
+        className="absolute bottom-10 left-8 right-8 z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{
+          opacity: isHovered ? 1 : 0,
+          y: isHovered ? 0 : 20,
+        }}
+        transition={{ delay: isHovered ? 0.2 : 0 }}
+      >
+        <span className="text-gold/50 font-serif text-4xl mb-2 block">
+          {(index + 1).toString().padStart(2, "0")}
+        </span>
+        <h3 className="text-2xl md:text-3xl font-serif text-white mb-3 leading-tight">
+          {article.title.split(" ").slice(0, 3).join(" ")}
+          <br />
+          <span className="text-gold italic">
+            {article.title.split(" ").slice(3).join(" ")}
+          </span>
+        </h3>
+        <p className="text-white/70 text-sm mb-4 max-w-md hidden md:block">
+          {article.excerpt}
+        </p>
+        <button
+          onClick={onClick}
+          className="px-6 py-3 border border-gold text-gold text-sm uppercase tracking-wider hover:bg-gold hover:text-black transition-all backdrop-blur-sm bg-black/30"
+        >
+          อ่านเพิ่มเติม
+        </button>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ============================================================
 // MAIN COMPONENT
 // ============================================================
 export default function Blog() {
@@ -135,7 +251,7 @@ export default function Blog() {
       <Navigation />
 
       {/* ============================================================ */}
-      {/* HERO SECTION - Interactive Accordion */}
+      {/* HERO SECTION - Interactive Video Accordion */}
       {/* ============================================================ */}
       <section className="relative pt-24 pb-8">
         <div className="text-center mb-8">
@@ -163,78 +279,18 @@ export default function Blog() {
           </motion.p>
         </div>
 
-        {/* Interactive Panels */}
+        {/* Interactive Video Panels */}
         <div className="flex h-[60vh] md:h-[70vh] w-full overflow-hidden">
           {blogArticles.map((article, index) => (
-            <motion.div
+            <VideoPanel
               key={article.id}
-              className="relative cursor-pointer border-r border-white/10 overflow-hidden"
-              initial={{ flex: 1 }}
-              animate={{
-                flex: hoveredPanel === index ? 5 : 1,
-                filter: hoveredPanel === index ? "grayscale(0%)" : "grayscale(100%)",
-              }}
-              transition={{ duration: 0.7, ease: [0.25, 0.4, 0.45, 1.4] }}
-              onMouseEnter={() => setHoveredPanel(index)}
-              onMouseLeave={() => setHoveredPanel(null)}
-              style={{
-                backgroundImage: `url('${article.image}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay */}
-              <div
-                className={`absolute inset-0 transition-all duration-500 ${
-                  hoveredPanel === index
-                    ? "bg-gradient-to-t from-black/90 via-black/30 to-transparent"
-                    : "bg-black/50"
-                }`}
-              />
-
-              {/* Vertical Label (shown when not hovered) */}
-              <motion.div
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap font-serif text-lg text-white/60 tracking-[3px]"
-                animate={{
-                  opacity: hoveredPanel === index ? 0 : 1,
-                  rotate: -90,
-                }}
-                style={{ transformOrigin: "center" }}
-              >
-                {article.categoryEn}
-              </motion.div>
-
-              {/* Content (shown on hover) */}
-              <motion.div
-                className="absolute bottom-10 left-8 right-8 z-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: hoveredPanel === index ? 1 : 0,
-                  y: hoveredPanel === index ? 0 : 20,
-                }}
-                transition={{ delay: hoveredPanel === index ? 0.2 : 0 }}
-              >
-                <span className="text-gold/50 font-serif text-4xl mb-2 block">
-                  {(index + 1).toString().padStart(2, "0")}
-                </span>
-                <h3 className="text-2xl md:text-3xl font-serif text-white mb-3 leading-tight">
-                  {article.title.split(" ").slice(0, 3).join(" ")}
-                  <br />
-                  <span className="text-gold italic">
-                    {article.title.split(" ").slice(3).join(" ")}
-                  </span>
-                </h3>
-                <p className="text-white/70 text-sm mb-4 max-w-md hidden md:block">
-                  {article.excerpt}
-                </p>
-                <button 
-                  onClick={() => setLocation(`/blog/${article.slug}`)}
-                  className="px-6 py-3 border border-gold text-gold text-sm uppercase tracking-wider hover:bg-gold hover:text-black transition-all backdrop-blur-sm bg-black/30"
-                >
-                  อ่านเพิ่มเติม
-                </button>
-              </motion.div>
-            </motion.div>
+              article={article}
+              index={index}
+              isHovered={hoveredPanel === index}
+              onHover={() => setHoveredPanel(index)}
+              onLeave={() => setHoveredPanel(null)}
+              onClick={() => setLocation(`/blog/${article.slug}`)}
+            />
           ))}
         </div>
       </section>
@@ -248,33 +304,33 @@ export default function Blog() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-10"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl font-serif text-gold mb-4">
-              ความแตกต่างที่คุณเลือกได้
+              เปรียบเทียบความแตกต่าง
             </h2>
             <p className="text-white/60">
-              เปรียบเทียบการวางแผนล่วงหน้า vs การไม่มีแผน
+              ระหว่างการวางแผนล่วงหน้า กับการไม่มีแผน
             </p>
           </motion.div>
 
           {/* Toggle Buttons */}
-          <div className="flex justify-center gap-4 mb-10">
+          <div className="flex justify-center gap-4 mb-8">
             <button
               onClick={() => setComparisonView("sasan")}
-              className={`px-8 py-3 rounded-full border transition-all ${
+              className={`px-6 py-3 rounded-full font-bold transition-all ${
                 comparisonView === "sasan"
-                  ? "bg-gold text-black border-gold font-bold"
-                  : "border-gold/50 text-gold/70 hover:border-gold"
+                  ? "bg-gold text-black"
+                  : "border-white/30 text-white/50 hover:border-white/50"
               }`}
             >
-              ✨ Sasan (วางแผน)
+              ✅ SASAN (วางแผนล่วงหน้า)
             </button>
             <button
               onClick={() => setComparisonView("general")}
-              className={`px-8 py-3 rounded-full border transition-all ${
+              className={`px-6 py-3 rounded-full font-bold transition-all ${
                 comparisonView === "general"
-                  ? "bg-red-500 text-white border-red-500 font-bold"
+                  ? "bg-red-500 text-white"
                   : "border-white/30 text-white/50 hover:border-white/50"
               }`}
             >
@@ -352,7 +408,7 @@ export default function Blog() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {blogArticles.map((article, index) => (
               <motion.article
                 key={article.id}
@@ -364,7 +420,7 @@ export default function Blog() {
                 className="group bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-300 shadow-lg hover:shadow-gold/10"
               >
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <img
                     src={article.image}
                     alt={article.title}
@@ -384,24 +440,21 @@ export default function Blog() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-white mb-3 leading-snug group-hover:text-gold transition-colors">
+                <div className="p-5">
+                  <h3 className="text-base font-bold text-white mb-2 leading-snug group-hover:text-gold transition-colors line-clamp-2">
                     {article.title}
                   </h3>
-                  <p className="text-white/60 text-sm mb-4 line-clamp-3">
-                    {article.excerpt}
-                  </p>
                   
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-4">
                     <span className="text-white/40 text-xs flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {article.readTime}
                     </span>
                     <button 
                       onClick={() => setLocation(`/blog/${article.slug}`)}
-                      className="text-gold text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all"
+                      className="text-gold text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all"
                     >
-                      อ่านเพิ่มเติม
+                      อ่าน
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
