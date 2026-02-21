@@ -33,6 +33,7 @@ import {
   User,
   Check,
 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 // ============================================================
 // TYPES
@@ -196,7 +197,13 @@ const mockSalesData = [
 // ============================================================
 export default function Dashboard() {
   const [timeRange, setTimeRange] = useState<"today" | "week" | "month" | "year">("week");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate initial data fetch
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
   const [orders, setOrders] = useState<Order[]>(mockOrders);
   const [messages, setMessages] = useState<CustomerMessage[]>(mockMessages);
   const [stats, setStats] = useState<DashboardStats>({
@@ -269,16 +276,31 @@ export default function Dashboard() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: message.message }),
+        body: JSON.stringify({
+          message: message.message,
+          customerName: message.customerName,
+        }),
       });
 
       const data = await response.json();
-      const draft = data.reply || "ขออภัยค่ะ ไม่สามารถสร้างคำตอบได้ในขณะนี้";
+
+      if (!response.ok) {
+        const fallbackMsg = data.error || "เกิดข้อผิดพลาด กรุณาติดต่อเจ้าหน้าที่โดยตรง";
+        const contact = data.fallback
+          ? `\n\n📞 ${data.fallback.phone}\n💚 LINE: ${data.fallback.line}`
+          : "";
+        setAiDraft(`${fallbackMsg}${contact}`);
+        setEditedDraft(`${fallbackMsg}${contact}`);
+        return;
+      }
+
+      const draft = data.reply || "ขออภัยค่ะ ไม่สามารถสร้างคำตอบได้ในขณะนี้ กรุณาโทร 081-234-5678 🙏";
       setAiDraft(draft);
       setEditedDraft(draft);
     } catch (error) {
-      setAiDraft("เกิดข้อผิดพลาดในการสร้างคำตอบ กรุณาลองใหม่อีกครั้ง");
-      setEditedDraft("เกิดข้อผิดพลาดในการสร้างคำตอบ กรุณาลองใหม่อีกครั้ง");
+      const errorMsg = "เกิดข้อผิดพลาดในการสร้างคำตอบ กรุณาลองใหม่อีกครั้ง หรือโทร 081-234-5678";
+      setAiDraft(errorMsg);
+      setEditedDraft(errorMsg);
     } finally {
       setIsGenerating(false);
     }
@@ -343,7 +365,19 @@ export default function Dashboard() {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {[
+            {isLoading ? (
+              [1, 2, 3, 4].map((i) => (
+                <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5">
+                  <div className="flex items-start justify-between mb-4">
+                    <Skeleton variant="shimmer" className="w-12 h-12 rounded-xl" />
+                    <Skeleton variant="shimmer" className="h-5 w-10 rounded" />
+                  </div>
+                  <Skeleton variant="shimmer" className="h-4 w-20 mb-2 rounded" />
+                  <Skeleton variant="shimmer" className="h-8 w-28 rounded" />
+                </div>
+              ))
+            ) : (
+            [
               { label: "ยอดขายรวม", value: `฿${formatPrice(stats.totalSales)}`, change: stats.salesChange, icon: DollarSign, color: "from-amber-500 to-amber-600" },
               { label: "คำสั่งซื้อ", value: stats.totalOrders, change: stats.ordersChange, icon: ShoppingCart, color: "from-blue-500 to-blue-600" },
               { label: "สินค้าทั้งหมด", value: stats.totalProducts, change: 5.2, icon: Package, color: "from-purple-500 to-purple-600" },
@@ -368,7 +402,8 @@ export default function Dashboard() {
                 <p className="text-white/50 text-sm mb-1">{stat.label}</p>
                 <p className="text-2xl font-bold text-white">{stat.value}</p>
               </motion.div>
-            ))}
+            ))
+            )}
           </div>
 
           {/* ============================================================ */}
@@ -682,7 +717,25 @@ export default function Dashboard() {
               </div>
 
               <div className="space-y-4">
-                {orders.slice(0, 5).map((order) => {
+                {isLoading ? (
+                  [1, 2, 3, 4, 5].map((i) => (
+                    <div key={i} className="flex items-center gap-4 p-3 bg-white/5 rounded-xl">
+                      <div className="flex-1 space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Skeleton variant="shimmer" className="h-4 w-20 rounded" />
+                          <Skeleton variant="shimmer" className="h-5 w-24 rounded-full" />
+                        </div>
+                        <Skeleton variant="shimmer" className="h-3 w-32 rounded" />
+                        <Skeleton variant="shimmer" className="h-3 w-40 rounded" />
+                      </div>
+                      <div className="space-y-2 text-right">
+                        <Skeleton variant="shimmer" className="h-5 w-16 ml-auto rounded" />
+                        <Skeleton variant="shimmer" className="h-3 w-12 ml-auto rounded" />
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                orders.slice(0, 5).map((order) => {
                   const statusInfo = getStatusInfo(order.status);
                   return (
                     <div
@@ -708,7 +761,8 @@ export default function Dashboard() {
                       </div>
                     </div>
                   );
-                })}
+                })
+                )}
               </div>
             </motion.div>
           </div>

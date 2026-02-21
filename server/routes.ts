@@ -32,13 +32,16 @@ export async function registerRoutes(
   // ============================================================
   app.post("/api/chat", async (req, res) => {
     try {
-      const { message } = req.body;
+      const { message, customerName } = req.body;
       
       if (!message || typeof message !== "string") {
         return res.status(400).json({ error: "กรุณาส่งข้อความ" });
       }
 
-      const reply = await chatWithGemini(message);
+      const reply = await chatWithGemini({
+        message,
+        customerName: typeof customerName === "string" ? customerName : undefined,
+      });
       res.json({ reply });
       
     } catch (error) {

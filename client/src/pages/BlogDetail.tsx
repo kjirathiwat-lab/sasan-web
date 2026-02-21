@@ -84,7 +84,7 @@ const blogArticles = [
         text: "ปรึกษาฟรี ไม่มีค่าใช้จ่าย โทร 081-234-5678"
       }
     ],
-    image: "/Blog pic/Article1.1.jpg",
+    image: "/blog-images/article-01.jpg",
     readTime: "5 นาที",
     publishDate: "15 ก.พ. 2024",
     author: "SASAN Team",
@@ -140,7 +140,7 @@ const blogArticles = [
         text: "ส่งไอเดียของคุณมาให้เราได้เลย เราจะออกแบบให้ฟรี!"
       }
     ],
-    image: "/Blog pic/Article2.1.jpg",
+    image: "/blog-images/article-02.jpg",
     readTime: "4 นาที",
     publishDate: "12 ก.พ. 2024",
     author: "SASAN Design Team",
@@ -194,7 +194,7 @@ const blogArticles = [
         text: "สอบถามราคาแพ็คเกจ VIP โทร 081-234-5678"
       }
     ],
-    image: "/Blog pic/Article3.1.jpg",
+    image: "/blog-images/article-03.jpg",
     readTime: "3 นาที",
     publishDate: "10 ก.พ. 2024",
     author: "SASAN Premium",
@@ -250,7 +250,7 @@ const blogArticles = [
         text: "โทรหาเราได้ตลอด 24 ชั่วโมง: 081-234-5678"
       }
     ],
-    image: "/Blog pic/Article5.1.jpg",
+    image: "/blog-images/article-05.jpg",
     readTime: "5 นาที",
     publishDate: "5 ก.พ. 2024",
     author: "SASAN Care Team",
