@@ -708,8 +708,8 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                       <Package className="w-5 h-5 text-amber-500" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-medium text-white mb-1">Signature Collection</h3>
-                      <p className="text-amber-600/70 text-sm mb-2">แพ็คเกจที่คัดสรรแล้ว</p>
+                      <h3 className="text-lg font-medium text-white mb-1">The Storytelling Collection</h3>
+                      <p className="text-amber-600/70 text-sm mb-2">แพ็คเกจบริการของเรา</p>
                       <p className="text-white/40 text-sm font-light">
                         เลือกจากคอลเลคชันที่ออกแบบไว้ ครบจบในที่เดียว
                       </p>
@@ -772,7 +772,7 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   <ChevronLeft className="w-5 h-5 text-white/40" />
                 </button>
                 <div>
-                  <h2 className="text-xl font-medium">Signature Collection</h2>
+                  <h2 className="text-xl font-medium">The Storytelling Collection</h2>
                   <p className="text-white/40 text-sm font-light">เลือกคอลเลคชันที่เหมาะกับคุณ</p>
                 </div>
               </div>

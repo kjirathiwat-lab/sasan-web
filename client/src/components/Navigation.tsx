@@ -19,22 +19,38 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { name: t.nav.home, href: "/" },
-    { name: t.nav.about, href: "#about" },
-    { name: t.nav.services, href: "#services" },
-    { name: t.nav.contact, href: "#contact" },
-    { name: "สั่งซื้อ", href: "/shop" },
-    { name: "Blog", href: "/blog" }, 
+    { name: language === "th" ? "หน้าหลัก" : "Home", href: "/" },
+    { name: language === "th" ? "อัตลักษณ์องค์กร" : "About Us", href: "/#about" },
+    { name: language === "th" ? "บริการ" : "Services", href: "/#services" },
+    { name: language === "th" ? "ผลงานที่ผ่านมา" : "Portfolio", href: "/#portfolio" },
+    { name: language === "th" ? "ร้านค้า" : "Shop", href: "/shop" },
+    { name: language === "th" ? "บล็อก" : "Blog", href: "/blog" },
+    { name: language === "th" ? "คำถามที่พบบ่อย" : "FAQ", href: "/#faq" },
+    { name: language === "th" ? "ติดต่อเรา" : "Contact", href: "/#contact" },
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("#")) {
-      e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        setMobileMenuOpen(false);
+    // ถ้าเป็น /#section หรือ #section
+    if (href.includes("#")) {
+      const sectionId = href.split("#")[1];
+      const isHomePage = location === "/";
+      
+      // ถ้าอยู่หน้า Home แล้ว ให้ scroll ไปที่ section
+      if (isHomePage) {
+        e.preventDefault();
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          setMobileMenuOpen(false);
+        }
       }
+      // ถ้าอยู่หน้าอื่น ให้ไปหน้า Home แล้ว scroll (ใช้ default behavior)
+      else {
+        setMobileMenuOpen(false);
+        // ปล่อยให้ browser navigate ไป /#section
+      }
+    } else {
+      setMobileMenuOpen(false);
     }
   };
 
