@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { useLanguage } from "./LanguageContext";
+import { UserMenu } from "./UserMenu";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -91,20 +92,25 @@ export function Navigation() {
               </a>
             ))}
             
-            {/* Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              className="ml-4 flex items-center space-x-2 text-xs border border-white/20 px-3 py-1 rounded-full hover:border-gold transition-colors duration-300"
-            >
-              <span className={language === "th" ? "text-gold font-bold" : "text-white/50"}>TH</span>
-              <span className="text-white/20">|</span>
-              <span className={language === "en" ? "text-gold font-bold" : "text-white/50"}>EN</span>
-            </button>
+            {/* User Menu + Language Toggle */}
+            <div className="flex items-center gap-3">
+              <UserMenu />
+              
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center space-x-2 text-xs border border-white/20 px-3 py-1 rounded-full hover:border-gold transition-colors duration-300"
+              >
+                <span className={language === "th" ? "text-gold font-bold" : "text-white/50"}>TH</span>
+                <span className="text-white/20">|</span>
+                <span className={language === "en" ? "text-gold font-bold" : "text-white/50"}>EN</span>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
-             <button
+          <div className="md:hidden flex items-center space-x-3">
+            <UserMenu />
+            <button
               onClick={toggleLanguage}
               className="flex items-center space-x-1 text-xs border border-white/20 px-2 py-1 rounded-full"
             >

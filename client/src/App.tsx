@@ -10,6 +10,10 @@ import Shop from "@/pages/Shop";
 import Dashboard from "./pages/Dashboard";
 import Blog from "@/pages/Blog";
 import BlogDetail from "@/pages/BlogDetail";
+import { AuthProvider } from "@/components/AuthContext";
+import Login from "@/pages/Login";
+import Profile from "@/pages/Profile";
+import MyOrders from "@/pages/MyOrders";
 
 
 function Router() {
@@ -20,6 +24,9 @@ function Router() {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogDetail} />
+      <Route path="/login" component={Login} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/my-orders" component={MyOrders} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -27,6 +34,8 @@ function Router() {
 
 function App() {
   return (
+    <LanguageProvider>
+    <AuthProvider>  
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <LanguageProvider>
@@ -35,6 +44,8 @@ function App() {
         </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
+    </AuthProvider>
+    </LanguageProvider>
   );
 }
 
