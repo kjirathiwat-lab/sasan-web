@@ -496,7 +496,10 @@ export default function Blog() {
               </p>
             </div>
 
-            <Button className="bg-gold text-black hover:bg-yellow-400 px-10 py-6 rounded-full text-lg font-bold uppercase tracking-wider shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all">
+            <Button 
+              onClick={() => setLocation("/?openWizard=true")}
+              className="bg-gold text-black hover:bg-yellow-400 px-10 py-6 rounded-full text-lg font-bold uppercase tracking-wider shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all"
+            >
               เริ่มวางแผน "บทสุดท้าย" วันนี้
             </Button>
 

@@ -258,6 +258,16 @@ export default function Home() {
   // State สำหรับ Service Wizard
   const [showWizard, setShowWizard] = useState(false);
 
+  // ตรวจสอบ URL parameter เพื่อเปิด ServiceSelector อัตโนมัติ
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('openWizard') === 'true') {
+      setShowWizard(true);
+      // ลบ parameter ออกจาก URL หลังเปิด wizard
+      window.history.replaceState({}, '', '/');
+    }
+  }, []);
+
   // State สำหรับ Gallery Modal
   const [galleryModal, setGalleryModal] = useState<{
     isOpen: boolean;
