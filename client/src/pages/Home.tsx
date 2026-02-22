@@ -455,37 +455,37 @@ export default function Home() {
   const processSteps = [
     {
       icon: Phone,
-      title: "ติดต่อปรึกษา",
-      description: "โทรหาเรา 24 ชม. ทีมงานพร้อมรับฟังและให้คำปรึกษาฟรี",
-      time: "ทันที",
+      title: t.process.steps[0].title,
+      description: t.process.steps[0].description,
+      time: t.process.steps[0].time,
       timeBg: "bg-green-500/20 text-green-400",
     },
     {
       icon: FileText,
-      title: "วางแผนร่วมกัน",
-      description: "นัดพบเพื่อพูดคุยรายละเอียด เลือกแพ็คเกจและบริการ",
-      time: "1-2 ชม.",
+      title: t.process.steps[1].title,
+      description: t.process.steps[1].description,
+      time: t.process.steps[1].time,
       timeBg: "bg-blue-500/20 text-blue-400",
     },
     {
       icon: Feather,
-      title: "เตรียมงาน",
-      description: "ทีมงานจัดเตรียมทุกอย่าง ดอกไม้ สถานที่ อุปกรณ์",
-      time: "1-3 วัน",
+      title: t.process.steps[2].title,
+      description: t.process.steps[2].description,
+      time: t.process.steps[2].time,
       timeBg: "bg-purple-500/20 text-purple-400",
     },
     {
       icon: Heart,
-      title: "ดำเนินพิธี",
-      description: "ดูแลทุกรายละเอียดตลอดงาน ให้ทุกอย่างราบรื่น",
-      time: "3-7 วัน",
+      title: t.process.steps[3].title,
+      description: t.process.steps[3].description,
+      time: t.process.steps[3].time,
       timeBg: "bg-amber-500/20 text-amber-400",
     },
     {
       icon: Check,
-      title: "ดูแลหลังงาน",
-      description: "บริการเก็บอัฐิ ลอยอังคาร และติดตามผล",
-      time: "ตามต้องการ",
+      title: t.process.steps[4].title,
+      description: t.process.steps[4].description,
+      time: t.process.steps[4].time,
       timeBg: "bg-pink-500/20 text-pink-400",
     },
   ];
@@ -620,8 +620,7 @@ export default function Home() {
             transition={{ delay: 1.4, duration: 0.8 }}
             className="max-w-2xl mx-auto text-sm md:text-base text-white/80 mb-8 leading-relaxed"
           >
-            วางแผนและจัดงานศพแบบครบวงจรสำหรับครอบครัวที่ต้องการความสงบ&nbsp;
-            โปร่งใสทุกขั้นตอน พร้อมทีมมืออาชีพดูแลตั้งแต่การวางแผนจนพิธีสุดท้าย
+            {t.hero.description}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -636,14 +635,14 @@ export default function Home() {
               className="bg-gold text-black hover:bg-yellow-400 px-8 py-6 rounded-full text-lg font-bold tracking-wide transition-all duration-300 shadow-lg shadow-gold/30 hover:shadow-xl hover:shadow-gold/40 hover:scale-105"
             >
               <Wand2 className="w-5 h-5 mr-2" />
-              เริ่มออกแบบงาน
+              {t.hero.cta}
             </Button>
             <a
               href={`tel:${contactInfo.phone.replace(/-/g, "")}`}
               className="flex items-center gap-2 px-6 py-3 border border-white/30 rounded-full text-white/80 hover:text-white hover:border-white/50 transition-all backdrop-blur-sm"
             >
               <Phone className="w-4 h-4" />
-              <span>โทรปรึกษาฟรี</span>
+              <span>{t.hero.callFree}</span>
             </a>
           </motion.div>
 
@@ -656,15 +655,15 @@ export default function Home() {
           >
             <div className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-400" />
-              <span>บริการ 24 ชม.</span>
+              <span>{t.hero.service24h}</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-400" />
-              <span>ประสบการณ์ 15+ ปี</span>
+              <span>{language === "th" ? "ประสบการณ์ 15+ ปี" : "15+ Years Experience"}</span>
             </div>
             <div className="flex items-center gap-2 hidden sm:flex">
               <Check className="w-4 h-4 text-green-400" />
-              <span>ดูแลแล้ว 1,000+ งาน</span>
+              <span>{language === "th" ? "ดูแลแล้ว 1,000+ งาน" : "1,000+ Families Served"}</span>
             </div>
           </motion.div>
         </motion.div>
@@ -709,11 +708,11 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              ขั้นตอนการทำงานของเรา
+              {t.process.title}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-4" />
             <p className="text-white/50 text-lg">
-              เราดูแลทุกขั้นตอนอย่างใส่ใจ ตั้งแต่ต้นจนจบ
+              {t.process.subtitle}
             </p>
           </motion.div>
 
@@ -769,14 +768,14 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <p className="text-white/40 text-sm mb-4">พร้อมเริ่มต้นแล้วหรือยัง?</p>
+            <p className="text-white/40 text-sm mb-4">{t.process.ready}</p>
             <Button
               onClick={() => setShowWizard(true)}
               variant="outline"
               className="border-gold/50 text-gold hover:bg-gold hover:text-black transition-all"
             >
               <Phone className="w-4 h-4 mr-2" />
-              ติดต่อปรึกษาฟรี
+              {t.process.contactFree}
             </Button>
           </motion.div>
         </div>
@@ -822,7 +821,7 @@ export default function Home() {
             className="mb-12"
           >
             <h3 className={`text-center text-xl text-white/80 mb-8 ${language === "th" ? "font-thai" : "font-serif"}`}>
-              เสียงจากครอบครัวที่ไว้วางใจ
+              {t.testimonials.title}{t.testimonials.subtitle}
             </h3>
             
             {/* Slider Container */}
@@ -910,7 +909,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <p className="text-white/40 text-xs uppercase tracking-widest mb-6">พันธมิตรที่ไว้วางใจ</p>
+            <p className="text-white/40 text-xs uppercase tracking-widest mb-6">{t.stats.partners}</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
               {["วัดเทพศิรินทร์", "วัดธาตุทอง", "วัดมกุฏกษัตริยาราม", "วัดบวรนิเวศ", "วัดพระศรีมหาธาตุ"].map((partner, index) => (
                 <div key={index} className="text-white/60 text-sm font-thai">
@@ -1018,11 +1017,11 @@ export default function Home() {
             <h2
               className={`text-4xl md:text-5xl font-bold text-white mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}
             >
-              บริการของเรา
+              {t.services.title}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
             <p className="text-white/60 text-lg tracking-widest uppercase mb-8">
-              The Storytelling Collection
+              {t.services.subtitle}
             </p>
 
             {/* View Toggle */}
@@ -1035,7 +1034,7 @@ export default function Home() {
                     : "text-white/60 hover:text-white"
                 }`}
               >
-                แบบการ์ด
+                {t.services.viewCards}
               </button>
               <button
                 onClick={() => setPackageView("table")}
@@ -1045,7 +1044,7 @@ export default function Home() {
                     : "text-white/60 hover:text-white"
                 }`}
               >
-                เปรียบเทียบ
+                {t.services.viewTable}
               </button>
             </div>
           </motion.div>
@@ -1060,7 +1059,7 @@ export default function Home() {
               <table className="w-full min-w-[800px] border-collapse">
                 <thead>
                   <tr className="border-b border-white/10">
-                    <th className="text-left p-4 text-white/50 font-normal">รายการ</th>
+                    <th className="text-left p-4 text-white/50 font-normal">{language === "th" ? "รายการ" : "Item"}</th>
                     {servicePackages.map((pkg) => (
                       <th key={pkg.id} className="p-4 text-center">
                         <div className={`font-bold text-lg ${pkg.accent}`}>{pkg.name}</div>
@@ -1072,7 +1071,7 @@ export default function Home() {
                 <tbody>
                   {/* ราคา */}
                   <tr className="border-b border-white/5 bg-white/[0.02]">
-                    <td className="p-4 text-white/70">ราคาเริ่มต้น</td>
+                    <td className="p-4 text-white/70">{t.services.startingPrice}</td>
                     {servicePackages.map((pkg) => (
                       <td key={pkg.id} className="p-4 text-center">
                         <span className={`font-bold text-xl ${pkg.accent}`}>
@@ -1083,7 +1082,7 @@ export default function Home() {
                   </tr>
                   {/* ระยะเวลา */}
                   <tr className="border-b border-white/5">
-                    <td className="p-4 text-white/70">ระยะเวลางาน</td>
+                    <td className="p-4 text-white/70">{t.services.duration}</td>
                     {servicePackages.map((pkg) => (
                       <td key={pkg.id} className="p-4 text-center text-white/80">
                         {pkg.duration}
@@ -1092,7 +1091,7 @@ export default function Home() {
                   </tr>
                   {/* สถานที่ */}
                   <tr className="border-b border-white/5 bg-white/[0.02]">
-                    <td className="p-4 text-white/70">ขนาดสถานที่</td>
+                    <td className="p-4 text-white/70">{t.services.venue}</td>
                     {servicePackages.map((pkg) => (
                       <td key={pkg.id} className="p-4 text-center text-white/80">
                         {pkg.venue}
@@ -1101,7 +1100,7 @@ export default function Home() {
                   </tr>
                   {/* จำนวนแขก */}
                   <tr className="border-b border-white/5">
-                    <td className="p-4 text-white/70">รองรับแขก</td>
+                    <td className="p-4 text-white/70">{t.services.guests}</td>
                     {servicePackages.map((pkg) => (
                       <td key={pkg.id} className="p-4 text-center text-white/80">
                         {pkg.guests}
@@ -1388,22 +1387,22 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className={`text-4xl md:text-5xl font-bold text-white mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}>
-              ผลงานที่ผ่านมา
+              {t.portfolio.title}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
-            <p className="text-white/60 text-lg">ตัวอย่างงานที่เราภูมิใจนำเสนอ</p>
+            <p className="text-white/60 text-lg">{t.portfolio.subtitle}</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { src: "/OurWork6.png", label: "ทีมวางแผนงาน" },
-              { src: "/OurWork2.png", label: "พิธีไว้อาลัย" },
-              { src: "/OurWork3.jpg", label: "บริการครบวงจร" },
-              { src: "/OurWork4.png", label: "ดูแลด้วยใจ" },
-              { src: "/OurWork5.png", label: "วางแผนพิธี" },
-              { src: "/OurWork1.jpg", label: "ขบวนพิธี" },
-              { src: "/OurWork7.png", label: "พิธีกรรมไทย" },
-              { src: "/Flower R.png", label: "จัดดอกไม้" },
+              { src: "/OurWork6.png", label: t.portfolio.items[0].label },
+              { src: "/OurWork2.png", label: t.portfolio.items[1].label },
+              { src: "/OurWork3.jpg", label: t.portfolio.items[2].label },
+              { src: "/OurWork4.png", label: t.portfolio.items[3].label },
+              { src: "/OurWork5.png", label: t.portfolio.items[4].label },
+              { src: "/OurWork1.jpg", label: t.portfolio.items[5].label },
+              { src: "/OurWork7.png", label: t.portfolio.items[6].label },
+              { src: "/Flower R.png", label: t.portfolio.items[7].label },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -1414,7 +1413,7 @@ export default function Home() {
                 className="relative group aspect-square overflow-hidden rounded-xl cursor-pointer"
                 onClick={() => setGalleryModal({
                   isOpen: true,
-                  packageName: "ผลงาน",
+                  packageName: t.portfolio.title,
                   images: [item.src],
                   currentIndex: 0,
                 })}
@@ -1440,7 +1439,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mt-8"
           >
-            <p className="text-white/40 text-sm">* รูปตัวอย่างเพื่อประกอบการพิจารณา</p>
+            <p className="text-white/40 text-sm">{t.portfolio.note}</p>
           </motion.div>
         </div>
       </section>
@@ -1456,32 +1455,29 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className={`text-4xl md:text-5xl font-bold text-white mb-6 ${language === "th" ? "font-thai" : "font-serif"}`}>
-                เกี่ยวกับ SASAN
+                {t.about.title}
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-gold to-transparent mb-8" />
               
               <div className="space-y-6 text-white/70 leading-relaxed">
                 <p>
-                  <span className="text-gold font-semibold">SASAN</span> ก่อตั้งขึ้นด้วยความตั้งใจที่จะสร้างมาตรฐานใหม่ 
-                  ในการจัดงานศพ ด้วยประสบการณ์กว่า 15 ปี เราเข้าใจว่าการจากลาบุคคลอันเป็นที่รัก 
-                  เป็นช่วงเวลาที่ต้องการความใส่ใจเป็นพิเศษ
+                  <span className="text-gold font-semibold">SASAN</span> {t.about.description1}
                 </p>
                 <p>
-                  ทีมงานมืออาชีพของเราพร้อมดูแลทุกขั้นตอน ตั้งแต่การวางแผน การจัดเตรียมสถานที่ 
-                  ไปจนถึงพิธีสุดท้าย เพื่อให้ครอบครัวได้มีเวลาไว้อาลัยอย่างสงบ
+                  {t.about.description2}
                 </p>
                 <p>
-                  ปรัชญาของเรา: <span className="text-gold italic">"ทุกชีวิตมีเรื่องราว และเรื่องราวทุกเรื่องสมควรได้รับการบอกเล่าอย่างงดงาม"</span>
+                  {language === "th" ? "ปรัชญาของเรา:" : "Our philosophy:"} <span className="text-gold italic">"{t.about.philosophy}"</span>
                 </p>
               </div>
 
               {/* Credentials */}
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
-                  { icon: "🏆", text: "ใบอนุญาตประกอบกิจการ" },
-                  { icon: "✅", text: "มาตรฐาน ISO 9001" },
-                  { icon: "🤝", text: "สมาชิกสมาคมฯ" },
-                  { icon: "💼", text: "ประกันความรับผิดชอบ" },
+                  { icon: "🏆", text: t.about.credentials[0].text },
+                  { icon: "✅", text: t.about.credentials[1].text },
+                  { icon: "🤝", text: t.about.credentials[2].text },
+                  { icon: "💼", text: t.about.credentials[3].text },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3 text-white/60 text-sm">
                     <span className="text-xl">{item.icon}</span>
@@ -1591,39 +1587,14 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className={`text-4xl md:text-5xl font-bold text-white mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}>
-              คำถามที่พบบ่อย
+              {t.faq.title}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
-            <p className="text-white/60 text-lg">FAQ</p>
+            <p className="text-white/60 text-lg">{t.faq.subtitle}</p>
           </motion.div>
 
           <div className="space-y-4">
-            {[
-              {
-                q: "ขั้นตอนการจองบริการเป็นอย่างไร?",
-                a: "เพียงติดต่อเราผ่านโทรศัพท์ LINE หรือกรอกแบบฟอร์มบนเว็บไซต์ ทีมงานจะติดต่อกลับภายใน 1 ชั่วโมง เพื่อรับฟังความต้องการและแนะนำแพ็คเกจที่เหมาะสม จากนั้นนัดหมายพบปะเพื่อวางแผนรายละเอียด",
-              },
-              {
-                q: "ชำระเงินอย่างไร? ต้องจ่ายล่วงหน้าเท่าไหร่?",
-                a: "รับชำระเงินสด โอนเงิน และบัตรเครดิต สำหรับการวางแผนล่วงหน้า (Pre-planning) มัดจำ 30% ส่วนกรณีเร่งด่วนชำระ 50% ก่อนเริ่มงาน และส่วนที่เหลือหลังเสร็จสิ้นพิธี",
-              },
-              {
-                q: "สามารถยกเลิกหรือเลื่อนได้ไหม?",
-                a: "สำหรับ Pre-planning สามารถเลื่อนได้โดยไม่มีค่าใช้จ่ายเพิ่ม และยกเลิกได้โดยหักค่าดำเนินการ 10% กรณีจองแล้วต้องการเปลี่ยนแปลง กรุณาแจ้งล่วงหน้าอย่างน้อย 7 วัน",
-              },
-              {
-                q: "ราคาที่แจ้งรวมอะไรบ้าง? มีค่าใช้จ่ายแอบแฝงไหม?",
-                a: "ราคาที่แจ้งเป็นราคาเหมาจ่ายตามรายการในแพ็คเกจ ไม่มีค่าใช้จ่ายแอบแฝง หากต้องการบริการเพิ่มเติมนอกเหนือแพ็คเกจ ทีมงานจะแจ้งราคาล่วงหน้าทุกครั้ง",
-              },
-              {
-                q: "SASAN ให้บริการในพื้นที่ใดบ้าง?",
-                a: "เราให้บริการทั่วกรุงเทพฯ และปริมณฑล รวมถึงต่างจังหวัดทั่วประเทศ (อาจมีค่าเดินทางเพิ่มเติมสำหรับพื้นที่ห่างไกล)",
-              },
-              {
-                q: "กรณีเร่งด่วน สามารถจัดงานได้เร็วสุดกี่วัน?",
-                a: "ทีมงานพร้อมให้บริการ 24 ชั่วโมง กรณีเร่งด่วนสามารถเริ่มดำเนินการได้ทันที และจัดงานได้ภายใน 24-48 ชั่วโมง",
-              },
-            ].map((faq, index) => (
+            {t.faq.items.map((faq: {q: string, a: string}, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}
@@ -1651,13 +1622,13 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <p className="text-white/50 text-sm mb-4">ยังมีคำถามเพิ่มเติม?</p>
+            <p className="text-white/50 text-sm mb-4">{t.faq.moreQuestions}</p>
             <a
               href={`tel:${contactInfo.phone.replace(/-/g, "")}`}
               className="inline-flex items-center gap-2 text-gold hover:text-yellow-400 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>โทรปรึกษาฟรี {contactInfo.phone}</span>
+              <span>{t.faq.callFree} {contactInfo.phone}</span>
             </a>
           </motion.div>
         </div>
@@ -1689,17 +1660,17 @@ export default function Home() {
               <h3
                 className={`text-xl font-bold text-gold mb-2 ${language === "th" ? "font-thai" : "font-serif"}`}
               >
-                ✨ One Stop Service
+                ✨ {t.contact.oneStopService}
               </h3>
               <p className="text-white/60 text-sm mb-4">
-                เลือกแพ็คเกจหรือออกแบบงานด้วยตัวเอง พร้อมคำนวณราคาอัตโนมัติ
+                {t.contact.oneStopDesc}
               </p>
               <Button
                 onClick={() => setShowWizard(true)}
                 className="bg-gold text-black hover:bg-yellow-400 px-8 py-6 rounded-full text-lg font-bold tracking-wide transition-all duration-300 shadow-lg shadow-gold/20 hover:shadow-xl hover:shadow-gold/30"
               >
                 <Wand2 className="w-5 h-5 mr-2" />
-                เริ่มต้นใช้งาน
+                {t.contact.startNow}
               </Button>
             </div>
           </motion.div>
@@ -1721,9 +1692,9 @@ export default function Home() {
                   <Phone className="w-6 h-6 text-amber-400" />
                 </div>
                 <div>
-                  <p className="text-white/60 text-xs mb-1">โทรหาเราเลย</p>
+                  <p className="text-white/60 text-xs mb-1">{t.contact.callUs}</p>
                   <p className="text-xl font-bold text-amber-400">{contactInfo.phone}</p>
-                  <p className="text-white/40 text-xs mt-1">พร้อมให้บริการ 24 ชั่วโมง</p>
+                  <p className="text-white/40 text-xs mt-1">{t.contact.available24h}</p>
                 </div>
               </div>
             </a>
@@ -1744,9 +1715,9 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <p className="text-white/60 text-xs mb-1">LINE Official</p>
+                  <p className="text-white/60 text-xs mb-1">{t.contact.lineOfficial}</p>
                   <p className="text-xl font-bold text-green-400">{contactInfo.line}</p>
-                  <p className="text-white/40 text-xs mt-1">แสกน QR หรือคลิกเพื่อแชท</p>
+                  <p className="text-white/40 text-xs mt-1">{t.contact.scanOrClick}</p>
                 </div>
               </div>
             </a>
@@ -1755,7 +1726,7 @@ export default function Home() {
           {/* Divider */}
           <div className="flex items-center gap-4 mb-8">
             <div className="flex-1 h-px bg-white/10" />
-            <span className="text-white/40 text-sm">หรือ</span>
+            <span className="text-white/40 text-sm">{t.contact.or}</span>
             <div className="flex-1 h-px bg-white/10" />
           </div>
 
@@ -1769,7 +1740,7 @@ export default function Home() {
             <h3
               className={`text-lg font-bold text-white/80 mb-6 text-center ${language === "th" ? "font-thai" : "font-serif"}`}
             >
-              💬 ติดต่อทีมงานโดยตรง
+              💬 {t.contact.directContact}
             </h3>
             <Form {...form}>
               <form

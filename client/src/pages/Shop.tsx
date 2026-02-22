@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
+import { useLanguage } from "@/components/LanguageContext";
 import {
   ShoppingCart,
   X,
@@ -260,11 +261,11 @@ const products: Product[] = [
 ];
 
 const categories = [
-  { id: "all", name: "ทั้งหมด", icon: Package },
-  { id: "wreath", name: "พวงหรีด", icon: Flower2 },
-  { id: "sandalwood", name: "ดอกไม้จันทน์", icon: Flower2 },
-  { id: "souvenir", name: "ของชำร่วย", icon: Gift },
-  { id: "urn", name: "โกศ/กล่องอัฐิ", icon: Package },
+  { id: "all", name: "ทั้งหมด", nameEn: "All", icon: Package },
+  { id: "wreath", name: "พวงหรีด", nameEn: "Wreaths", icon: Flower2 },
+  { id: "sandalwood", name: "ดอกไม้จันทน์", nameEn: "Sandalwood Flowers", icon: Flower2 },
+  { id: "souvenir", name: "ของชำร่วย", nameEn: "Souvenirs", icon: Gift },
+  { id: "urn", name: "โกศ/กล่องอัฐิ", nameEn: "Urns", icon: Package },
 ];
 
 // ============================================================
@@ -292,6 +293,7 @@ function ProductCardSkeleton() {
 // MAIN COMPONENT
 // ============================================================
 export default function Shop() {
+  const { t, language } = useLanguage();
   const [isProductsLoading, setIsProductsLoading] = useState(true);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -391,7 +393,7 @@ export default function Shop() {
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-5xl font-bold text-white mb-4"
             >
-              SASAN Shop
+              {t.shop.subtitle}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -399,7 +401,7 @@ export default function Shop() {
               transition={{ delay: 0.1 }}
               className="text-white/60 text-lg mb-8"
             >
-              พวงหรีด ดอกไม้จันทน์ ของชำร่วย และอุปกรณ์งานศพ
+              {t.shop.description}
             </motion.p>
             
             {/* Search Bar */}
@@ -412,7 +414,7 @@ export default function Shop() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
               <input
                 type="text"
-                placeholder="ค้นหาสินค้า..."
+                placeholder={t.shop.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-full text-white placeholder:text-white/40 focus:outline-none focus:border-amber-500 transition-colors"
@@ -429,7 +431,7 @@ export default function Shop() {
             {/* Sidebar - Categories */}
             <aside className="lg:w-64 flex-shrink-0">
               <div className="sticky top-24">
-                <h3 className="text-lg font-bold text-white mb-4">หมวดหมู่</h3>
+                <h3 className="text-lg font-bold text-white mb-4">{language === "th" ? "หมวดหมู่" : "Categories"}</h3>
                 <div className="space-y-2">
                   {categories.map((cat) => (
                     <button
@@ -442,7 +444,7 @@ export default function Shop() {
                       }`}
                     >
                       <cat.icon className="w-5 h-5" />
-                      <span>{cat.name}</span>
+                      <span>{language === "th" ? cat.name : cat.nameEn}</span>
                       <span className="ml-auto text-sm opacity-60">
                         {cat.id === "all"
                           ? products.length
@@ -454,19 +456,19 @@ export default function Shop() {
 
                 {/* Quick Info */}
                 <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10">
-                  <h4 className="font-bold text-white mb-3">บริการของเรา</h4>
+                  <h4 className="font-bold text-white mb-3">{language === "th" ? "บริการของเรา" : "Our Services"}</h4>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center gap-2 text-white/60">
                       <Truck className="w-4 h-4 text-amber-400" />
-                      <span>จัดส่งฟรีในกรุงเทพฯ</span>
+                      <span>{language === "th" ? "จัดส่งฟรีในกรุงเทพฯ" : "Free delivery in Bangkok"}</span>
                     </div>
                     <div className="flex items-center gap-2 text-white/60">
                       <Clock className="w-4 h-4 text-amber-400" />
-                      <span>จัดส่งด่วน 2-3 ชม.</span>
+                      <span>{language === "th" ? "จัดส่งด่วน 2-3 ชม." : "Express delivery 2-3 hrs"}</span>
                     </div>
                     <div className="flex items-center gap-2 text-white/60">
                       <Phone className="w-4 h-4 text-amber-400" />
-                      <span>บริการ 24 ชม.</span>
+                      <span>{language === "th" ? "บริการ 24 ชม." : "24/7 Service"}</span>
                     </div>
                   </div>
                 </div>
@@ -478,19 +480,19 @@ export default function Shop() {
               {/* Sort & Filter Bar */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <p className="text-white/60">
-                  พบ <span className="text-white font-bold">{filteredProducts.length}</span> สินค้า
+                  {language === "th" ? "พบ" : "Found"} <span className="text-white font-bold">{filteredProducts.length}</span> {language === "th" ? "สินค้า" : "products"}
                 </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-white/60 text-sm">เรียงตาม:</span>
+                  <span className="text-white/60 text-sm">{language === "th" ? "เรียงตาม:" : "Sort by:"}</span>
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
                     className="bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500"
                   >
-                    <option value="popular">ยอดนิยม</option>
-                    <option value="price-low">ราคา: ต่ำ-สูง</option>
-                    <option value="price-high">ราคา: สูง-ต่ำ</option>
-                    <option value="rating">คะแนนสูงสุด</option>
+                    <option value="popular">{language === "th" ? "ยอดนิยม" : "Popular"}</option>
+                    <option value="price-low">{language === "th" ? "ราคา: ต่ำ-สูง" : "Price: Low-High"}</option>
+                    <option value="price-high">{language === "th" ? "ราคา: สูง-ต่ำ" : "Price: High-Low"}</option>
+                    <option value="rating">{language === "th" ? "คะแนนสูงสุด" : "Highest Rating"}</option>
                   </select>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/components/LanguageContext';
 import {
   Package, Sparkles, ChevronRight, ChevronLeft, ChevronDown, ChevronUp,
   Users, Check, X, Crown, BookOpen, BookText, Gem,
@@ -494,6 +495,7 @@ const LuxuryBackground = () => (
 
 // ==================== MAIN COMPONENT ====================
 export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
+  const { t, language } = useLanguage();
   const [mode, setMode] = useState<'select' | 'package' | 'quiz' | 'recommendation' | 'contact'>('select');
   const [selectedPackageId, setSelectedPackageId] = useState<string | null>(null);
   const [packageStep, setPackageStep] = useState<'list' | 'detail' | 'customize'>('list');
@@ -687,9 +689,9 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   Sasan
                 </motion.p>
                 <h1 className="text-3xl md:text-4xl font-serif font-light text-white mb-4">
-                  The Last Chapter
+                  {t.serviceSelector.title}
                 </h1>
-                <p className="text-white/40 text-sm font-light">ออกแบบบทสุดท้ายที่งดงาม</p>
+                <p className="text-white/40 text-sm font-light">{t.serviceSelector.subtitle}</p>
               </div>
 
               {/* Options */}
@@ -708,13 +710,13 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                       <Package className="w-5 h-5 text-amber-500" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-medium text-white mb-1">The Storytelling Collection</h3>
-                      <p className="text-amber-600/70 text-sm mb-2">แพ็คเกจบริการของเรา</p>
+                      <h3 className="text-lg font-medium text-white mb-1">{t.serviceSelector.modeSelect.packageTitle}</h3>
+                      <p className="text-amber-600/70 text-sm mb-2">{t.serviceSelector.modeSelect.packageDesc}</p>
                       <p className="text-white/40 text-sm font-light">
-                        เลือกจากคอลเลคชันที่ออกแบบไว้ ครบจบในที่เดียว
+                        {t.serviceSelector.modeSelect.packageNote}
                       </p>
                       <div className="flex gap-2 mt-3">
-                        <span className="text-[10px] bg-white/10 text-white/50 px-2 py-1 rounded">4 แพ็คเกจ</span>
+                        <span className="text-[10px] bg-white/10 text-white/50 px-2 py-1 rounded">{t.serviceSelector.modeSelect.packageCount}</span>
                         <span className="text-[10px] bg-white/10 text-white/50 px-2 py-1 rounded">฿45K - ฿1M</span>
                       </div>
                     </div>
@@ -734,7 +736,7 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   {/* Teaser badge */}
                   <div className="absolute top-3 right-3 flex items-center gap-1 bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full text-[10px]">
                     <Clock className="w-3 h-3" />
-                    <span>30 วินาที</span>
+                    <span>{t.serviceSelector.modeSelect.quizTime}</span>
                   </div>
                   
                   <div className="flex items-start gap-4">
@@ -742,14 +744,14 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                       <Sparkles className="w-5 h-5 text-purple-400" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-medium text-white mb-1">Personalized Design</h3>
-                      <p className="text-purple-400/70 text-sm mb-2">ค้นหาแพ็คเกจที่ใช่สำหรับคุณ</p>
+                      <h3 className="text-lg font-medium text-white mb-1">{t.serviceSelector.modeSelect.quizTitle}</h3>
+                      <p className="text-purple-400/70 text-sm mb-2">{t.serviceSelector.modeSelect.quizDesc}</p>
                       <p className="text-white/40 text-sm font-light">
-                        ตอบ 3 คำถาม ระบบจะแนะนำแพ็คเกจที่เหมาะกับคุณ
+                        {t.serviceSelector.modeSelect.quizNote}
                       </p>
                       {/* Teaser preview */}
                       <div className="mt-3 p-3 bg-purple-900/20 rounded-lg border border-purple-500/20">
-                        <p className="text-purple-300/80 text-xs">✨ ค้นพบแพ็คเกจที่ใช่ในเวลาไม่ถึงนาที</p>
+                        <p className="text-purple-300/80 text-xs">✨ {t.serviceSelector.modeSelect.quizTeaser}</p>
                         <div className="flex gap-1 mt-2">
                           {['🎯 ตรงใจ', '💰 ตรงงบ', '🎨 ตรงสไตล์'].map((item, i) => (
                             <span key={i} className="text-[10px] text-white/40">{item}</span>
@@ -772,8 +774,8 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   <ChevronLeft className="w-5 h-5 text-white/40" />
                 </button>
                 <div>
-                  <h2 className="text-xl font-medium">The Storytelling Collection</h2>
-                  <p className="text-white/40 text-sm font-light">เลือกคอลเลคชันที่เหมาะกับคุณ</p>
+                  <h2 className="text-xl font-medium">{t.serviceSelector.modeSelect.packageTitle}</h2>
+                  <p className="text-white/40 text-sm font-light">{t.serviceSelector.package.selectTitle}</p>
                 </div>
               </div>
 
@@ -805,22 +807,22 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                             {pkg.recommended && (
                               <span className="text-[10px] bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded-full flex items-center gap-1">
                                 <Sparkles className="w-2.5 h-2.5" />
-                                แนะนำ
+                                {t.serviceSelector.package.recommended}
                               </span>
                             )}
                           </div>
                           <p className="text-sm mb-2" style={{ color: pkg.accent }}>{pkg.tagline}</p>
                           <div className="flex items-center gap-3 text-xs text-white/40">
-                            <span>{pkg.days} วัน</span>
+                            <span>{pkg.days} {t.serviceSelector.package.days}</span>
                             <span className="w-1 h-1 rounded-full bg-white/20" />
-                            <span>รองรับ {pkg.maxGuests} คน</span>
+                            <span>{language === "th" ? "รองรับ" : "Up to"} {pkg.maxGuests} {t.serviceSelector.package.guests}</span>
                           </div>
                         </div>
                         <div className="text-right flex-shrink-0">
                           <div className="font-medium" style={{ color: pkg.accent }}>
                             ฿{formatPrice(pkg.price.min)}
                           </div>
-                          <div className="text-xs text-white/30">เริ่มต้น</div>
+                          <div className="text-xs text-white/30">{t.serviceSelector.package.startingPrice}</div>
                         </div>
                       </div>
                     </motion.button>
@@ -1588,15 +1590,15 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   <ChevronLeft className="w-5 h-5 text-white/40" />
                 </button>
                 <div>
-                  <h2 className="text-xl font-medium">ติดต่อเรา</h2>
-                  <p className="text-white/40 text-sm">ทีมงานจะติดต่อกลับเพื่อออกแบบงานตามความต้องการ</p>
+                  <h2 className="text-xl font-medium">{t.serviceSelector.contact.title}</h2>
+                  <p className="text-white/40 text-sm">{language === "th" ? "ทีมงานจะติดต่อกลับเพื่อออกแบบงานตามความต้องการ" : "Our team will contact you to design according to your needs"}</p>
                 </div>
               </div>
 
               {/* Summary if has answers */}
               {briefAnswers.who && (
                 <div className="p-4 rounded-xl bg-purple-900/10 border border-purple-500/20">
-                  <p className="text-sm text-purple-400/80 mb-3">ความต้องการของคุณ</p>
+                  <p className="text-sm text-purple-400/80 mb-3">{language === "th" ? "ความต้องการของคุณ" : "Your Requirements"}</p>
                   <div className="space-y-1 text-sm text-white/50">
                     {briefAnswers.who && <p>• {briefQuestions[0].options.find(o => o.id === briefAnswers.who)?.label}</p>}
                     {briefAnswers.style && <p>• {briefQuestions[1].options.find(o => o.id === briefAnswers.style)?.label}</p>}
@@ -1610,7 +1612,7 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                 <div className="p-4 rounded-xl bg-amber-900/10 border border-amber-500/20">
                   <p className="text-sm text-amber-400/80 flex items-center gap-2">
                     <Clock className="w-4 h-4" />
-                    ทีมงานจะติดต่อกลับภายใน 1 ชั่วโมง
+                    {t.serviceSelector.success.message}
                   </p>
                 </div>
               )}
@@ -1622,28 +1624,28 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                   value={contactForm.name}
                   onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-purple-500/50 focus:outline-none text-white placeholder-white/25"
-                  placeholder="ชื่อ *"
+                  placeholder={`${t.serviceSelector.contact.name} *`}
                 />
                 <input
                   type="tel"
                   value={contactForm.phone}
                   onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-purple-500/50 focus:outline-none text-white placeholder-white/25"
-                  placeholder="เบอร์โทรศัพท์ *"
+                  placeholder={`${t.serviceSelector.contact.phone} *`}
                 />
                 <input
                   type="text"
                   value={contactForm.line}
                   onChange={(e) => setContactForm({ ...contactForm, line: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-purple-500/50 focus:outline-none text-white placeholder-white/25"
-                  placeholder="LINE ID"
+                  placeholder={t.serviceSelector.contact.line}
                 />
                 <textarea
                   value={contactForm.note}
                   onChange={(e) => setContactForm({ ...contactForm, note: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 focus:border-purple-500/50 focus:outline-none text-white placeholder-white/25 resize-none"
                   rows={4}
-                  placeholder="รายละเอียดที่ต้องการ เช่น งบประมาณ จำนวนแขก สถานที่ ฯลฯ"
+                  placeholder={t.serviceSelector.contact.note}
                 />
               </div>
 
@@ -1652,7 +1654,7 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
                 disabled={!contactForm.name || !contactForm.phone}
                 className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-purple-700 text-white font-medium hover:from-purple-500 hover:to-purple-600 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               >
-                ส่งข้อมูล
+                {t.serviceSelector.contact.submit}
               </button>
             </motion.div>
           )}
@@ -1667,22 +1669,20 @@ export default function ServiceSelector({ onClose }: ServiceSelectorProps) {
               <div className="w-14 h-14 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
                 <Check className="w-6 h-6 text-green-400" />
               </div>
-              <h3 className="text-xl font-medium mb-2">ขอบคุณค่ะ</h3>
+              <h3 className="text-xl font-medium mb-2">{t.serviceSelector.success.title}</h3>
               <p className="text-white/50 text-sm mb-8">
-                {briefAnswers.who === 'passed'
-                  ? 'ทีมงานจะติดต่อกลับภายใน 1 ชั่วโมง'
-                  : 'ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง'}
+                {t.serviceSelector.success.message}
               </p>
               <div className="space-y-3">
                 <a href="tel:0812345678" className="w-full py-3 rounded-xl bg-amber-700 text-white font-medium flex items-center justify-center gap-2 hover:bg-amber-600 transition-colors">
-                  <Phone className="w-4 h-4" />โทรหาเราเลย
+                  <Phone className="w-4 h-4" />{language === "th" ? "โทรหาเราเลย" : "Call Us Now"}
                 </a>
                 <a href="https://line.me/ti/p/@sasan" target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-xl bg-green-600 text-white font-medium flex items-center justify-center gap-2 hover:bg-green-500 transition-colors">
                   <MessageCircle className="w-4 h-4" />LINE: @sasan
                 </a>
               </div>
               <button onClick={() => { setShowSuccess(false); handleReset(); }} className="w-full mt-6 py-2 text-white/30 hover:text-white/50 text-sm">
-                ปิด
+                {t.serviceSelector.success.close}
               </button>
             </motion.div>
           </motion.div>

@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
+import { useLanguage } from "@/components/LanguageContext";
 import {
   ArrowRight,
   BookOpen,
@@ -241,6 +242,7 @@ function VideoPanel({ article, index, isHovered, onHover, onLeave, onClick }: Vi
 // MAIN COMPONENT
 // ============================================================
 export default function Blog() {
+  const { t, language } = useLanguage();
   const [, setLocation] = useLocation();
   const [selectedArticle, setSelectedArticle] = useState<number | null>(null);
   const [comparisonView, setComparisonView] = useState<"sasan" | "general">("sasan");
@@ -267,7 +269,7 @@ export default function Blog() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold text-gold font-serif"
           >
-            The Last Chapter
+            {t.blog.heroSubtitle}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -275,7 +277,7 @@ export default function Blog() {
             transition={{ delay: 0.2 }}
             className="text-white/60 mt-2"
           >
-            เพราะบทสุดท้าย... สำคัญเสมอ
+            {t.blog.heroTagline}
           </motion.p>
         </div>
 
@@ -307,10 +309,10 @@ export default function Blog() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-serif text-gold mb-4">
-              เปรียบเทียบความแตกต่าง
+              {t.blog.comparison.title}
             </h2>
             <p className="text-white/60">
-              ระหว่างการวางแผนล่วงหน้า กับการไม่มีแผน
+              {t.blog.comparison.subtitle}
             </p>
           </motion.div>
 
@@ -324,7 +326,7 @@ export default function Blog() {
                   : "border-white/30 text-white/50 hover:border-white/50"
               }`}
             >
-              ✅ SASAN (วางแผนล่วงหน้า)
+              ✅ {t.blog.comparison.sasanBtn}
             </button>
             <button
               onClick={() => setComparisonView("general")}
@@ -334,7 +336,7 @@ export default function Blog() {
                   : "border-white/30 text-white/50 hover:border-white/50"
               }`}
             >
-              ❌ ทั่วไป (ไม่มีแผน)
+              ❌ {t.blog.comparison.generalBtn}
             </button>
           </div>
 
@@ -480,19 +482,18 @@ export default function Blog() {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-serif text-gold mb-6">
-              ของขวัญชิ้นสุดท้าย...<br />แด่คนที่คุณรัก
+              {t.blog.cta.title}<br />{t.blog.cta.subtitle}
             </h2>
 
             <div className="text-white/70 text-lg leading-relaxed mb-8">
               <p className="mb-4">
-                การวางแผนล่วงหน้า ไม่ใช่การแช่งตัวเอง
+                {t.blog.cta.description1}
               </p>
               <p className="mb-4">
-                แต่คือการบอกคนที่คุณรักว่า...
+                {t.blog.cta.description2}
               </p>
               <p className="text-gold text-xl italic font-serif">
-                "ไม่ต้องห่วงนะ ฉันเตรียมทุกอย่างไว้ให้แล้ว<br />
-                ดูแลตัวเองให้ดีก็พอ"
+                "{t.blog.cta.quote}"
               </p>
             </div>
 
@@ -500,11 +501,11 @@ export default function Blog() {
               onClick={() => setLocation("/?openWizard=true")}
               className="bg-gold text-black hover:bg-yellow-400 px-10 py-6 rounded-full text-lg font-bold uppercase tracking-wider shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all"
             >
-              เริ่มวางแผน "บทสุดท้าย" วันนี้
+              {t.blog.cta.button}
             </Button>
 
             <p className="text-white/40 text-sm mt-6">
-              ปรึกษาฟรี ไม่มีค่าใช้จ่าย
+              {t.blog.cta.note}
             </p>
           </motion.div>
         </div>
@@ -517,9 +518,7 @@ export default function Blog() {
         <div className="max-w-2xl mx-auto px-6 text-center">
           <Quote className="w-12 h-12 text-gold/30 mx-auto mb-6" />
           <p className="text-white/60 text-lg italic font-serif leading-relaxed">
-            "คุณเขียนบทชีวิตมาดีทั้งเรื่อง... 
-            <br />
-            อย่าปล่อยให้ตอนจบวุ่นวาย"
+            "{t.blog.footer.quote}"
           </p>
           <p className="text-gold mt-4 text-sm tracking-wider">— SASAN —</p>
         </div>
