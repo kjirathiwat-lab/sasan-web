@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
+import { useAuth } from "@/components/AuthContext";
+import { useLanguage } from "@/components/LanguageContext";
 import {
   BarChart3,
   TrendingUp,
@@ -196,8 +199,18 @@ const mockSalesData = [
 // MAIN COMPONENT
 // ============================================================
 export default function Dashboard() {
+  const { isAuthenticated, user } = useAuth();
+  const { language } = useLanguage();
+  const [, setLocation] = useLocation();
   const [timeRange, setTimeRange] = useState<"today" | "week" | "month" | "year">("week");
   const [isLoading, setIsLoading] = useState(true);
+
+  // Redirect if not logged in
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setLocation("/login");
+    }
+  }, [isAuthenticated, setLocation]);
 
   // Simulate initial data fetch
   useEffect(() => {
@@ -221,6 +234,11 @@ export default function Dashboard() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [editedDraft, setEditedDraft] = useState("");
   const [showCopied, setShowCopied] = useState(false);
+
+  // Guard: ถ้าไม่ได้ Login ไม่ต้อง render
+  if (!isAuthenticated) {
+    return null;
+  }
 
   const formatPrice = (price: number) => new Intl.NumberFormat("th-TH").format(price);
 

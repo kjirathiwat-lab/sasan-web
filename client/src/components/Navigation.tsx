@@ -78,27 +78,32 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className={`text-sm tracking-widest uppercase hover:text-gold transition-colors duration-200 ${
-                  location === link.href ? "text-gold" : "text-white/80"
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
+          <div className="hidden md:flex items-center">
+            <div className="flex items-center space-x-6 lg:space-x-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className={`text-xs lg:text-sm tracking-wider uppercase hover:text-gold transition-colors duration-200 whitespace-nowrap ${
+                    location === link.href ? "text-gold" : "text-white/80"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+            
+            {/* Divider */}
+            <div className="w-px h-6 bg-white/20 mx-4" />
             
             {/* User Menu + Language Toggle */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <UserMenu />
               
               <button
                 onClick={toggleLanguage}
-                className="flex items-center space-x-2 text-xs border border-white/20 px-3 py-1 rounded-full hover:border-gold transition-colors duration-300"
+                className="flex items-center space-x-1 text-xs border border-white/20 px-2 py-1 rounded-full hover:border-gold transition-colors duration-300"
               >
                 <span className={language === "th" ? "text-gold font-bold" : "text-white/50"}>TH</span>
                 <span className="text-white/20">|</span>

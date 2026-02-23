@@ -11,6 +11,7 @@ import {
   ChevronDown,
   Heart,
   FileText,
+  LayoutDashboard,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -97,6 +98,13 @@ export function UserMenu() {
               >
                 <User className="w-4 h-4" />
                 <span className="text-sm">{language === "th" ? "โปรไฟล์" : "Profile"}</span>
+              </button>
+              <button
+                onClick={() => { setLocation("/dashboard"); setIsOpen(false); }}
+                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                <span className="text-sm">{language === "th" ? "แดชบอร์ด" : "Dashboard"}</span>
               </button>
               <button
                 onClick={() => { setLocation("/my-orders"); setIsOpen(false); }}

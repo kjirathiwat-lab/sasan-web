@@ -27,6 +27,7 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/profile" component={Profile} />
       <Route path="/my-orders" component={MyOrders} />
+      <Route path="/dashboard" component={Dashboard} />
       <Route component={NotFound} />
     </Switch>
   );
