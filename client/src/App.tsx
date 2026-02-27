@@ -14,7 +14,7 @@ import { AuthProvider } from "@/components/AuthContext";
 import Login from "@/pages/Login";
 import Profile from "@/pages/Profile";
 import MyOrders from "@/pages/MyOrders";
-
+import San from "@/pages/San";
 
 function Router() {
   return (
@@ -28,6 +28,7 @@ function Router() {
       <Route path="/profile" component={Profile} />
       <Route path="/my-orders" component={MyOrders} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/san" component={San} />
       <Route component={NotFound} />
     </Switch>
   );

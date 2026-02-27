@@ -368,13 +368,14 @@ export default function Home() {
     {
       id: 1,
       number: "01",
-      name: "เบญจมาศ บัวการ ",
+      name: "เบญจมาศ บัวการ",
       nameEn: "Benjamas",
       role: "Project Group Leader",
       roleSecondary: "6808800016",
       quote: "นำทีมด้วยวิสัยทัศน์ สร้างสรรค์ผลงานด้วยใจ",
       color: "from-purple-500/20 to-pink-500/20",
       accent: "text-purple-400",
+      image: "/Team Image/benja.jpg",
     },
     {
       id: 2,
@@ -386,6 +387,7 @@ export default function Home() {
       quote: "เล่าเรื่องราวที่จับใจ",
       color: "from-amber-500/20 to-orange-500/20",
       accent: "text-amber-400",
+      image: "/Team Image/chayakorn.jpg"  
     },
     {
       id: 3,
@@ -397,6 +399,7 @@ export default function Home() {
       quote: "สร้างสรรค์เนื้อหาที่โดดเด่น",
       color: "from-green-500/20 to-emerald-500/20",
       accent: "text-green-400",
+      image: "/Team Image/wannasit.jpg"
     },
     {
       id: 4,
@@ -408,6 +411,7 @@ export default function Home() {
       quote: "พร้อมดูแลทุกขั้นตอน",
       color: "from-blue-500/20 to-cyan-500/20",
       accent: "text-blue-400",
+      image: "/Team Image/anawat.jpg"
     },
     {
       id: 5,
@@ -419,6 +423,7 @@ export default function Home() {
       quote: "เปลี่ยนไอเดียให้เป็นจริง",
       color: "from-gold/20 to-yellow-500/20",
       accent: "text-gold",
+      image: "/Team Image/jirathiwat.png",
     },
   ];
 
@@ -1903,123 +1908,181 @@ export default function Home() {
           </motion.div>
 
           {/* Team Accordion */}
-          <div className="flex flex-col md:flex-row h-auto md:h-[500px] gap-2 md:gap-0">
+          <div className="flex flex-col md:flex-row h-auto md:h-[560px] gap-2 md:gap-1">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.id}
-                className={`relative cursor-pointer overflow-hidden rounded-xl md:rounded-none md:first:rounded-l-2xl md:last:rounded-r-2xl border border-white/10 ${
-                  hoveredMember === index ? "md:border-gold/50" : ""
-                }`}
+                className={`relative cursor-pointer overflow-hidden
+                  rounded-2xl md:rounded-none
+                  md:first:rounded-l-2xl md:last:rounded-r-2xl
+                  border transition-colors duration-300
+                  ${hoveredMember === index ? "border-gold/50" : "border-white/10"}`}
                 initial={{ flex: 1 }}
-                animate={{
-                  flex: hoveredMember === index ? 4 : 1,
-                }}
-                transition={{ duration: 0.5, ease: [0.25, 0.4, 0.45, 1] }}
+                animate={{ flex: hoveredMember === index ? 4 : 1 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.4, 0.45, 1] }}
                 onMouseEnter={() => setHoveredMember(index)}
                 onMouseLeave={() => setHoveredMember(null)}
               >
-                {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${member.color} transition-opacity duration-500 ${
-                  hoveredMember === index ? "opacity-100" : "opacity-30"
-                }`} />
-                
-                {/* Dark Overlay */}
-                <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${
-                  hoveredMember === index ? "opacity-40" : "opacity-70"
+                {/* Photo BG — Grayscale → Color on hover + Parallax scale */}
+                {member.image && (
+                  <motion.div
+                    className="absolute inset-0 z-0"
+                    animate={{ scale: hoveredMember === index ? 1.06 : 1.0 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                  >
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className={`w-full h-full object-cover object-top transition-all duration-700 ${
+                        hoveredMember === index
+                          ? "grayscale-0 opacity-55"
+                          : "grayscale opacity-20"
+                      }`}
+                    />
+                  </motion.div>
+                )}
+
+                {/* Color gradient overlay */}
+                <div className={`absolute inset-0 z-[1] bg-gradient-to-br ${member.color} transition-opacity duration-500 ${
+                  hoveredMember === index ? "opacity-25" : "opacity-50"
                 }`} />
 
-                {/* Content Container */}
-                <div className="relative h-full p-6 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-0">
-                  
-                  {/* Number Badge */}
-                  <div className="flex items-start justify-between">
-                    <span className={`font-serif text-4xl md:text-5xl transition-all duration-500 ${
-                      hoveredMember === index ? "text-gold" : "text-white/20"
-                    }`}>
-                      {member.number}
-                    </span>
-                    
-                    {/* Role Icon */}
-                    <motion.div
+                {/* Dark overlay */}
+                <div className={`absolute inset-0 z-[2] bg-black transition-opacity duration-500 ${
+                  hoveredMember === index ? "opacity-20" : "opacity-65"
+                }`} />
+
+                {/* Gold bottom bar */}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 h-0.5 z-[10] bg-gradient-to-r from-gold via-amber-400 to-gold"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: hoveredMember === index ? 1 : 0 }}
+                  transition={{ duration: 0.4 }}
+                />
+
+                {/* Content */}
+                <div className="relative z-[5] h-full p-6 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-0">
+
+                  {/* Top: Number + Avatar */}
+                  <div className="flex items-start justify-between flex-shrink-0">
+                    <motion.span
+                      className="font-serif text-4xl md:text-5xl leading-none select-none"
                       animate={{
-                        scale: hoveredMember === index ? 1 : 0.8,
-                        opacity: hoveredMember === index ? 1 : 0.5,
+                        color: hoveredMember === index
+                          ? "rgba(212,175,55,1)"
+                          : "rgba(255,255,255,0.15)",
                       }}
-                      className={`w-10 h-10 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center border border-white/20`}
+                      transition={{ duration: 0.3 }}
                     >
-                      <span className="text-white text-lg">
-                        {member.name.charAt(0)}
-                      </span>
+                      {member.number}
+                    </motion.span>
+
+                    {/* Avatar circle */}
+                    <motion.div
+                      animate={{ scale: hoveredMember === index ? 1.1 : 1 }}
+                      transition={{ duration: 0.3 }}
+                      className={`w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2 transition-all duration-300 ${
+                        hoveredMember === index ? "border-gold/70" : "border-white/20"
+                      }`}
+                    >
+                      {member.image ? (
+                        <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
+                      ) : (
+                        <div className={`w-full h-full bg-gradient-to-br ${member.color} flex items-center justify-center`}>
+                          <span className="text-white font-bold text-sm">{member.name.charAt(0)}</span>
+                        </div>
+                      )}
                     </motion.div>
                   </div>
 
-                  {/* Vertical Role Text (shown when collapsed) */}
+                  {/* Vertical role label — collapsed only */}
                   <motion.div
-                    className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                    animate={{
-                      opacity: hoveredMember === index ? 0 : 1,
-                      rotate: -90,
-                    }}
-                    transition={{ duration: 0.3 }}
+                    className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none"
+                    animate={{ opacity: hoveredMember === index ? 0 : 1 }}
+                    transition={{ duration: 0.15 }}
                   >
-                    <span className="whitespace-nowrap text-white/40 text-sm tracking-[3px] uppercase font-medium">
+                    <span
+                      className="whitespace-nowrap text-white/30 text-xs tracking-[3px] uppercase font-medium"
+                      style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                    >
                       {member.role}
                     </span>
                   </motion.div>
 
-                  {/* Expanded Content (shown on hover) */}
-                  <motion.div
-                    className="md:absolute md:bottom-8 md:left-8 md:right-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{
-                      opacity: hoveredMember === index ? 1 : 0,
-                      y: hoveredMember === index ? 0 : 20,
-                    }}
-                    transition={{ delay: hoveredMember === index ? 0.1 : 0, duration: 0.3 }}
-                  >
+                  {/* Expanded info — split-text stagger reveal */}
+                  <div className="md:absolute md:bottom-8 md:left-8 md:right-8 overflow-hidden">
+
                     {/* Name */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">
-                      {member.name}
-                    </h3>
-                    
+                    <div className="overflow-hidden mb-1">
+                      <motion.h3
+                        className="text-xl md:text-2xl font-bold text-white leading-tight"
+                        animate={{ y: hoveredMember === index ? 0 : 56 }}
+                        transition={{
+                          delay: hoveredMember === index ? 0.12 : 0,
+                          duration: 0.45,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        {member.name}
+                      </motion.h3>
+                    </div>
+
                     {/* Role */}
-                    <p className={`${member.accent} font-medium mb-1`}>
-                      {member.role}
-                    </p>
-                    <p className="text-white/50 text-sm mb-4">
-                      {member.roleSecondary}
-                    </p>
+                    <div className="overflow-hidden mb-0.5">
+                      <motion.p
+                        className={`${member.accent} font-semibold text-sm`}
+                        animate={{ y: hoveredMember === index ? 0 : 40 }}
+                        transition={{
+                          delay: hoveredMember === index ? 0.20 : 0,
+                          duration: 0.4,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        {member.role}
+                      </motion.p>
+                    </div>
+
+                    {/* ID */}
+                    <div className="overflow-hidden mb-3">
+                      <motion.p
+                        className="text-white/40 text-xs"
+                        animate={{ y: hoveredMember === index ? 0 : 28 }}
+                        transition={{
+                          delay: hoveredMember === index ? 0.26 : 0,
+                          duration: 0.4,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        {member.roleSecondary}
+                      </motion.p>
+                    </div>
 
                     {/* Quote */}
-                    <div className="flex items-start gap-2">
-                      <span className="text-gold/50 text-2xl font-serif">"</span>
-                      <p className="text-white/70 italic text-sm leading-relaxed">
+                    <motion.div
+                      className="flex items-start gap-2"
+                      animate={{
+                        opacity: hoveredMember === index ? 1 : 0,
+                        y: hoveredMember === index ? 0 : 10,
+                      }}
+                      transition={{
+                        delay: hoveredMember === index ? 0.33 : 0,
+                        duration: 0.3,
+                      }}
+                    >
+                      <span className="text-gold/40 text-xl font-serif leading-none mt-0.5 flex-shrink-0">"</span>
+                      <p className={`text-white/70 italic text-xs leading-relaxed ${language === "th" ? "font-thai" : ""}`}>
                         {member.quote}
                       </p>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </div>
 
-                  {/* Mobile: Always show content */}
+                  {/* Mobile: always visible */}
                   <div className="md:hidden mt-auto">
-                    <h3 className="text-xl font-bold text-white mb-1">
-                      {member.name}
-                    </h3>
-                    <p className={`${member.accent} font-medium text-sm`}>
-                      {member.role}
-                    </p>
-                    <p className="text-white/50 text-xs">
-                      {member.roleSecondary}
-                    </p>
+                    <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                    <p className={`${member.accent} text-xs font-medium`}>{member.role}</p>
+                    <p className="text-white/40 text-xs">{member.roleSecondary}</p>
                   </div>
                 </div>
-
-                {/* Hover Border Effect */}
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-gold via-amber-400 to-gold"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: hoveredMember === index ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
               </motion.div>
             ))}
           </div>

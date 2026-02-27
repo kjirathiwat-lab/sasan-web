@@ -132,6 +132,21 @@ const products: Product[] = [
     customizable: true,
     deliveryTime: "จัดส่งภายใน 4 ชม.",
   },
+  {
+    id: 5,
+    name: "Fan Wreath Deluxe",
+    nameTh: "พวงหรีดทำจากผ้า",
+    category: "wreath",
+    price: 2500,
+    image: "/Fabric Flower.png",
+    description: "พวงหรีด งานฝีมือ ทำจากผ้า",
+    features: ["ทำจากผ้าห่อศพ", "มอบให้วัดได้", "ใช้งานได้จริง"],
+    rating: 4.7,
+    reviews: 67,
+    inStock: true,
+    customizable: true,
+    deliveryTime: "จัดส่งภายใน 4 ชม.",
+  },
   // ดอกไม้จันทน์
   {
     id: 5,

@@ -26,8 +26,10 @@ export function Navigation() {
     { name: language === "th" ? "ผลงานที่ผ่านมา" : "Portfolio", href: "/#portfolio" },
     { name: language === "th" ? "ร้านค้า" : "Shop", href: "/shop" },
     { name: language === "th" ? "บล็อก" : "Blog", href: "/blog" },
+    { name: language === "th" ? "สาร" : "SAN", href: "/san" },
     { name: language === "th" ? "คำถามที่พบบ่อย" : "FAQ", href: "/#faq" },
     { name: language === "th" ? "ติดต่อเรา" : "Contact", href: "/#contact" },
+    
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
