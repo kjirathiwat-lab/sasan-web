@@ -118,40 +118,40 @@ const foundationGallery = [
 const flowerCourses = [
   {
     id: 1,
-    title: "ดอกไม้จันทน์เบื้องต้น",
-    titleEn: "Basic Sandalwood Flower",
+    title: "หลักสูตรย้อมผ้า",
+    titleEn: "Fabric dyeing course",
     duration: "2 วัน",
     price: "ฟรี",
     level: "เริ่มต้น",
     students: "240+",
-    image: "/OurWork6.png",
+    image: "/course/fabric.png",
     topics: ["ประวัติและความหมาย", "วัสดุและอุปกรณ์", "เทคนิคพื้นฐาน", "ฝึกทำดอกแรก"],
     badge: "แนะนำ",
     badgeColor: "bg-green-500",
   },
   {
     id: 2,
-    title: "ดอกไม้จัดพวงหรีด",
-    titleEn: "Wreath Arrangement",
+    title: "หลักสูตรการทำเทียนหอม",
+    titleEn: "Scented candle making course",
     duration: "3 วัน",
     price: "1,500 บาท",
     level: "กลาง",
     students: "180+",
-    image: "/OurWork2.png",
-    topics: ["การเลือกดอกไม้", "การจัดองค์ประกอบ", "การผูกริบบิ้น", "งานจริงในสนาม"],
+    image: "/course/Candle.png",
+    topics: ["การเลือกวัสดุ", "ขั้นตอนการเตรียมการ", "การขึ้นรูป", "งานจริงในสนาม"],
     badge: "ยอดนิยม",
     badgeColor: "bg-amber-500",
   },
   {
     id: 3,
-    title: "ดอกไม้ระดับ Professional",
-    titleEn: "Professional Floral Design",
+    title: "หลักสูตรสมุนไพรประยุกต์",
+    titleEn: "Applied Herbal Medicine Course",
     duration: "5 วัน",
     price: "3,500 บาท",
     level: "สูง",
     students: "90+",
-    image: "/OurWork3.jpg",
-    topics: ["ดีไซน์ระดับ Premium", "งาน VIP และ Custom", "การบริหารต้นทุน", "เปิดกิจการ"],
+    image: "/course/hearbal.png",
+    topics: ["การแยกและคัดเลือกสมุนไพร", "ให้ความรู้เกี่ยวกับสรรพคุณของสมุนไพร", "การประยุกต์ใข้เพื่อสุขภาพ", "แนะนำแนวทางต่อยอดเพื่อเปิดกิจการ"],
     badge: "Professional",
     badgeColor: "bg-purple-500",
   },
@@ -160,57 +160,60 @@ const flowerCourses = [
 const lawyers = [
   {
     id: 1,
-    name: "ทนายสมศักดิ์ วิชาญกุล",
-    nameEn: "Somsak Wichankul",
-    title: "ที่ปรึกษากฎหมายมรดก",
-    titleEn: "Estate Law Consultant",
-    experience: "18 ปี",
-    firm: "สำนักงานกฎหมาย วิชาญ & หุ้นส่วน",
-    specialties: ["พินัยกรรม", "การแบ่งมรดก", "คดีมรดกพิพาท", "ทรัพย์สินดิจิทัล"],
+    name: "ทนายวรพล ศิริมงคล",
+    nameEn: "Woraphon Sirimongkol",
+    title: "ผู้เชี่ยวชาญกฎหมายที่ดินและมรดก",
+    titleEn: "Land & Estate Law Specialist",
+    experience: "12 ปี",
+    firm: "สำนักงานกฎหมาย ศิริมงคล & หุ้นส่วน",
+    specialties: ["การโอนกรรมสิทธิ์", "ที่ดินและอสังหาฯ", "ภาษีมรดก", "หนี้สิน"],
     phone: "081-XXX-XXXX",
-    line: "@wichan_law",
-    rating: 4.9,
-    reviews: 124,
-    avatar: "ส",
+    line: "@woraphon_law",
+    rating: 4.8,
+    reviews: 98,
+    avatar: "ว",
     avatarColor: "from-blue-500 to-blue-700",
-    tag: "แนะนำโดย SASAN",
-    available: "จันทร์-ศุกร์ 9:00-18:00",
+    tag: "เชี่ยวชาญที่ดิน",
+    available: "ทุกวัน 8:00-20:00",
+    image: "/Lawyer/Lawyer1.png",
   },
   {
     id: 2,
-    name: "ทนายณัฐพร สุขสวัสดิ์",
-    nameEn: "Nattaporn Suksawat",
-    title: "ผู้เชี่ยวชาญกฎหมายครอบครัว",
-    titleEn: "Family Law Specialist",
-    experience: "12 ปี",
-    firm: "บริษัท สุขสวัสดิ์ ลอว์ จำกัด",
-    specialties: ["การโอนกรรมสิทธิ์", "ภาษีมรดก", "ที่ดินและอสังหาฯ", "หนี้สิน"],
+    name: "ทนายพิมพ์ชนก วงศ์สุวรรณ",
+    nameEn: "Phimchanok Wongsuwan",
+    title: "ที่ปรึกษาด้านมรดกธุรกิจและทรัสต์",
+    titleEn: "Business Estate & Trust Advisor",
+    experience: "15 ปี",
+    firm: "วงศ์สุวรรณ ลีเกิล กรุ๊ป",
+    specialties: ["มรดกธุรกิจ", "ทรัสต์ครอบครัว", "หุ้นและหลักทรัพย์", "กองทุน"],
     phone: "082-XXX-XXXX",
-    line: "@ns_law",
-    rating: 4.8,
-    reviews: 98,
-    avatar: "ณ",
-    avatarColor: "from-purple-500 to-purple-700",
-    tag: "เชี่ยวชาญที่ดิน",
-    available: "ทุกวัน 8:00-20:00",
+    line: "@pimchanok_legal",
+    rating: 5.0,
+    reviews: 76,
+    avatar: "พ",
+    avatarColor: "from-purple-500 to-pink-600",
+    tag: "มรดกธุรกิจ",
+    available: "จันทร์-เสาร์ 10:00-19:00",
+    image: "/Lawyer/Lawyer2.png",
   },
   {
     id: 3,
-    name: "ทนายประภาพร จันทร์ทอง",
-    nameEn: "Prapaporn Janthong",
-    title: "ที่ปรึกษาด้านธุรกิจและมรดก",
-    titleEn: "Business & Estate Advisor",
-    experience: "15 ปี",
-    firm: "จันทร์ทอง ลีเกิล กรุ๊ป",
-    specialties: ["มรดกธุรกิจ", "หุ้นและหลักทรัพย์", "กองทุน", "ทรัสต์ครอบครัว"],
+    name: "ทนายประสิทธิ์ วิชาญกุล",
+    nameEn: "Prasit Wichankul",
+    title: "ที่ปรึกษากฎหมายมรดกอาวุโส",
+    titleEn: "Senior Estate Law Consultant",
+    experience: "28 ปี",
+    firm: "สำนักงานกฎหมาย วิชาญ & หุ้นส่วน",
+    specialties: ["พินัยกรรม", "คดีมรดกพิพาท", "การแบ่งมรดก", "ทรัพย์สินดิจิทัล"],
     phone: "083-XXX-XXXX",
-    line: "@janthong_legal",
-    rating: 5.0,
-    reviews: 76,
+    line: "@prasit_law",
+    rating: 4.9,
+    reviews: 214,
     avatar: "ป",
-    avatarColor: "from-gold/80 to-amber-600",
-    tag: "มรดกธุรกิจ",
-    available: "จันทร์-เสาร์ 10:00-19:00",
+    avatarColor: "from-amber-500 to-amber-700",
+    tag: "แนะนำโดย SASAN",
+    available: "จันทร์-ศุกร์ 9:00-18:00",
+    image: "/Lawyer/Lawyer3.png",
   },
 ];
 
@@ -649,7 +652,7 @@ export default function SAN() {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 2: ศูนย์ฝึกอาชีพดอกไม้ */}
+      {/* SECTION 2: ศูนย์ฝึกอาชีพ : หลักสูตร */}
       {/* ============================================================ */}
       <section id="section-1" className="py-24 bg-zinc-950 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent" />
@@ -668,7 +671,7 @@ export default function SAN() {
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
               <div>
                 <h2 className="text-4xl md:text-5xl font-serif text-white mb-4">
-                  ศูนย์ฝึกอาชีพ <span className="text-green-300 italic">ดอกไม้</span>
+                  ศูนย์ฝึกอาชีพ <span className="text-green-300 italic"></span>
                 </h2>
                 <p className="text-white/60 text-lg max-w-2xl leading-relaxed">
                   เปลี่ยนความรู้เป็นอาชีพ เรียนรู้ศิลปะดอกไม้จากผู้เชี่ยวชาญโดยตรง
@@ -799,7 +802,7 @@ export default function SAN() {
           >
             <SectionTag icon={Scale} label="ทนายความ" />
             <h2 className="text-4xl md:text-5xl font-serif text-white mb-4">
-              ที่ปรึกษา <span className="text-purple-300 italic">กฎหมายมรดก</span>
+              ที่ปรึกษาด้าน <span className="text-purple-300 italic">กฎหมาย</span>
             </h2>
             <p className="text-white/60 text-lg max-w-2xl leading-relaxed">
               ทนายความที่ SASAN คัดสรรมาเป็นพิเศษ เชี่ยวชาญด้านกฎหมายมรดกและการจัดการทรัพย์สิน
@@ -820,45 +823,65 @@ export default function SAN() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/40 transition-all duration-300"
+                className="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/40 transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Header */}
-                <div className="p-6 pb-0">
-                  <div className="flex items-start gap-4 mb-5">
-                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${lawyer.avatarColor} flex items-center justify-center text-white font-bold text-xl flex-shrink-0`}>
-                      {lawyer.avatar}
+                {/* ── Photo Header with zoom + overlay effect ── */}
+                <div className="relative h-52 overflow-hidden">
+                  {lawyer.image ? (
+                    <img
+                      src={lawyer.image}
+                      alt={lawyer.name}
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className={`w-full h-full bg-gradient-to-br ${lawyer.avatarColor} flex items-center justify-center`}>
+                      <span className="text-white font-bold text-5xl opacity-30">{lawyer.avatar}</span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-2">
-                        <div>
-                          <h3 className="font-bold text-white text-sm leading-tight">{lawyer.name}</h3>
-                          <p className="text-purple-300 text-xs mt-0.5">{lawyer.title}</p>
-                        </div>
-                        <span className="text-[10px] bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">
-                          {lawyer.tag}
-                        </span>
+                  )}
+
+                  {/* Dark gradient bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                  {/* Purple tint overlay on hover */}
+                  <div className="absolute inset-0 bg-purple-900/0 group-hover:bg-purple-900/20 transition-all duration-500" />
+
+                  {/* Tag badge — top left */}
+                  <span className="absolute top-3 left-3 text-[10px] bg-purple-500/80 backdrop-blur-sm text-white border border-purple-400/30 px-2.5 py-1 rounded-full font-medium">
+                    {lawyer.tag}
+                  </span>
+
+                  {/* Experience badge — top right */}
+                  <span className="absolute top-3 right-3 text-[10px] bg-black/60 backdrop-blur-sm text-white/80 px-2.5 py-1 rounded-full border border-white/10">
+                    {lawyer.experience}
+                  </span>
+
+                  {/* Name + title over photo bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="font-bold text-white text-base leading-tight">{lawyer.name}</h3>
+                    <p className="text-purple-300 text-xs mt-0.5">{lawyer.title}</p>
+                    {/* Rating */}
+                    <div className="flex items-center gap-2 mt-1.5">
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className={`w-3 h-3 ${i < Math.floor(lawyer.rating) ? "text-gold fill-gold" : "text-white/20"}`} />
+                        ))}
                       </div>
-                      {/* Rating */}
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="flex gap-0.5">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className={`w-3 h-3 ${i < Math.floor(lawyer.rating) ? "text-gold fill-gold" : "text-white/20"}`} />
-                          ))}
-                        </div>
-                        <span className="text-white/60 text-xs">{lawyer.rating} ({lawyer.reviews})</span>
-                      </div>
+                      <span className="text-white/60 text-xs">{lawyer.rating} ({lawyer.reviews})</span>
                     </div>
                   </div>
+                </div>
 
+                {/* ── Body ── */}
+                <div className="p-5">
                   {/* Info */}
-                  <div className="space-y-2 mb-5">
+                  <div className="space-y-2 mb-4">
                     <p className="text-white/40 text-xs flex items-center gap-2">
-                      <Landmark className="w-3 h-3 text-purple-300/60" />
+                      <Landmark className="w-3 h-3 text-purple-300/60 flex-shrink-0" />
                       {lawyer.firm}
                     </p>
                     <p className="text-white/40 text-xs flex items-center gap-2">
-                      <Clock className="w-3 h-3 text-purple-300/60" />
-                      {lawyer.available} · ประสบการณ์ {lawyer.experience}
+                      <Clock className="w-3 h-3 text-purple-300/60 flex-shrink-0" />
+                      {lawyer.available}
                     </p>
                   </div>
 
@@ -870,26 +893,26 @@ export default function SAN() {
                       </span>
                     ))}
                   </div>
-                </div>
 
-                {/* Footer Actions */}
-                <div className="p-4 pt-0 grid grid-cols-2 gap-2 border-t border-white/5 mt-2">
-                  <a
-                    href={`tel:${lawyer.phone.replace(/-/g, "")}`}
-                    className="flex items-center justify-center gap-1.5 py-2.5 bg-purple-500/15 border border-purple-500/30 text-purple-300 rounded-xl hover:bg-purple-500/25 transition-all text-xs font-medium"
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                    โทร
-                  </a>
-                  <a
-                    href={`https://line.me/ti/p/${lawyer.line}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-2.5 bg-green-500/15 border border-green-500/30 text-green-300 rounded-xl hover:bg-green-500/25 transition-all text-xs font-medium"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    LINE
-                  </a>
+                  {/* Actions */}
+                  <div className="grid grid-cols-2 gap-2">
+                    <a
+                      href={`tel:${lawyer.phone.replace(/-/g, "")}`}
+                      className="flex items-center justify-center gap-1.5 py-2.5 bg-purple-500/15 border border-purple-500/30 text-purple-300 rounded-xl hover:bg-purple-500/25 transition-all text-xs font-medium"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                      โทร
+                    </a>
+                    <a
+                      href={`https://line.me/ti/p/${lawyer.line}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-1.5 py-2.5 bg-green-500/15 border border-green-500/30 text-green-300 rounded-xl hover:bg-green-500/25 transition-all text-xs font-medium"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5" />
+                      LINE
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}
