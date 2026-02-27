@@ -121,39 +121,45 @@ const flowerCourses = [
     title: "หลักสูตรย้อมผ้า",
     titleEn: "Fabric dyeing course",
     duration: "2 วัน",
-    price: "ฟรี",
     level: "เริ่มต้น",
     students: "240+",
     image: "/course/fabric.png",
     topics: ["ประวัติและความหมาย", "วัสดุและอุปกรณ์", "เทคนิคพื้นฐาน", "ฝึกทำดอกแรก"],
     badge: "แนะนำ",
     badgeColor: "bg-green-500",
+    mission: "สืบสานภูมิปัญญาท้องถิ่น",
+    missionDesc: "เปิดรับผู้สนใจทุกวัย ไม่มีค่าใช้จ่าย",
+    missionIcon: "🌿",
   },
   {
     id: 2,
     title: "หลักสูตรการทำเทียนหอม",
     titleEn: "Scented candle making course",
     duration: "3 วัน",
-    price: "1,500 บาท",
     level: "กลาง",
     students: "180+",
     image: "/course/Candle.png",
     topics: ["การเลือกวัสดุ", "ขั้นตอนการเตรียมการ", "การขึ้นรูป", "งานจริงในสนาม"],
     badge: "ยอดนิยม",
     badgeColor: "bg-amber-500",
+    mission: "ส่งต่อทักษะสู่ชุมชน",
+    missionDesc: "ผู้เรียนสามารถต่อยอดเป็นอาชีพได้",
+    missionIcon: "🕯️",
   },
   {
     id: 3,
     title: "หลักสูตรสมุนไพรประยุกต์",
     titleEn: "Applied Herbal Medicine Course",
     duration: "5 วัน",
-    price: "3,500 บาท",
     level: "สูง",
     students: "90+",
     image: "/course/hearbal.png",
     topics: ["การแยกและคัดเลือกสมุนไพร", "ให้ความรู้เกี่ยวกับสรรพคุณของสมุนไพร", "การประยุกต์ใข้เพื่อสุขภาพ", "แนะนำแนวทางต่อยอดเพื่อเปิดกิจการ"],
     badge: "Professional",
     badgeColor: "bg-purple-500",
+    mission: "รับมาและสานต่ออย่างยั่งยืน",
+    missionDesc: "มุ่งสร้างผู้นำชุมชนรุ่นใหม่",
+    missionIcon: "🌱",
   },
 ];
 
@@ -733,18 +739,24 @@ export default function SAN() {
                   </div>
 
                   {/* Footer */}
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                  <div className="pt-4 border-t border-white/10 space-y-3">
+                    {/* Duration + Students */}
                     <div className="flex items-center gap-3 text-xs text-white/50">
                       <span className="flex items-center gap-1">
                         <Clock className="w-3 h-3" />{course.duration}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Users className="w-3 h-3" />{course.students}
+                        <Users className="w-3 h-3" />{course.students} คนผ่านหลักสูตร
                       </span>
                     </div>
-                    <span className={`font-bold text-base ${course.price === "ฟรี" ? "text-green-400" : "text-gold"}`}>
-                      {course.price}
-                    </span>
+                    {/* Mission — แทนราคา */}
+                    <div className="flex items-start gap-2 bg-green-500/8 border border-green-500/20 rounded-xl px-3 py-2.5">
+                      <span className="text-base leading-none mt-0.5">{course.missionIcon}</span>
+                      <div>
+                        <p className="text-green-400 text-xs font-semibold leading-tight">{course.mission}</p>
+                        <p className="text-white/40 text-[11px] mt-0.5">{course.missionDesc}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
