@@ -15,6 +15,7 @@ import Login from "@/pages/Login";
 import Profile from "@/pages/Profile";
 import MyOrders from "@/pages/MyOrders";
 import San from "@/pages/San";
+import Quiz from "@/pages/Quiz";
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/my-orders" component={MyOrders} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/san" component={San} />
+      <Route path="/quiz" component={Quiz} />
       <Route component={NotFound} />
     </Switch>
   );
