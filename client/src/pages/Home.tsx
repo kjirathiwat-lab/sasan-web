@@ -47,6 +47,7 @@ import {
 } from "@/components/ui/form";
 import { useRef, useState, useEffect } from "react";
 import ServiceSelector from "@/components/ServiceSelector";
+import Quiz from "@/pages/Quiz";
 
 // Icons map for the dimensions section
 const icons = {
@@ -257,6 +258,9 @@ export default function Home() {
 
   // State สำหรับ Service Wizard
   const [showWizard, setShowWizard] = useState(false);
+
+  // State สำหรับ Soul Quiz Modal
+  const [showQuiz, setShowQuiz] = useState(false);
 
   // ตรวจสอบ URL parameter เพื่อเปิด ServiceSelector อัตโนมัติ
   useEffect(() => {
@@ -649,6 +653,12 @@ export default function Home() {
               <Phone className="w-4 h-4" />
               <span>{t.hero.callFree}</span>
             </a>
+            <button
+              onClick={() => setShowQuiz(true)}
+              className="flex items-center gap-2 px-6 py-3 border border-gold/40 rounded-full text-gold/80 hover:text-gold hover:border-gold transition-all backdrop-blur-sm"
+            >
+              <span className="text-sm tracking-wider">{language === "th" ? "✦ ค้นหาวิญญาณของคุณ" : "✦ Discover Your Soul"}</span>
+            </button>
           </motion.div>
 
           {/* Trust badges */}
@@ -2114,6 +2124,11 @@ export default function Home() {
       {/* Service Wizard Modal */}
       <AnimatePresence>
         {showWizard && <ServiceSelector onClose={() => setShowWizard(false)} />}
+      </AnimatePresence>
+
+      {/* Soul Quiz Modal */}
+      <AnimatePresence>
+        {showQuiz && <Quiz onClose={() => setShowQuiz(false)} />}
       </AnimatePresence>
 
       {/* Gallery Modal */}
