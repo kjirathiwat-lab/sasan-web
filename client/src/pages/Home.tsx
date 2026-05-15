@@ -2061,7 +2061,10 @@ export default function Home() {
                     <div className="overflow-hidden mb-1">
                       <motion.h3
                         className="text-xl md:text-2xl font-bold text-white leading-tight"
-                        animate={{ y: hoveredMember === index ? 0 : 56 }}
+                        animate={{
+                          y: hoveredMember === index ? 0 : 56,
+                          opacity: hoveredMember === index ? 1 : 0,
+                        }}
                         transition={{
                           delay: hoveredMember === index ? 0.12 : 0,
                           duration: 0.45,
@@ -2076,7 +2079,10 @@ export default function Home() {
                     <div className="overflow-hidden mb-0.5">
                       <motion.p
                         className={`${member.accent} font-semibold text-sm`}
-                        animate={{ y: hoveredMember === index ? 0 : 40 }}
+                        animate={{
+                          y: hoveredMember === index ? 0 : 40,
+                          opacity: hoveredMember === index ? 1 : 0,
+                        }}
                         transition={{
                           delay: hoveredMember === index ? 0.20 : 0,
                           duration: 0.4,
@@ -2091,7 +2097,10 @@ export default function Home() {
                     <div className="overflow-hidden mb-3">
                       <motion.p
                         className="text-white/40 text-xs"
-                        animate={{ y: hoveredMember === index ? 0 : 28 }}
+                        animate={{
+                          y: hoveredMember === index ? 0 : 28,
+                          opacity: hoveredMember === index ? 1 : 0,
+                        }}
                         transition={{
                           delay: hoveredMember === index ? 0.26 : 0,
                           duration: 0.4,
