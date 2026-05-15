@@ -1756,7 +1756,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="group p-6 bg-pink-900/20 border border-pink-500/30 rounded-2xl hover:bg-pink-900/30 transition-all"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 overflow-hidden">
                 <div className="w-14 h-14 rounded-lg bg-white p-1 group-hover:scale-110 transition-transform flex-shrink-0">
                   <img
                     src="/Contract us/S__83107844.jpg"
@@ -1764,9 +1764,9 @@ export default function Home() {
                     className="w-full h-full object-contain rounded"
                   />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-white/60 text-xs mb-1">Instagram Official</p>
-                  <p className="text-lg font-bold text-pink-400">@sa_san.official</p>
+                  <p className="text-base font-bold text-pink-400 truncate">@sa_san.official</p>
                   <p className="text-white/40 text-xs mt-1">สแกน QR หรือกดติดตาม</p>
                 </div>
               </div>
