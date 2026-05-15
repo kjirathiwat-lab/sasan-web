@@ -429,6 +429,18 @@ export default function Home() {
       accent: "text-gold",
       image: "/Team Image/jirathiwat.png",
     },
+    {
+      id: 6,
+      number: "06",
+      name: "ณัฐวรรณ สุดจินดา",
+      nameEn: "Nathawan",
+      role: "Graphic Designer",
+      roleSecondary: "6808800014",
+      quote: "ทุกดีไซน์คือการเล่าเรื่อง ทุกสีคือความรู้สึกที่ไม่มีคำบรรยาย",
+      color: "from-rose-500/20 to-violet-500/20",
+      accent: "text-rose-400",
+      image: "/Team Image/Nathawan.jpg",
+    },
   ];
 
   // Auto-slide สำหรับ Testimonials
@@ -1994,7 +2006,7 @@ export default function Home() {
                 />
 
                 {/* Content */}
-                <div className="relative z-[5] h-full p-6 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-0">
+                <div className="relative z-[5] h-full p-6 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-0 overflow-hidden">
 
                   {/* Top: Number + Avatar */}
                   <div className="flex items-start justify-between flex-shrink-0">
