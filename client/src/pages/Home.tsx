@@ -1695,7 +1695,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"
           >
             {/* Phone Card */}
             <a
@@ -1733,6 +1733,29 @@ export default function Home() {
                   <p className="text-white/60 text-xs mb-1">{t.contact.lineOfficial}</p>
                   <p className="text-xl font-bold text-green-400">{contactInfo.line}</p>
                   <p className="text-white/40 text-xs mt-1">{t.contact.scanOrClick}</p>
+                </div>
+              </div>
+            </a>
+
+            {/* Instagram Card with QR */}
+            <a
+              href="https://www.instagram.com/sa_san.official/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 bg-pink-900/20 border border-pink-500/30 rounded-2xl hover:bg-pink-900/30 transition-all"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-lg bg-white p-1 group-hover:scale-110 transition-transform flex-shrink-0">
+                  <img
+                    src="/Contract us/S__83107844.jpg"
+                    alt="Instagram QR Code @SA_SAN.OFFICIAL"
+                    className="w-full h-full object-contain rounded"
+                  />
+                </div>
+                <div>
+                  <p className="text-white/60 text-xs mb-1">Instagram Official</p>
+                  <p className="text-lg font-bold text-pink-400">@sa_san.official</p>
+                  <p className="text-white/40 text-xs mt-1">สแกน QR หรือกดติดตาม</p>
                 </div>
               </div>
             </a>
