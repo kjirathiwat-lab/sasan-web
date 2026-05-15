@@ -29,6 +29,7 @@ import {
   Share2,
   ChevronLeft,
   ChevronRight,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -149,7 +150,7 @@ const products: Product[] = [
   },
   // ดอกไม้จันทน์
   {
-    id: 5,
+    id: 13,
     name: "Sandalwood Flower Set 50",
     nameTh: "ชุดดอกไม้จันทน์ 50 ดอก",
     category: "sandalwood",
@@ -273,6 +274,88 @@ const products: Product[] = [
     customizable: true,
     deliveryTime: "จัดส่งภายใน 7 วัน",
   },
+  // พวงหรีด (เพิ่มใหม่ — งานฝีมือชุมชน)
+  {
+    id: 14,
+    name: "Community Handmade Wreath",
+    nameTh: "พวงหลีดฝีมือชุมชน",
+    category: "wreath",
+    price: 2200,
+    image: "/New Product/พวกหลีด/Short1.png",
+    description: "พวงหรีดดอกไม้ไทยทำมือโดยช่างฝีมือชุมชน ดอกมะลิ ดาวเรือง ใบไม้ธรรมชาติ",
+    features: ["ดอกไม้ไทยแท้ 100%", "งานฝีมือชุมชน", "วัสดุธรรมชาติ"],
+    badge: "Handmade",
+    rating: 4.9,
+    reviews: 38,
+    inStock: true,
+    customizable: true,
+    deliveryTime: "จัดส่งภายใน 4 ชม.",
+  },
+  // ของชำร่วย (เพิ่มใหม่)
+  {
+    id: 15,
+    name: "Eco Print Fabric Souvenir",
+    nameTh: "ผ้าพิมพ์ลาย Eco Print",
+    category: "souvenir",
+    price: 350,
+    image: "/New Product/ผ้าพิมพ์ลาย/ChatGPT Image Apr 25, 2026, 03_10_02 PM.png",
+    description: "ผ้าพิมพ์ลายธรรมชาติ (Eco Print) จากใบไม้จริง ลวดลายไม่ซ้ำกัน เป็นของชำร่วยที่มีความหมาย",
+    features: ["ลายธรรมชาติไม่ซ้ำกัน", "Handmade + Natural", "บรรจุในกล่องพรีเมียม"],
+    badge: "Eco",
+    rating: 4.8,
+    reviews: 27,
+    inStock: true,
+    customizable: false,
+    deliveryTime: "จัดส่งภายใน 3 วัน",
+  },
+  {
+    id: 16,
+    name: "Organic Flower Soap",
+    nameTh: "สบู่ออแกนิคดอกไม้งานพิธี",
+    category: "souvenir",
+    price: 120,
+    image: "/New Product/สบู่/ChatGPT Image Apr 25, 2026, 03_09_34 PM.png",
+    description: "สบู่ออแกนิคผลิตจากดอกไม้งานพิธีกรรม โดยชุมชนท้องถิ่น วัตถุดิบ 100% ธรรมชาติ",
+    features: ["ออแกนิค 100%", "ผลิตโดยชุมชน", "กลิ่นดอกไม้ธรรมชาติ"],
+    badge: "ขายดี",
+    rating: 4.7,
+    reviews: 91,
+    inStock: true,
+    customizable: false,
+    deliveryTime: "จัดส่งภายใน 3 วัน",
+  },
+  {
+    id: 17,
+    name: "Scented Memorial Candle",
+    nameTh: "เทียนหอม Upcycle ดอกไม้งานพิธี",
+    category: "souvenir",
+    price: 280,
+    image: "/New Product/เทียนหอม/Gemini_Generated_Image_cfzqbhcfzqbhcfzq.png",
+    description: "เทียนหอมอัปไซเคิลจากดอกไม้งานพิธี กลีบดอกไม้แห้งฝังในเนื้อเทียน สนับสนุนงานคราฟต์ชุมชน",
+    features: ["อัปไซเคิลดอกไม้งานพิธี", "กลีบดอกฝังในเนื้อเทียน", "แก้วใส + ฝาไม้"],
+    rating: 4.9,
+    reviews: 54,
+    inStock: true,
+    customizable: false,
+    deliveryTime: "จัดส่งภายใน 3 วัน",
+  },
+  // งานฝีมือชุมชน (หมวดใหม่)
+  {
+    id: 18,
+    name: "Woven Palm Fan",
+    nameTh: "พัดสานฝีมือชุมชน",
+    category: "craft",
+    price: 450,
+    image: "/New Product/พัดสาน/Gemini_Generated_Image_bmztilbmztilbmzt.png",
+    description: "พัดสานงานฝีมือชุมชน 3 แบบ (อ่อมแก่ · สติ · รวย) ลายสานประณีต ใช้ตกแต่งในงานพิธีหรือเป็นของที่ระลึก",
+    features: ["3 แบบ: อ่อมแก่, สติ, รวย", "งานฝีมือชุมชน", "ลายสานคำพิเศษ"],
+    badge: "Premium",
+    rating: 4.8,
+    reviews: 19,
+    inStock: true,
+    customizable: true,
+    deliveryTime: "จัดส่งภายใน 5 วัน",
+  },
 ];
 
 const categories = [
@@ -280,6 +363,7 @@ const categories = [
   { id: "wreath", name: "พวงหรีด", nameEn: "Wreaths", icon: Flower2 },
   { id: "sandalwood", name: "ดอกไม้จันทน์", nameEn: "Sandalwood Flowers", icon: Flower2 },
   { id: "souvenir", name: "ของชำร่วย", nameEn: "Souvenirs", icon: Gift },
+  { id: "craft", name: "งานฝีมือชุมชน", nameEn: "Community Crafts", icon: Sparkles },
   { id: "urn", name: "โกศ/กล่องอัฐิ", nameEn: "Urns", icon: Package },
 ];
 
@@ -1231,6 +1315,7 @@ export default function Shop() {
                 <li className="hover:text-amber-400 cursor-pointer">พวงหรีด</li>
                 <li className="hover:text-amber-400 cursor-pointer">ดอกไม้จันทน์</li>
                 <li className="hover:text-amber-400 cursor-pointer">ของชำร่วย</li>
+                <li className="hover:text-amber-400 cursor-pointer">งานฝีมือชุมชน</li>
                 <li className="hover:text-amber-400 cursor-pointer">โกศ/กล่องอัฐิ</li>
               </ul>
             </div>
